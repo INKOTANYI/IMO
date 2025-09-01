@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="Izere Mubyeyi Organization - Empowering Children with Disabilities"/>
+    <meta name="keywords" content="disability, inclusion, education, health, advocacy, Rwanda"/>
+    <meta name="author" content="Izere Mubyeyi Organization"/>
+    <meta property="og:title" content="Our Founders - Izere Mubyeyi Organization NGO">
+    <meta property="og:description" content="Learn about the 23 pioneering Rwandan parents who founded Izere Mubyeyi to empower children with disabilities.">
+    <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}">
+    <meta property="og:url" content="{{ url('/our-founders') }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Page Title -->
+    <title>Our Founders - Izere Mubyeyi Organization NGO</title>
+
+    <!-- Favicon and Touch Icons -->
+    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" sizes="72x72" rel="apple-touch-icon">
+    <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" sizes="114x114" rel="apple-touch-icon">
+    <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" sizes="144x144" rel="apple-touch-icon">
+
+    <!-- Stylesheet -->
+    <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dist/css/animate.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dist/css/javascript-plugins-bundle.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dist/js/menuzord/css/menuzord.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dist/js/timeline-cp-responsive-vertical/timeline-cp-responsive-vertical.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dist/css/style-main.css') }}" rel="stylesheet" type="text/css">
+    <link id="menuzord-menu-skins" href="{{ asset('assets/dist/js/menuzord/css/skins/menuzord-rounded-boxed.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dist/css/responsive.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dist/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Inline CSS -->
+    <style>
+        /* Same as your original inline CSS */
+    </style>
+
+    <!-- External JavaScripts -->
+    <script src="{{ asset('assets/dist/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
+</head>
+<body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
+<div id="wrapper" class="clearfix">
+    <!-- Header -->
+    <header id="header" class="header header-layout-type-header-2rows">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-auto header-top-left align-self-center text-center text-xl-left">
+                        <ul class="element contact-info">
+                            <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250786721626</li>
+                            <li class="contact-email"><i class="fa fa-envelope-o font-icon sm-display-block"></i> info@izeremubyeyi.org</li>
+                            <li class="contact-address"><i class="fa fa-map-o font-icon sm-display-block"></i> KK 35 Avenue, Kicukiro District</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="header-nav-wrapper navbar-scrolltofixed green">
+                <div class="menuzord-container header-nav-container green">
+                    <div class="container position-relative">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row header-nav-col-row">
+                                    <div class="col-sm-auto align-self-center">
+                                        <a class="menuzord-brand site-brand" href="{{ route('home') }}">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-auto ml-auto pr-0 align-self-center">
+                                        <nav id="top-primary-nav" class="menuzord green" data-effect="fade" data-animation="none" data-align="right">
+                                            <ul id="main-nav" class="menuzord-menu">
+                                                <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                                                <li class="{{ Route::is('our-founders', 'our-board', 'our-staff', 'our-values', 'our-history', 'mission-vision') ? 'active' : '' }}">
+                                                    <a href="#">Who We Are</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="{{ route('our-founders') }}">Our Founders</a></li>
+                                                        <li><a href="{{ route('our-board') }}">Our Board</a></li>
+                                                        <li><a href="{{ route('our-staff') }}">Our Staff</a></li>
+                                                        <li><a href="{{ route('our-values') }}">Our Values</a></li>
+                                                        <li><a href="{{ route('our-history') }}">Our History</a></li>
+                                                        <li><a href="{{ route('mission-vision') }}">Our Mission and Vision</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">What We Do</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="{{ route('inclusive-education') }}">Inclusive and Special Needs Education</a></li>
+                                                        <li><a href="{{ route('health-care') }}">Essential Health Care</a></li>
+                                                        <li><a href="{{ route('capacity-building') }}">Capacity Building</a></li>
+                                                        <li><a href="{{ route('research-advocacy') }}">Research and Advocacy</a></li>
+                                                        <li><a href="{{ route('family-resilience') }}">Family Resilience</a></li>
+                                                        <li><a href="{{ route('community-engagement') }}">Community Engagement</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Media</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="{{ route('public.events.index') }}">Events</a></li>
+                                                        <li><a href="{{ route('news-updates') }}">News Updates</a></li>
+                                                        <li><a href="{{ route('publications') }}">Publications</a></li>
+                                                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Opportunities</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="{{ route('careers') }}">Careers</a></li>
+                                                        <li><a href="{{ route('tenders') }}">Tenders</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact</a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="row d-block d-xl-none">
+                                    <div class="col-12">
+                                        <nav id="top-primary-nav-clone" class="menuzord d-block d-xl-none default menuzord-color-default menuzord-border-boxed menuzord-responsive" data-effect="slide" data-animation="none" data-align="right">
+                                            <ul id="main-nav-clone" class="menuzord-menu menuzord-right menuzord-indented scrollable"></ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="login-form" action="{{ route('login') }}" method="post" role="form">
+                        @csrf
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-login btn-block">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <a href="{{ route('password.request') }}" class="forgot-password">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="text-muted">Don't have an account? <a href="{{ route('register') }}" class="forgot-password">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Founders Hero Section -->
+        <section class="section" data-tm-bg-color="#0052A5">
+            <div class="container pt-40 pb-20">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1 class="text-white display-4">Our Founders</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders Content Section -->
+        <section class="section">
+            <div class="container pt-20 pb-20">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="founders-content">
+                                        <p>Izere Mubyeyi Organization was born from the courage and determination of 23 pioneering Rwandan parents of children with intellectual disabilities. Each of them carried the weight of profound challenges navigating stigma, isolation, and limited access to services for their children. What united them was not despair, but an unshakable belief that their children deserved dignity, opportunity, and a rightful place in society.</p>
+                                        <p>Out of these shared struggles grew a vision: to transform personal pain into collective strength. With resilience as their compass, they came together to build what they themselves had once been denied: “a safe and nurturing space where children with disabilities could learn, play, and grow, and where families could find knowledge, therapy, and hope”.</p>
+                                        <p>Their ambition was greater than serving their own families. They dreamed of reshaping society’s mindset, influencing policies, and ensuring that disability inclusion became a reality in Rwanda. Despite countless obstacles such as social stigma, scarce resources, and systemic barriers, they persevered, guided by pride in their children and a legacy they wanted to leave behind: “a future where no child with a disability is invisible, and every family feels supported and empowered”.</p>
+                                        <p>Today, their commitment lives on in every classroom, every therapy session, every empowered mother and father, and every community that embraces inclusion. Their story is not only the foundation of Izere Mubyeyi Organization, it is a testament to what determined parents can achieve when united by love, vision, and perseverance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section" data-tm-bg-color="#f2f3f5">
+            <div class="container pt-60 pb-60">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 class="text-theme-colored1 mb-30">Join the Legacy</h2>
+                            <p class="lead mb-30">Support our founders' vision by partnering with us to create a more inclusive Rwanda.</p>
+                            <a href="{{ route('donate') }}" class="btn btn-theme-colored2 btn-lg">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="footer-widget-area">
+            <div class="container pt-40 pb-30">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="widget widget-contact-info">
+                            <h4 class="widget-title">Contact Info</h4>
+                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
+                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
+                                <ul>
+                                    <li class="contact-email">
+                                        <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
+                                    </li>
+                                    <li class="contact-phone">
+                                        <div class="icon"><i class="fa fa-phone"></i></div>
+                                        <div class="text">+250786721626</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-social-list-custom">
+                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
+                                    <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="widget widget_nav_menu">
+                            <h4 class="widget-title">Useful Links</h4>
+                            <div class="menu-quick-links-container">
+                                <ul class="menu">
+                                    <li><a href="{{ route('who-we-are') }}">About Us</a></li>
+                                    <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                                    <li><a href="{{ route('contact-us') }}">Contact with Us</a></li>
+                                    <li><a href="{{ route('news-updates') }}">News Portal</a></li>
+                                    <li><a href="{{ route('publications') }}">Publications</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="widget widget-opening-hours-compressed">
+                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
+                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
+                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
+                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" data-tm-bg-color="#0052A5">
+                <div class="container">
+                    <div class="row pt-15 pb-15">
+                        <div class="col-sm-12 text-center">
+                            <div class="footer-paragraph">
+                                © 2025 IMO. All Rights Reserved.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    </footer>
+
+    <!-- Footer Scripts -->
+    <script src="{{ asset('assets/dist/js/custom.js') }}" defer></script>
+</body>
+</html>

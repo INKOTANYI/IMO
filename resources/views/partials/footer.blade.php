@@ -38,22 +38,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="widget widget-blog-list">
-                        <h4 class="widget-title text-white">Latest News</h4>
-                        <div class="tm-widget tm-widget-blog-list">
-                            @foreach ($news as $item)
-                                <article class="post media-post clearfix">
-                                    <a class="post-thumb" href="{{ url('/news/' . $item->id) }}"><img width="100" height="70" src="{{ asset('images/blog/' . $item->image) }}" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title"><a href="{{ url('/news/' . $item->id) }}">{{ $item->title }}</a></h5>
-                                        <span class="post-date">{{ $item->created_at->format('F d, Y') }}</span>
-                                    </div>
-                                </article>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="col-sm-6 col-md-6 col-lg-3">
                     <div class="widget widget-opening-hours-compressed">
                         <h4 class="widget-title text-white">Opening Hours</h4>

@@ -1,79 +1,156 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Izere Mubyeyi - Supporting Children and Families">
-    <meta name="keywords" content="charity, donations, children, Rwanda, NGO">
-    <meta name="author" content="Sebazungu Jean Lambert">
-    <title>Izere Mubyeyi - Charity Organization</title>
-    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/javascript-plugins-bundle.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/menuzord/css/menuzord.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/timeline-cp-responsive-vertical/timeline-cp-responsive-vertical.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style-main.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/menuzord/css/skins/menuzord-rounded-boxed.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/colors/theme-skin-color-set1.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/revolution-slider/css/settings.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/revolution-slider/css/layers.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/revolution-slider/css/navigation.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/javascript-plugins-bundle.js') }}"></script>
-    <script src="{{ asset('js/menuzord/js/menuzord.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
-    <!-- Custom CSS for NUDOR Colors -->
+    <title>@yield('title', 'Admin Dashboard') - IMO</title>
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}" onerror="this.href='https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <style>
-        :root {
-            --primary-color: #0052A5; /* NUDOR Blue */
-            --secondary-color: #FFC107; /* NUDOR Yellow */
-            --accent-color: #009A49; /* NUDOR Green */
-            --light-color: #FFFFFF; /* White */
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+            background-color: #FFFFFF;
         }
-        .btn-theme-colored1 { background-color: var(--primary-color); color: var(--light-color); }
-        .text-theme-colored1 { color: var(--primary-color); }
-        .bg-theme-colored1 { background-color: var(--primary-color); }
-        .btn-outline-theme-colored1 { border-color: var(--primary-color); color: var(--primary-color); }
-        a { color: var(--primary-color); }
-        a:hover { color: var(--secondary-color); }
-        /* WCAG 2.1 Compliance */
-        a:focus, button:focus { outline: 3px solid var(--secondary-color); outline-offset: 2px; }
-        img { max-width: 100%; height: auto; }
+        .main-header {
+            background-color: #0052A5;
+            color: #FFFFFF;
+            border-bottom: 2px solid #FFC107;
+        }
+        .main-header .nav-link {
+            color: #FFFFFF;
+        }
+        .main-header .nav-link:hover {
+            color: #FFC107;
+        }
+        .main-sidebar {
+            background-color: #0052A5;
+        }
+        .brand-link, .nav-link {
+            color: #FFFFFF !important;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #FFC107 !important;
+            color: #0052A5 !important;
+        }
+        .content-wrapper {
+            background-color: #FFFFFF;
+        }
+        .main-footer {
+            background-color: #009A49;
+            color: #FFFFFF;
+            border-top: 2px solid #FFC107;
+        }
+        a:focus, button:focus {
+            outline: 3px solid #FFC107;
+            outline-offset: 2px;
+        }
+        [aria-current="page"] {
+            background-color: #FFC107;
+            color: #0052A5 !important;
+        }
+        .card-header {
+            background-color: #0052A5;
+            color: #FFFFFF;
+        }
+        .card {
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #0052A5;
+            border-color: #0052A5;
+        }
+        .btn-primary:hover {
+            background-color: #FFC107;
+            border-color: #FFC107;
+            color: #0052A5;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
     </style>
+    @yield('styles')
 </head>
-<body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
-    <div id="wrapper" class="clearfix">
-        @include('partials.header')
-        @yield('content')
-        @include('partials.footer')
-        <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light" role="navigation" aria-label="Main navigation">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" role="button" aria-label="Logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" role="complementary" aria-label="Sidebar navigation">
+        <a href="#" class="brand-link" aria-label="IMO Admin Home">
+            <span class="brand-text font-weight-light">IMO Admin</span>
+        </a>
+        <div class="sidebar">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="info">
+                    <a href="#" class="d-block" aria-label="User: {{ Auth::user()->name }}">{{ Auth::user()->name }}</a>
+                </div>
+            </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" aria-label="Sidebar menu">
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" aria-current="{{ request()->routeIs('dashboard') ? 'page' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.index') || request()->routeIs('events.create') || request()->routeIs('events.edit') ? 'active' : '' }}" aria-current="{{ request()->routeIs('events.index') || request()->routeIs('events.create') || request()->routeIs('events.edit') ? 'page' : '' }}">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Manage Events</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('photos.index') }}" class="nav-link {{ request()->routeIs('photos.index') ? 'active' : '' }}" aria-current="{{ request()->routeIs('photos.index') ? 'page' : '' }}">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Manage Photos</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper" role="main">
+        <section class="content-header">
+            <div class="container-fluid">
+                <h1>@yield('title', 'Admin Dashboard')</h1>
+            </div>
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+        </section>
     </div>
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.actions.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.migration.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.navigation.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
-    <script src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#photos-table').DataTable({
-            responsive: true,
-            columnDefs: [
-                { orderable: false, targets: [2, 3] }
-            ]
-        });
-    });
-</script>
-<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <footer class="main-footer">
+        <strong>Izere Mubyeyi Organization &copy; 2025</strong>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}" onerror="this.src='https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js'"></script>
+@yield('scripts')
 </body>
 </html>

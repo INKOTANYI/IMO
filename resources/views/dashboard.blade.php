@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +57,27 @@
             background-color: var(--accent-yellow);
             color: var(--primary-blue) !important;
         }
+        .card-header {
+            background-color: var(--primary-blue);
+            color: var(--background-white);
+        }
+        .card {
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
     </style>
     @yield('styles')
 </head>
@@ -102,7 +124,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        {{-- <a href="{{ route('admin.photos.index') }}" class="nav-link {{ request()->routeIs('admin.photos*') ? 'active' : '' }}" aria-current="{{ request()->routeIs('admin.photos*') ? 'page' : '' }}"> --}}
+                        <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events*') ? 'active' : '' }}" aria-current="{{ request()->routeIs('events*') ? 'page' : '' }}">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Manage Events</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link {{ request()->routeIs('admin.photos*') ? 'active' : '' }}" aria-current="{{ request()->routeIs('admin.photos*') ? 'page' : '' }}">
                             <i class="nav-icon fas fa-image"></i>
                             <p>Manage Photos</p>
                         </a>
