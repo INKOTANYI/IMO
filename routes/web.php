@@ -76,11 +76,11 @@ Route::get('/capacity-building', function () {
 })->name('capacity-building');
 
 Route::get('/research-advocacy', function () {
-    return view('research-advocacy');
+    return view('Research');
 })->name('research-advocacy');
 
 Route::get('/family-resilience', function () {
-    return view('family-resilience');
+    return view('FamilyResilience');
 })->name('family-resilience');
 
 Route::get('/community-engagement', function () {
