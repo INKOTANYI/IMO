@@ -322,7 +322,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
-                                                <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -454,9 +454,7 @@
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="thumb">
-                                    <img alt="Izere Mubyeyi Organization Logo" src="{{ asset('images/logo-wide-white.png') }}" style="max-width: 80px;">
-                                </div>
+                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
@@ -484,11 +482,11 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
-                                    <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
-                                    <li><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
-                                    <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
+                                    <li><a href="#" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
+                                    <li><a href="#" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
+                                    <li><a href="#" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
+                                    <li><a href="#" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
+                                    <li><a href="#" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
                                 </ul>
                             </div>
                         </div>

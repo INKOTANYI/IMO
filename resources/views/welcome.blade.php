@@ -49,7 +49,31 @@
         .footer-widget-area { text-align: center; }
         .footer-bottom { text-align: center; }
         .footer-paragraph { display: inline-block; }
-        .tm-service { height: 100%; }
+        .tm-service { min-height: 350px; display: flex; flex-direction: column; }
+        /* Optimized spacing */
+        section { padding: 40px 0 !important; }
+        .container.pt-50, .container.pb-70, .container.pt-70 { padding-top: 20px !important; padding-bottom: 20px !important; }
+        .row.mb-80, .row.mb-40 { margin-bottom: 20px !important; }
+        .mb-30, .mb-md-30 { margin-bottom: 15px !important; }
+        /* Modal Styling */
+        .modal-content { border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .modal-header { background-color: #0052A5; color: #FFFFFF; border-radius: 10px 10px 0 0; }
+        .modal-body { padding: 20px; }
+        .modal-footer { border-top: none; }
+        .login-form .form-control { border: 1px solid #0052A5; border-radius: 5px; }
+        .login-form .btn { width: 100%; }
+        /* Map Styling */
+        #googleMap { height: 300px; width: 100%; border-radius: 10px; }
+        /* Quick Links Styling */
+        .widget.widget_nav_menu .menu-quick-links-container ul.menu li a {
+            color: #FFFFFF !important;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .widget.widget_nav_menu .menu-quick-links-container ul.menu li a:hover {
+            color: #FFC107 !important;
+            text-decoration: none;
+        }
     </style>
 
     <!-- Scripts -->
@@ -59,6 +83,8 @@
     <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}" defer></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">
@@ -86,8 +112,8 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Logo">
+                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
@@ -116,20 +142,20 @@
                                                 </li>
                                                 <li class="{{ Route::is('public.events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}"><a href="#">Media</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('public.events.index') }}">Events</a></li>
-                                                        <li><a href="{{ route('news-updates') }}">News Updates</a></li>
-                                                        <li><a href="{{ route('publications') }}">Publications</a></li>
-                                                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                                                        <li><a href="#">Events</a></li>
+                                                        <li><a href="#">News Updates</a></li>
+                                                        <li><a href="#">Publications</a></li>
+                                                        <li><a href="#">Gallery</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('careers', 'tenders') ? 'active' : '' }}"><a href="#">Opportunities</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('careers') }}">Careers</a></li>
-                                                        <li><a href="{{ route('tenders') }}">Tenders</a></li>
+                                                        <li><a href="#">Careers</a></li>
+                                                        <li><a href="#">Tenders</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="#contact">Contact</a></li>
-                                                <li><a href="{{ route('login') }}">Login</a></li>
+                                               
                                             </ul>
                                         </nav>
                                     </div>
@@ -142,10 +168,46 @@
         </div>
     </header>
 
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="login-form" action="{{ route('login') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-theme-colored1 btn-round">Login</button>
+                    </form>
+                    <div id="loginMessage" class="mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ route('password.request') }}" class="text-muted">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <div class="main-content-area">
         <!-- Slider Section -->
-        <section id="home" class="">
+        <section id="home" class="p-0">
             <div class="container-fluid p-0">
                 <div class="row">
                     <div class="col">
@@ -154,7 +216,7 @@
                                 <ul>
                                     @foreach (['izere1.jpg' => ['Making Best Future', 'Help Rescue Child'], 'izere2.jpg' => ['Start Learning For', 'Successful Future'], 'izere3.jpg' => ['Join Today for Start', 'Help Poor People']] as $image => $texts)
                                         <li data-index="rs-{{ $loop->index + 1 }}" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{{ asset('images/bg/' . $image) }}" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Slide {{ $loop->index + 1 }}">
-                                            <img src="{{ asset('images/bg/' . $image) }}" alt="" data-bgposition="center 20%" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                            <img src="{{ asset('images/bg/' . $image) }}" alt="Slide {{ $loop->index + 1 }}" data-bgposition="center 20%" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina loading="lazy">
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0"
                                                 data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
                                                 data-y="['top','top','top','top']" data-voffset="['215','130','110','120']"
@@ -322,7 +384,7 @@
 
         <!-- Welcome Section -->
         <section class="bg-theme-colored1" style="background-color: #0052A5 !important;">
-            <div class="container pt-50">
+            <div class="container">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-sm-12 text-center">
@@ -338,8 +400,8 @@
         <section>
             <div class="container">
                 <div class="section-content">
-                    <div class="row mb-80" data-tm-margin-top="-150px">
-                        <div class="col-md-6 col-lg-4 mb-md-30">
+                    <div class="row" data-tm-margin-top="-100px">
+                        <div class="col-md-6 col-lg-4">
                             <div class="tm-sc tm-sc-icon-box icon-box icon-top text-center iconbox-box-shadow iconbox-default-padding iconbox-centered-in-responsive icon-position-icon-top feature-box bg-white p-20">
                                 <div class="icon-text">
                                     <h3 class="icon-box-title">Mission</h3>
@@ -350,7 +412,7 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-md-30">
+                        <div class="col-md-6 col-lg-4">
                             <div class="tm-sc tm-sc-icon-box icon-box icon-top text-center iconbox-box-shadow iconbox-default-padding iconbox-centered-in-responsive icon-position-icon-top feature-box bg-white p-20">
                                 <div class="icon-text">
                                     <h3 class="icon-box-title">Vision</h3>
@@ -381,7 +443,7 @@
         <section style="background-color: #ffffff !important;">
             <div class="container">
                 <div class="section-content">
-                    <div class="row mb-80" data-tm-margin-top="-150px">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="tm-sc tm-sc-icon-box icon-box icon-top text-center iconbox-box-shadow iconbox-default-padding iconbox-centered-in-responsive icon-position-icon-top feature-box bg-white p-20">
                                 <div class="icon-text">
@@ -400,7 +462,7 @@
 
         <!-- Volunteer Call to Action -->
         <section class="divider" style="background-color: #0052A5 !important;">
-            <div class="container pt-30 pb-30">
+            <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <h2 class="text-white font-weight-600" style="font-size: 36px;">Join Us as a Volunteer</h2>
@@ -415,8 +477,8 @@
 
         <!-- What We Do Section -->
         <section class="bg-no-repeat bg-img-right-bottom" style="background-color: #f8f9fa !important;" data-tm-bg-img="{{ asset('images/causes/semi-circle.png') }}">
-            <div class="container pb-70 pt-70">
-                <div class="section-title text-center mb-40">
+            <div class="container">
+                <div class="section-title text-center">
                     <div class="row justify-content-md-center">
                         <div class="col-md-8">
                             <h2 class="title text-uppercase mt-0"><span class="text-dark">What</span> <span style="color: #0052A5;">We Do</span></h2>
@@ -434,12 +496,12 @@
                             ['route' => 'family-resilience', 'icon' => 'fa-users', 'title' => 'Family Resilience', 'desc' => 'Strengthening families through peer support, entrepreneurship training, and income-generating initiatives.'],
                             ['route' => 'community-engagement', 'icon' => 'fa-handshake', 'title' => 'Community Engagement', 'desc' => 'Mobilizing communities to challenge stigma and foster disability-friendly practices through awareness and participation.']
                         ] as $service)
-                            <div class="col-md-4 col-sm-6 mb-30">
-                                <div class="tm-service services type-services status-publish" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 30px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="tm-service services type-services status-publish" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
                                     <div class="details" style="flex-grow: 1;">
-                                        <i class="fas {{ $service['icon'] }} fa-3x mb-20" style="color: #0052A5;"></i>
+                                        <i class="fas {{ $service['icon'] }} fa-3x mb-15" style="color: #0052A5;"></i>
                                         <h4 class="title"><a href="{{ route($service['route']) }}" style="color: #0052A5; font-size: 1.25rem; font-weight: 600;">{{ $service['title'] }}</a></h4>
-                                        <div class="paragraph mb-20 text-muted" style="font-size: 0.95rem; line-height: 1.6;">{{ $service['desc'] }}</div>
+                                        <div class="paragraph mb-15 text-muted" style="font-size: 0.95rem; line-height: 1.6;">{{ $service['desc'] }}</div>
                                         <div class="btn-view-details mt-auto">
                                             <a href="{{ route($service['route']) }}" class="btn btn-outline btn-sm" style="border-color: #0052A5; color: #0052A5; padding: 8px 16px; font-size: 0.9rem;">View Details</a>
                                         </div>
@@ -454,8 +516,8 @@
 
         <!-- Photo Gallery Section -->
         <section>
-            <div class="container pb-70">
-                <div class="section-title text-center mb-40">
+            <div class="container">
+                <div class="section-title text-center">
                     <div class="row justify-content-md-center">
                         <div class="col-md-6">
                             <h2 class="title text-uppercase mt-0"><span>Photo</span> <span class="text-theme-colored1">Gallery</span></h2>
@@ -481,7 +543,7 @@
                                                 <div class="isotope-item-inner tm-gallery">
                                                     <div class="tm-gallery-inner">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="{{ asset('images/bg/izere1.jpg') }}" alt=""></a>
+                                                            <a href="#"><img src="{{ asset('images/bg/izere1.jpg') }}" alt="Gallery Image"></a>
                                                         </div>
                                                         <div class="tm-gallery-content-wrapper">
                                                             <div class="tm-gallery-content">
@@ -512,9 +574,9 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="layer-overlay overlay-white-4" data-tm-bg-color="#f8f4f0" data-tm-bg-img="{{ asset('images/testimonials/bg.png') }}">
-            <div class="container pb-70">
-                <div class="section-title text-center mb-40">
+        {{-- <section class="layer-overlay overlay-white-4" data-tm-bg-color="#f8f4f0" data-tm-bg-img="{{ asset('images/testimonials/bg.png') }}">
+            <div class="container">
+                <div class="section-title text-center">
                     <div class="row justify-content-md-center">
                         <div class="col-md-6">
                             <h2 class="title text-uppercase mt-0"><span>Clients</span> <span class="text-theme-colored1">Testimonials</span></h2>
@@ -533,7 +595,7 @@
                                         ['name' => 'Ismo Duo', 'position' => 'C.E.O', 'image' => 'images/testimonials/2.jpg', 'rating' => '90%'],
                                         ['name' => 'Zakaria Jacon', 'position' => 'Employee', 'image' => 'images/testimonials/3.jpg', 'rating' => '100%']
                                     ] as $testimonial)
-                                        <div class="isotope-item mb-0 mb-sm-30">
+                                        <div class="isotope-item">
                                             <div class="tm-testimonial testimonials type-testimonials">
                                                 <div class="testimonial-inner">
                                                     <div class="testimonial-text-holder bg-white">
@@ -545,7 +607,7 @@
                                                     <div class="testimonial-author-details">
                                                         <div class="testimonial-image-holder">
                                                             <div class="author-thumb">
-                                                                <img src="{{ asset($testimonial['image']) }}" class="img-thumbnail rounded-circle wp-post-image" alt="">
+                                                                <img src="{{ asset($testimonial['image']) }}" class="img-thumbnail rounded-circle wp-post-image" alt="{{ $testimonial['name'] }} testimonial">
                                                             </div>
                                                         </div>
                                                         <div class="testimonial-author-info-holder">
@@ -566,10 +628,10 @@
             </div>
         </section>
 
-        <!-- Contact Us Section -->
+        <!-- Contact Us Section --> --}}
         <section id="contact" style="background-color: #f8f9fa !important;">
-            <div class="container pb-70 pt-70">
-                <div class="section-title text-center mb-40">
+            <div class="container">
+                <div class="section-title text-center">
                     <div class="row justify-content-md-center">
                         <div class="col-md-6">
                             <h2 class="title text-uppercase mt-0"><span>Contact</span> <span class="text-theme-colored1">Us</span></h2>
@@ -580,13 +642,15 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4 class="mb-30">Contact Information</h4>
+                            <h4 class="mb-20">Contact Information</h4>
                             <ul class="list-unstyled">
                                 <li><i class="fa fa-map-marker mr-10"></i>KK 35 Avenue, Kicukiro District, Kigali, Rwanda</li>
                                 <li><i class="fa fa-phone mr-10"></i>+250786721626</li>
                                 <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
                             </ul>
-                            <h4 class="mt-30 mb-20">Follow Us</h4>
+                            <h4 class="mt-20 mb-20">Our Location</h4>
+                            <div id="googleMap"></div>
+                            <h4 class="mt-20 mb-20">Follow Us</h4>
                             <ul class="tm-widget tm-widget-social-list styled-icons icon-dark icon-rounded icon-theme-colored1">
                                 <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
@@ -595,16 +659,17 @@
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <h4 class="mb-30">Send Us a Message</h4>
-                            <form class="contact-form" action="#" method="post">
+                            <h4 class="mb-20">Send Us a Message</h4>
+                            <form class="contact-form" action="" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                    <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
                                 </div>
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-theme-colored1 btn-round">Send Message</button>
@@ -621,12 +686,11 @@
     <!-- Footer -->
     <footer id="footer" class="footer" style="background-color: #0052A5 !important;">
         <div class="footer-widget-area">
-            <div class="container pt-90 pb-60">
+            <div class="container pt-40 pb-40">
                 <div class="row justify-content-center">
                     <div class="col-sm-6 col-md-6 col-lg-3">
                         <div class="widget widget-contact-info">
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Kigali, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
@@ -674,7 +738,7 @@
                                     ['title' => 'Shelter for Homeless', 'image' => 'images/blog/5.jpg', 'date' => '2019-09-15']
                                 ] as $post)
                                     <article class="post media-post clearfix">
-                                        <a class="post-thumb" href="#"><img width="100" height="70" src="{{ asset($post['image']) }}" class="" alt=""></a>
+                                        <a class="post-thumb" href="#"><img width="100" height="70" src="{{ asset($post['image']) }}" class="" alt="{{ $post['title'] }}"></a>
                                         <div class="post-right">
                                             <h5 class="post-title"><a href="#">{{ $post['title'] }}</a></h5>
                                             <span class="post-date">
@@ -726,5 +790,21 @@
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}" defer></script>
+    <!-- Google Maps Initialization -->
+    <script>
+        function initMap() {
+            var location = { lat: -1.961054, lng: 30.108164 }; // Approximate coordinates for KK 35 Ave, Kicukiro, Kigali
+            var map = new google.maps.Map(document.getElementById('googleMap'), {
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: 'Izere Mubyeyi Organization - KK 35 Avenue, Kicukiro District'
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
 </body>
 </html>

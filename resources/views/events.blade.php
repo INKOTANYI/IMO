@@ -287,7 +287,7 @@
                                                 </li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 <li><a href="{{ route('donate') }}">Donate</a></li>
-                                                <li><a href="{{ route('login') }}">Login</a></li>
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -400,9 +400,7 @@
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="thumb">
-                                    <img alt="Izere Mubyeyi Logo" src="{{ asset('images/logo-wide-white.png') }}" style="max-width: 80px;">
-                                </div>
+                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">

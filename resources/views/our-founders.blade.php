@@ -116,7 +116,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact</a></li>
-                                                <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                                                
                                             </ul>
                                         </nav>
                                     </div>
