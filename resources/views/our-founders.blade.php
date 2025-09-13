@@ -7,11 +7,12 @@
     <meta name="description" content="Izere Mubyeyi Organization - Empowering Children with Disabilities"/>
     <meta name="keywords" content="disability, inclusion, education, health, advocacy, Rwanda"/>
     <meta name="author" content="Izere Mubyeyi Organization"/>
-    <meta property="og:title" content="Our Founders - Izere Mubyeyi Organization NGO">
-    <meta property="og:description" content="Learn about the 23 pioneering Rwandan parents who founded Izere Mubyeyi to empower children with disabilities.">
-    <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}">
-    <meta property="og:url" content="{{ url('/our-founders') }}">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Our Founders - Izere Mubyeyi Organization NGO"/>
+    <meta property="og:description" content="Learn about the 23 pioneering Rwandan parents who founded Izere Mubyeyi to empower children with disabilities."/>
+    <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}"/>
+    <meta property="og:url" content="{{ url('/our-founders') }}"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="canonical" href="{{ url('/our-founders') }}"/>
 
     <!-- Page Title -->
     <title>Our Founders - Izere Mubyeyi Organization NGO</title>
@@ -33,18 +34,134 @@
     <link id="menuzord-menu-skins" href="{{ asset('assets/dist/js/menuzord/css/skins/menuzord-rounded-boxed.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/dist/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/dist/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" async>
 
     <!-- Inline CSS -->
     <style>
-        /* Same as your original inline CSS */
+        .section {
+            position: relative;
+        }
+        .text-theme-colored1 {
+            color: #0052A5 !important;
+        }
+        .text-theme-colored2 {
+            background-color: #FFC107 !important;
+            color: #fff !important;
+        }
+        .btn-theme-colored1 {
+            background-color: #0052A5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .btn-theme-colored2 {
+            background-color: #FFC107;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .founders-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .footer-widget-area {
+            background-color: #0052A5 !important;
+        }
+        .footer-widget-area .widget h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff !important;
+        }
+        .footer-widget-area ul li {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .footer-widget-area .contact-info .description {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #fff !important;
+        }
+        .footer-widget-area .contact-info .text {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #fff !important;
+        }
+        .footer-widget-area .contact-info .text a {
+            color: #fff !important;
+        }
+        .footer-widget-area .contact-info .text a:hover {
+            text-decoration: underline;
+            color: #FFC107 !important;
+        }
+        .footer-widget-area .menu-quick-links-container a {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #fff !important;
+        }
+        .footer-widget-area .menu-quick-links-container a:hover {
+            text-decoration: underline;
+            color: #FFC107 !important;
+        }
+        .footer-widget-area .styled-icons {
+            display: flex;
+            justify-content: left;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .footer-widget-area .styled-icons li {
+            margin-right: 8px;
+        }
+        .footer-widget-area .styled-icons i {
+            font-size: 1.2rem;
+        }
+        .footer-widget-area hr {
+            border-color: rgba(255, 255, 255, 0.2);
+            margin: 12px 0;
+        }
+        .footer-widget-area .tm-widget-opening-hours {
+            margin-top: 20px;
+        }
+        .footer-widget-area .tm-widget-opening-hours li {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        .footer-bottom {
+            background-color: #0052A5 !important;
+        }
+        .footer-paragraph {
+            color: #fff;
+            font-size: 1.0rem;
+            font-weight: 400;
+            text-align: center;
+        }
+        @media (max-width: 767px) {
+            .footer-widget-area .col-lg-4 {
+                margin-bottom: 25px;
+            }
+            .footer-widget-area .col-lg-4:not(:last-child) {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding-bottom: 25px;
+            }
+        }
     </style>
-
-    <!-- External JavaScripts -->
-    <script src="{{ asset('assets/dist/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}"></script>
-    <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
 </head>
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">
@@ -55,9 +172,9 @@
                 <div class="row">
                     <div class="col-xl-auto header-top-left align-self-center text-center text-xl-left">
                         <ul class="element contact-info">
-                            <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250786721626</li>
-                            <li class="contact-email"><i class="fa fa-envelope-o font-icon sm-display-block"></i> info@izeremubyeyi.org</li>
-                            <li class="contact-address"><i class="fa fa-map-o font-icon sm-display-block"></i> KK 35 Avenue, Kicukiro District</li>
+                            <li class="contact-phone"><i class="fas fa-phone font-icon sm-display-block"></i> Tel: +250786721626</li>
+                            <li class="contact-email"><i class="fas fa-envelope font-icon sm-display-block"></i> info@izeremubyeyi.org</li>
+                            <li class="contact-address"><i class="fas fa-map-marker-alt font-icon sm-display-block"></i> KK 35 Avenue, Kicukiro District</li>
                         </ul>
                     </div>
                 </div>
@@ -72,50 +189,52 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" srcset="{{ asset('images/logo-wide@2x.png') }} 2x" alt="Izere Mubyeyi Organization Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
                                         <nav id="top-primary-nav" class="menuzord green" data-effect="fade" data-animation="none" data-align="right">
                                             <ul id="main-nav" class="menuzord-menu">
-                                                <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                                                <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ route('home') }}" {{ Route::is('home') ? 'aria-current="page"' : '' }}>Home</a></li>
                                                 <li class="{{ Route::is('our-founders', 'our-board', 'our-staff', 'our-values', 'our-history', 'mission-vision') ? 'active' : '' }}">
                                                     <a href="#">Who We Are</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('our-founders') }}">Our Founders</a></li>
-                                                        <li><a href="{{ route('our-board') }}">Our Board</a></li>
-                                                        <li><a href="{{ route('our-staff') }}">Our Staff</a></li>
-                                                        <li><a href="{{ route('our-values') }}">Our Values</a></li>
-                                                        <li><a href="{{ route('our-history') }}">Our History</a></li>
-                                                        <li><a href="{{ route('mission-vision') }}">Our Mission and Vision</a></li>
+                                                        <li><a href="{{ route('our-founders') }}" {{ Route::is('our-founders') ? 'aria-current="page"' : '' }}>Our Founders</a></li>
+                                                        <li><a href="{{ route('our-board') }}" {{ Route::is('our-board') ? 'aria-current="page"' : '' }}>Our Board</a></li>
+                                                        <li><a href="{{ route('our-staff') }}" {{ Route::is('our-staff') ? 'aria-current="page"' : '' }}>Our Staff</a></li>
+                                                        <li><a href="{{ route('our-values') }}" {{ Route::is('our-values') ? 'aria-current="page"' : '' }}>Our Values</a></li>
+                                                        <li><a href="{{ route('our-history') }}" {{ Route::is('our-history') ? 'aria-current="page"' : '' }}>Our History</a></li>
+                                                        <li><a href="{{ route('mission-vision') }}" {{ Route::is('mission-vision') ? 'aria-current="page"' : '' }}>Our Mission and Vision</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">What We Do</a>
+                                                <li class="{{ Route::is('inclusive-education', 'health-care', 'capacity-building', 'research-advocacy', 'family-resilience', 'community-engagement') ? 'active' : '' }}">
+                                                    <a href="#">What We Do</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('inclusive-education') }}">Inclusive and Special Needs Education</a></li>
-                                                        <li><a href="{{ route('health-care') }}">Essential Health Care</a></li>
-                                                        <li><a href="{{ route('capacity-building') }}">Capacity Building</a></li>
-                                                        <li><a href="{{ route('research-advocacy') }}">Research and Advocacy</a></li>
-                                                        <li><a href="{{ route('family-resilience') }}">Family Resilience</a></li>
-                                                        <li><a href="{{ route('community-engagement') }}">Community Engagement</a></li>
+                                                        <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive and Special Needs Education</a></li>
+                                                        <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Essential Health Care</a></li>
+                                                        <li><a href="{{ route('capacity-building') }}" {{ Route::is('capacity-building') ? 'aria-current="page"' : '' }}>Capacity Building</a></li>
+                                                        <li><a href="{{ route('research-advocacy') }}" {{ Route::is('research-advocacy') ? 'aria-current="page"' : '' }}>Research and Advocacy</a></li>
+                                                        <li><a href="{{ route('family-resilience') }}" {{ Route::is('family-resilience') ? 'aria-current="page"' : '' }}>Family Resilience</a></li>
+                                                        <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Media</a>
+                                                <li class="{{ Route::is('public.events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}">
+                                                    <a href="#">Media</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('public.events.index') }}">Events</a></li>
-                                                        <li><a href="{{ route('news-updates') }}">News Updates</a></li>
-                                                        <li><a href="{{ route('publications') }}">Publications</a></li>
-                                                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                                                        <li><a href="{{ route('public.events.index') }}" {{ Route::is('public.events.index') ? 'aria-current="page"' : '' }}>Events</a></li>
+                                                        <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Updates</a></li>
+                                                        <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
+                                                        <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Opportunities</a>
+                                                <li class="{{ Route::is('careers', 'tenders') ? 'active' : '' }}">
+                                                    <a href="#">Opportunities</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="{{ route('careers') }}">Careers</a></li>
-                                                        <li><a href="{{ route('tenders') }}">Tenders</a></li>
+                                                        <li><a href="{{ route('careers') }}" {{ Route::is('careers') ? 'aria-current="page"' : '' }}>Careers</a></li>
+                                                        <li><a href="{{ route('tenders') }}" {{ Route::is('tenders') ? 'aria-current="page"' : '' }}>Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact</a></li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact-Us</a></li>
                                                 
                                             </ul>
                                         </nav>
@@ -142,7 +261,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -173,7 +292,7 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content">
+    <div id="main-content" role="main">
         <!-- Founders Hero Section -->
         <section class="section" data-tm-bg-color="#0052A5">
             <div class="container pt-40 pb-20">
@@ -181,6 +300,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h1 class="text-white display-4">Our Founders</h1>
+                            <p class="text-white lead">The Visionaries Behind Izere Mubyeyi</p>
                         </div>
                     </div>
                 </div>
@@ -210,19 +330,7 @@
         </section>
 
         <!-- Call to Action Section -->
-        <section class="section" data-tm-bg-color="#f2f3f5">
-            <div class="container pt-60 pb-60">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="text-theme-colored1 mb-30">Join the Legacy</h2>
-                            <p class="lead mb-30">Support our founders' vision by partnering with us to create a more inclusive Rwanda.</p>
-                            <a href="{{ route('donate') }}" class="btn btn-theme-colored2 btn-lg">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
     </div>
 
     <!-- Footer -->
@@ -237,11 +345,11 @@
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
-                                        <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                                        <div class="icon"><i class="fas fa-envelope"></i></div>
                                         <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
                                     </li>
                                     <li class="contact-phone">
-                                        <div class="icon"><i class="fa fa-phone"></i></div>
+                                        <div class="icon"><i class="fas fa-phone"></i></div>
                                         <div class="text">+250786721626</div>
                                     </li>
                                 </ul>
@@ -261,17 +369,18 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}">About Us</a></li>
-                                    <li><a href="{{ route('gallery') }}">Gallery</a></li>
-                                    <li><a href="{{ route('contact-us') }}">Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}">News Portal</a></li>
-                                    <li><a href="{{ route('publications') }}">Publications</a></li>
+                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
+                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
+                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
+                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="widget widget-opening-hours-compressed">
+                            <h4 class="widget-title">Opening Hours</h4>
                             <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
                                 <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
                                 <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
@@ -293,10 +402,15 @@
                 </div>
             </div>
         </div>
-        <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
     </footer>
 
     <!-- Footer Scripts -->
+    <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>
+    <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}" defer></script>
+    <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/custom.js') }}" defer></script>
+</div>
 </body>
 </html>

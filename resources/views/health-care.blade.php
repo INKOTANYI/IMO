@@ -357,7 +357,7 @@
                                                         <li><a href="{{ route('tenders') }}" {{ Route::is('tenders') ? 'aria-current="page"' : '' }}>Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact-Us</a></li>
                                                 
                                             </ul>
                                         </nav>
@@ -519,7 +519,6 @@
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
@@ -547,11 +546,11 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
-                                    <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
-                                    <li><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
-                                    <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
+                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
+                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
+                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
+                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -12,6 +12,7 @@
     <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}"/>
     <meta property="og:url" content="{{ url('/our-history') }}"/>
     <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="canonical" href="{{ url('/our-history') }}"/>
 
     <!-- Page Title -->
     <title>Our History - Izere Mubyeyi Organization NGO</title>
@@ -52,12 +53,22 @@
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-theme-colored1:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
         }
         .btn-theme-colored2 {
             background-color: #FFC107;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-theme-colored2:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
         }
         p {
             font-size: 1.1rem;
@@ -69,16 +80,22 @@
             border: none;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background-color: #fff;
+            background: linear-gradient(135deg, #fff, #F8F9FA);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card-body {
             padding: 25px;
         }
         .content-section h4 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #0052A5;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .content-section p {
             font-size: 1.1rem;
@@ -168,122 +185,148 @@
             text-align: center;
         }
         /* Login Modal Styles */
-        .login-modal .modal-content { 
-            background-color: #FFFFFF; 
-            border-radius: 15px; 
-            box-shadow: 0 8px 24px rgba(0, 82, 165, 0.3); 
+        .login-modal .modal-content {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 82, 165, 0.3);
             border: none;
         }
-        .login-modal .modal-header { 
-            background-color: #0052A5; 
-            border-radius: 15px 15px 0 0; 
-            padding: 20px; 
+        .login-modal .modal-header {
+            background-color: #0052A5;
+            border-radius: 15px 15px 0 0;
+            padding: 20px;
             border-bottom: none;
         }
-        .login-modal .modal-title { 
-            color: #FFFFFF; 
-            font-weight: 600; 
-            font-size: 1.5rem; 
+        .login-modal .modal-title {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1.5rem;
         }
-        .login-modal .modal-body { 
-            padding: 30px; 
+        .login-modal .modal-body {
+            padding: 30px;
             background: linear-gradient(135deg, #FFFFFF, #F8F9FA);
         }
-        .login-modal .form-control { 
-            border: 2px solid #009A49; 
-            border-radius: 8px; 
-            padding: 12px; 
-            font-size: 1rem; 
-            transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+        .login-modal .form-control {
+            border: 2px solid #009A49;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 15px;
         }
-        .login-modal .form-control:focus { 
-            border-color: #FFC107; 
-            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3); 
+        .login-modal .form-control:focus {
+            border-color: #FFC107;
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
             outline: none;
         }
-        .login-modal .btn-login { 
-            background-color: #0052A5; 
-            color: #FFFFFF; 
-            border-radius: 8px; 
-            padding: 12px 24px; 
-            font-size: 1rem; 
-            font-weight: 600; 
+        .login-modal .btn-login {
+            background-color: #0052A5;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .login-modal .btn-login:hover { 
-            background-color: #FFC107; 
-            color: #0052A5; 
+        .login-modal .btn-login:hover {
+            background-color: #FFC107;
+            color: #0052A5;
             transform: translateY(-2px);
         }
-        .login-modal .close { 
-            color: #FFFFFF; 
-            opacity: 0.8; 
-            font-size: 1.5rem; 
+        .login-modal .close {
+            color: #FFFFFF;
+            opacity: 0.8;
+            font-size: 1.5rem;
             transition: opacity 0.3s ease;
         }
-        .login-modal .close:hover { 
-            opacity: 1; 
+        .login-modal .close:hover {
+            opacity: 1;
         }
-        .login-modal .form-label { 
-            color: #0052A5; 
-            font-weight: 500; 
+        .login-modal .form-label {
+            color: #0052A5;
+            font-weight: 500;
             font-size: 0.95rem;
         }
-        .login-modal .modal-footer { 
-            border-top: none; 
-            padding: 15px 30px; 
-            background-color: #F8F9FA; 
+        .login-modal .modal-footer {
+            border-top: none;
+            padding: 15px 30px;
+            background-color: #F8F9FA;
             border-radius: 0 0 15px 15px;
         }
-        .login-modal .forgot-password { 
-            color: #009A49; 
-            font-size: 0.9rem; 
+        .login-modal .forgot-password {
+            color: #009A49;
+            font-size: 0.9rem;
             text-decoration: none;
         }
-        .login-modal .forgot-password:hover { 
-            color: #FFC107; 
+        .login-modal .forgot-password:hover {
+            color: #FFC107;
             text-decoration: underline;
         }
-        .modal.fade .modal-dialog { 
-            transform: translate(0, -50px); 
+        .modal.fade .modal-dialog {
+            transform: translate(0, -50px);
         }
-        .modal.show .modal-dialog { 
-            transform: translate(0, 0); 
+        .modal.show .modal-dialog {
+            transform: translate(0, 0);
             transition: transform 0.3s ease-out;
         }
         /* Timeline Styles */
         .timeline {
             position: relative;
-            padding: 20px 0;
+            padding: 40px 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .timeline-item {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background-color: #0052A5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .timeline-item .timeline-year {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #0052A5;
-            margin-bottom: 10px;
+            color: #fff;
+            background-color: #0052A5;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .timeline-item .timeline-year:hover {
+            transform: scale(1.1);
         }
         .timeline-item .timeline-content {
-            margin-left: 40px;
-            padding: 15px;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
             background-color: #f8f9fa;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #0052A5;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        .timeline-item .timeline-content p {
+            margin: 0;
         }
         @media (max-width: 767px) {
+            .timeline-item .timeline-year {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 1.4rem;
+            }
+            .timeline-item .timeline-content {
+                padding: 15px;
+                max-width: 100%;
+            }
             .footer-widget-area .col-lg-4 {
                 margin-bottom: 25px;
             }
@@ -320,8 +363,7 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" srcset="{{ asset('images/logo-wide@2x.png') }} 2x" alt="Izere Mubyeyi Organization Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
@@ -339,7 +381,8 @@
                                                         <li><a href="{{ route('mission-vision') }}" {{ Route::is('mission-vision') ? 'aria-current="page"' : '' }}>Our Mission and Vision</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">What We Do</a>
+                                                <li class="{{ Route::is('inclusive-education', 'health-care', 'capacity-building', 'research-advocacy', 'family-resilience', 'community-engagement') ? 'active' : '' }}">
+                                                    <a href="#">What We Do</a>
                                                     <ul class="dropdown">
                                                         <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive and Special Needs Education</a></li>
                                                         <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Essential Health Care</a></li>
@@ -365,9 +408,8 @@
                                                         <li><a href="{{ route('tenders') }}" {{ Route::is('tenders') ? 'aria-current="page"' : '' }}>Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact-Us</a></li>
                                                 
-                                            </ul>
                                         </nav>
                                     </div>
                                 </div>
@@ -392,7 +434,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -423,7 +465,7 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content">
+    <div id="main-content" role="main">
         <!-- History Hero Section -->
         <section class="section" data-tm-bg-color="#0052A5">
             <div class="container pt-40 pb-20">
@@ -450,26 +492,26 @@
                                         <h4>Our Journey</h4>
                                         <div class="timeline">
                                             <div class="timeline-item">
-                                                <div class="timeline-year">2004</div>
-                                                <div class="timeline-content">
+                                                <div class="timeline-year" aria-label="2004">2004</div>
+                                                <div class="timeline-content" tabindex="0" aria-label="Founded by 23 Rwandan parents">
                                                     <p>Izere Mubyeyi Organization was founded by 23 Rwandan parents of children with intellectual disabilities, united to combat stigma and create opportunities for inclusion.</p>
                                                 </div>
                                             </div>
                                             <div class="timeline-item">
-                                                <div class="timeline-year">2008</div>
-                                                <div class="timeline-content">
+                                                <div class="timeline-year" aria-label="2008">2008</div>
+                                                <div class="timeline-content" tabindex="0" aria-label="Gained legal status">
                                                     <p>Gained legal status under Ministerial Order N° 39/11 of 02/04/2008, published in the Rwanda Official Gazette N° 23 on 8 June 2009, solidifying our role as a voice for disability inclusion.</p>
                                                 </div>
                                             </div>
                                             <div class="timeline-item">
-                                                <div class="timeline-year">2014</div>
-                                                <div class="timeline-content">
+                                                <div class="timeline-year" aria-label="2014">2014</div>
+                                                <div class="timeline-content" tabindex="0" aria-label="Registered with Rwanda Governance Board">
                                                     <p>Officially registered with the Rwanda Governance Board on February 17, 2014, enhancing our credibility and operational framework as an NGO.</p>
                                                 </div>
                                             </div>
                                             <div class="timeline-item">
-                                                <div class="timeline-year">2022</div>
-                                                <div class="timeline-content">
+                                                <div class="timeline-year" aria-label="2022">2022</div>
+                                                <div class="timeline-content" tabindex="0" aria-label="Education Center accredited">
                                                     <p>Our Special Needs and Inclusive Education Center was accredited by the National Examination and School Inspection Authority (NESA) in November 2022, affirming the quality of our educational programs.</p>
                                                 </div>
                                             </div>
@@ -493,19 +535,7 @@
         </section>
 
         <!-- Call to Action Section -->
-        <section class="section" data-tm-bg-color="#f2f3f5">
-            <div class="container pt-60 pb-60">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="text-theme-colored1 mb-30">Join Our Mission</h2>
-                            <p class="lead mb-30">Support our journey by partnering with us to create a more inclusive Rwanda for children with disabilities.</p>
-                            <a href="{{ route('donate') }}" class="btn btn-theme-colored2 btn-lg">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </div>
 
     <!-- Footer -->
@@ -517,7 +547,6 @@
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
@@ -545,11 +574,11 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
-                                    <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
-                                    <li><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
-                                    <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
+                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
+                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
+                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
+                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
                                 </ul>
                             </div>
                         </div>

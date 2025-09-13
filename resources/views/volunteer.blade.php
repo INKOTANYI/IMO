@@ -4,17 +4,18 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Research and Advocacy - Izere Mubyeyi Organization NGO"/>
-    <meta name="keywords" content="disability, inclusion, research, advocacy, policy, Rwanda"/>
+    <meta name="description" content="Volunteer with Izere Mubyeyi Organization - Make a Difference for Children with Disabilities"/>
+    <meta name="keywords" content="volunteer, disability inclusion, children, Rwanda, empowerment"/>
     <meta name="author" content="Izere Mubyeyi Organization"/>
-    <meta property="og:title" content="Research and Advocacy - Izere Mubyeyi Organization NGO"/>
-    <meta property="og:description" content="Explore Izere Mubyeyi Organization’s Research and Advocacy program, dedicated to evidence-based research and policy engagement for the inclusion of children with disabilities in Rwanda."/>
+    <meta property="og:title" content="Volunteer - Izere Mubyeyi Organization NGO"/>
+    <meta property="og:description" content="Join Izere Mubyeyi Organization as a volunteer to support children with disabilities through education, health care, and community inclusion in Rwanda."/>
     <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}"/>
-    <meta property="og:url" content="{{ url('/research-advocacy') }}"/>
+    <meta property="og:url" content="{{ url('/volunteer') }}"/>
     <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="canonical" href="{{ url('/volunteer') }}"/>
 
     <!-- Page Title -->
-    <title>Research and Advocacy - Izere Mubyeyi Organization NGO</title>
+    <title>Volunteer - Izere Mubyeyi Organization NGO</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -74,24 +75,46 @@
         .card-body {
             padding: 25px;
         }
-        .program-item h4 {
+        .content-section h4 {
             font-size: 1.4rem;
             font-weight: bold;
             color: #0052A5;
             margin-bottom: 10px;
         }
-        .program-item {
-            margin-bottom: 20px;
+        .content-section h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0052A5;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
-        .program-item ul {
-            list-style-type: disc;
-            margin-left: 20px;
+        .content-section h5 i {
+            margin-right: 10px;
+            color: #009A49;
+        }
+        .content-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #333;
+            margin-bottom: 15px;
+            padding-left: 30px;
         }
-        .program-item ul li {
-            margin-bottom: 10px;
+        .content-section ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        .content-section ul li {
+            margin-bottom: 8px;
+        }
+        .content-section .volunteer-card {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
         .footer-widget-area {
             background-color: #0052A5 !important;
@@ -164,91 +187,6 @@
             font-weight: 400;
             text-align: center;
         }
-        /* Login Modal Styles */
-        .login-modal .modal-content { 
-            background-color: #FFFFFF; 
-            border-radius: 15px; 
-            box-shadow: 0 8px 24px rgba(0, 82, 165, 0.3); 
-            border: none;
-        }
-        .login-modal .modal-header { 
-            background-color: #0052A5; 
-            border-radius: 15px 15px 0 0; 
-            padding: 20px; 
-            border-bottom: none;
-        }
-        .login-modal .modal-title { 
-            color: #FFFFFF; 
-            font-weight: 600; 
-            font-size: 1.5rem; 
-        }
-        .login-modal .modal-body { 
-            padding: 30px; 
-            background: linear-gradient(135deg, #FFFFFF, #F8F9FA);
-        }
-        .login-modal .form-control { 
-            border: 2px solid #009A49; 
-            border-radius: 8px; 
-            padding: 12px; 
-            font-size: 1rem; 
-            transition: border-color 0.3s ease, box-shadow 0.3s ease; 
-            margin-bottom: 15px;
-        }
-        .login-modal .form-control:focus { 
-            border-color: #FFC107; 
-            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3); 
-            outline: none;
-        }
-        .login-modal .btn-login { 
-            background-color: #0052A5; 
-            color: #FFFFFF; 
-            border-radius: 8px; 
-            padding: 12px 24px; 
-            font-size: 1rem; 
-            font-weight: 600; 
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .login-modal .btn-login:hover { 
-            background-color: #FFC107; 
-            color: #0052A5; 
-            transform: translateY(-2px);
-        }
-        .login-modal .close { 
-            color: #FFFFFF; 
-            opacity: 0.8; 
-            font-size: 1.5rem; 
-            transition: opacity 0.3s ease;
-        }
-        .login-modal .close:hover { 
-            opacity: 1; 
-        }
-        .login-modal .form-label { 
-            color: #0052A5; 
-            font-weight: 500; 
-            font-size: 0.95rem;
-        }
-        .login-modal .modal-footer { 
-            border-top: none; 
-            padding: 15px 30px; 
-            background-color: #F8F9FA; 
-            border-radius: 0 0 15px 15px;
-        }
-        .login-modal .forgot-password { 
-            color: #009A49; 
-            font-size: 0.9rem; 
-            text-decoration: none;
-        }
-        .login-modal .forgot-password:hover { 
-            color: #FFC107; 
-            text-decoration: underline;
-        }
-        .modal.fade .modal-dialog { 
-            transform: translate(0, -50px); 
-        }
-        .modal.show .modal-dialog { 
-            transform: translate(0, 0); 
-            transition: transform 0.3s ease-out;
-        }
         @media (max-width: 767px) {
             .footer-widget-area .col-lg-4 {
                 margin-bottom: 25px;
@@ -286,8 +224,7 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" srcset="{{ asset('images/logo-wide@2x.png') }} 2x" alt="Izere Mubyeyi Organization Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
@@ -333,6 +270,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
+                                                <li class="{{ Route::is('donate') ? 'active' : '' }}"><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                                <li class="{{ Route::is('volunteer') ? 'active' : '' }}"><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -352,58 +291,23 @@
         </div>
     </header>
 
-    <!-- Login Modal -->
-    <div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="login-form" action="{{ route('login') }}" method="post" role="form">
-                        @csrf
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email Address</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
-                        </div>
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-login btn-block">Login</button>
-                        </div>
-                        <div class="text-center">
-                            <a href="{{ route('password.request') }}" class="forgot-password">Forgot Password?</a>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <p class="text-muted">Don't have an account? <a href="{{ route('register') }}" class="forgot-password">Register here</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Content -->
-    <div id="main-content">
-        <!-- Hero Section -->
+    <div id="main-content" role="main">
+        <!-- Volunteer Hero Section -->
         <section class="section" data-tm-bg-color="#0052A5">
             <div class="container pt-40 pb-20">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1 class="text-white display-4">Research and Advocacy</h1>
+                            <h1 class="text-white display-4">Volunteer With Us</h1>
+                            <p class="text-white lead">Make a Real Difference for Inclusion</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Program Content Section -->
+        <!-- Volunteer Content Section -->
         <section class="section">
             <div class="container pt-20 pb-20">
                 <div class="section-content">
@@ -411,23 +315,32 @@
                         <div class="col-lg-10 mx-auto">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="lead mb-30">At Izere Mubyeyi Organization, we believe that lasting change begins with knowledge and action. Our Evidence-based Research and Advocacy program is dedicated to generating reliable data, informing public discourse, and influencing policies that advance the rights and inclusion of children and youth with intellectual disabilities.</p>
-                                    <div class="program-item">
-                                        <h4>Key Components of the Program</h4>
-                                        <ul>
-                                            <li><strong>Evidence-based Research:</strong> We conduct systematic studies, surveys, and assessments to identify the needs, barriers, and opportunities affecting children with disabilities and their families. Research outputs provide actionable insights that guide the design of programs, inform stakeholders, and highlight best practices in inclusive education, health care, and family support.</li>
-                                            <li><strong>Policy Engagement:</strong> We actively engage with government institutions, policymakers, and civil society organizations to advocate for the development, implementation, and monitoring of disability-inclusive policies. Our advocacy efforts aim to ensure that the rights of children with disabilities are recognized, protected, and mainstreamed into national and local development agendas.</li>
-                                            <li><strong>Public Awareness and Sensitization:</strong> Through campaigns, workshops, and community dialogues, we raise awareness about disability rights, inclusive education, and equitable access to health and social services. By engaging communities, leaders, and the media, we challenge stigma and promote social norms that value diversity and inclusion.</li>
-                                            <li><strong>Evidence-to-Action:</strong> Research findings are translated into policy briefs, recommendations, and advocacy tools, enabling decision-makers and stakeholders to implement practical, impactful interventions. We monitor and evaluate policy adoption and program implementation to ensure tangible outcomes for children, families, and communities.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="program-item">
-                                        <h4>Why Our Program is Unique</h4>
-                                        <ul>
-                                            <li>Combines evidence-based research with proactive advocacy, bridging the gap between knowledge and policy.</li>
-                                            <li>Empowers communities and families to voice their needs and influence decisions that affect their lives.</li>
-                                            <li>Positions Izere Mubyeyi Organization as a trusted authority on disability inclusion, fostering collaboration with national, regional, and international partners.</li>
-                                        </ul>
+                                    <div class="content-section">
+                                        <h4>Join Our Mission</h4>
+                                        <div class="volunteer-card">
+                                            <h5><i class="fas fa-hand-holding-heart"></i> Make a Difference</h5>
+                                            <p>Volunteer with Izere Mubyeyi Organization and help transform the lives of children, youth, and families with intellectual disabilities. Your time and skills can empower communities, promote inclusion, and create lasting impact in Rwanda. Whether short-term or long-term, volunteering with us allows you to learn, grow, and give back while actively participating in the journey toward inclusive education, health, and community empowerment.</p>
+                                        </div>
+                                        <div class="volunteer-card">
+                                            <h5><i class="fas fa-hands-helping"></i> Volunteer Opportunities</h5>
+                                            <p>Our volunteer opportunities span all program areas, offering diverse ways to contribute:</p>
+                                            <ul>
+                                                <li>Assist in inclusive classrooms, supporting children with special needs in their education.</li>
+                                                <li>Support vocational training workshops, helping youth develop practical skills for independence.</li>
+                                                <li>Contribute to healthcare and therapy services, ensuring children receive essential care.</li>
+                                                <li>Engage in family resilience and economic empowerment activities, strengthening community support systems.</li>
+                                                <li>Participate in research, advocacy, and community awareness campaigns to promote disability inclusion.</li>
+                                            </ul>
+                                            <p>Your involvement helps build a Rwanda where every child is valued and every family thrives.</p>
+                                        </div>
+                                        <div class="volunteer-card">
+                                            <h5><i class="fas fa-map-marker-alt"></i> Our Location</h5>
+                                            <p>KK 35 Avenue<br>Kanombe Sector<br>Kicukiro District<br>Kigali City, Rwanda</p>
+                                        </div>
+                                        <div class="volunteer-card">
+                                            <h5><i class="fas fa-envelope"></i> Get Involved</h5>
+                                            <p>Ready to make a difference? Contact us to learn more about volunteer opportunities and how you can join our mission. Reach out at <a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a> or visit us at our office in Kigali. Together, we can create a more inclusive future!</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -438,7 +351,7 @@
         </section>
 
         <!-- Call to Action Section -->
-       
+        
     </div>
 
     <!-- Footer -->
@@ -477,11 +390,11 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
-                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
-                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
-                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
-                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
+                                    <li><a href="{{ route('who-we-are') }}" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
+                                    <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
+                                    <li><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
+                                    <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
+                                    <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
                                 </ul>
                             </div>
                         </div>

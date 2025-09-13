@@ -74,6 +74,38 @@
             color: #FFC107 !important;
             text-decoration: none;
         }
+        /* Slider Text */
+        .tp-caption {
+            background: rgba(0, 82, 165, 0.6); /* Semi-transparent blue for contrast */
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .rev-slidebg {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .tp-caption {
+                font-size: 0.9rem !important;
+                line-height: 1.2 !important;
+                padding: 6px 10px;
+            }
+            .rev_slider_wrapper {
+                height: 500px !important;
+            }
+        }
+        @media (max-width: 360px) {
+            .tp-caption {
+                font-size: 0.8rem !important;
+                padding: 5px 8px;
+            }
+            .rev_slider_wrapper {
+                height: 400px !important;
+            }
+        }
     </style>
 
     <!-- Scripts -->
@@ -155,7 +187,6 @@
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="#contact">Contact</a></li>
-                                               
                                             </ul>
                                         </nav>
                                     </div>
@@ -174,7 +205,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -214,35 +245,20 @@
                         <div id="rev_slider_home_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="news-gallery34">
                             <div id="rev_slider_home" class="rev_slider fullwidthabanner" data-version="5.0.7">
                                 <ul>
-                                    @foreach (['izere1.jpg' => ['Making Best Future', 'Help Rescue Child'], 'izere2.jpg' => ['Start Learning For', 'Successful Future'], 'izere3.jpg' => ['Join Today for Start', 'Help Poor People']] as $image => $texts)
+                                    @foreach ([
+                                        'izere1.jpg' => ['Making a Bright Future', 'Empower Children Now', 'Support inclusive education for kids with disabilities.'],
+                                        'izere2.jpg' => ['Start Learning For', 'A Successful Future', 'Tailored education and vocational training for youth.'],
+                                        'izere3.jpg' => ['Join Today to', 'Transform Communities', 'Join our mission to foster inclusion and resilience.']
+                                    ] as $image => $texts)
                                         <li data-index="rs-{{ $loop->index + 1 }}" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{{ asset('images/bg/' . $image) }}" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Slide {{ $loop->index + 1 }}">
-                                            <img src="{{ asset('images/bg/' . $image) }}" alt="Slide {{ $loop->index + 1 }}" data-bgposition="center 20%" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina loading="lazy">
+                                            <img src="{{ asset('images/bg/' . $image) }}" alt="Slide {{ $loop->index + 1 }}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina loading="lazy">
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0"
-                                                data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
-                                                data-y="['top','top','top','top']" data-voffset="['215','130','110','120']"
-                                                data-fontsize="['20','18','16','13']"
-                                                data-lineheight="['30','30','28','25']"
+                                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                                data-y="['top','top','top','top']" data-voffset="['120','100','80','60']"
+                                                data-fontsize="['24','20','18','14']"
+                                                data-lineheight="['34','30','26','22']"
                                                 data-fontweight="['700','700','700','700']"
-                                                data-width="['700','650','600','420']"
-                                                data-height="none"
-                                                data-whitespace="nowrap"
-                                                data-transform_idle="o:1;"
-                                                data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1000;e:Power3.easeInOut;"
-                                                data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                                                data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                                data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                                                data-start="1000"
-                                                data-splitin="none"
-                                                data-splitout="none"
-                                                data-responsive_offset="on"
-                                                style="z-index: 7; white-space: nowrap;">{{ $texts[0] }}</div>
-                                            <div class="tp-caption tp-resizeme text-white text-uppercase font-montserrat rs-parallaxlevel-0"
-                                                data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
-                                                data-y="['top','top','top','top']" data-voffset="['250','160','140','150']"
-                                                data-fontsize="['52','46','40','28']"
-                                                data-lineheight="['68','60','54','42']"
-                                                data-fontweight="['800','800','800','800']"
-                                                data-width="['700','650','600','420']"
+                                                data-width="['600','500','400','300']"
                                                 data-height="none"
                                                 data-whitespace="normal"
                                                 data-transform_idle="o:1;"
@@ -254,16 +270,35 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 6; min-width: 600px; max-width: 600px; white-space: normal;">{{ $texts[1] }}</div>
+                                                style="z-index: 7; background: rgba(0, 82, 165, 0.6); padding: 8px 12px; border-radius: 5px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{ $texts[0] }}</div>
+                                            <div class="tp-caption tp-resizeme text-white text-uppercase font-montserrat rs-parallaxlevel-0"
+                                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                                data-y="['top','top','top','top']" data-voffset="['170','130','100','80']"
+                                                data-fontsize="['48','40','32','24']"
+                                                data-lineheight="['58','48','38','30']"
+                                                data-fontweight="['800','800','800','800']"
+                                                data-width="['600','500','400','300']"
+                                                data-height="none"
+                                                data-whitespace="normal"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1000;e:Power3.easeInOut;"
+                                                data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                                                data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                                data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                                                data-start="1000"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 6; background: rgba(0, 82, 165, 0.6); padding: 8px 12px; border-radius: 5px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{ $texts[1] }}</div>
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0"
-                                                data-x="['left','left','left','left']" data-hoffset="['50','50','50','30']"
-                                                data-y="['top','top','top','top']" data-voffset="['325','220','195','195']"
-                                                data-fontsize="['16','16','14','13']"
-                                                data-lineheight="['30','26','24','20']"
+                                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                                data-y="['top','top','top','top']" data-voffset="['240','190','150','120']"
+                                                data-fontsize="['16','14','12','10']"
+                                                data-lineheight="['24','22','20','18']"
                                                 data-fontweight="['400','400','400','400']"
-                                                data-width="['700','650','600','420']"
+                                                data-width="['600','500','400','300']"
                                                 data-height="none"
-                                                data-whitespace="nowrap"
+                                                data-whitespace="normal"
                                                 data-transform_idle="o:1;"
                                                 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1000;e:Power3.easeInOut;"
                                                 data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
@@ -273,16 +308,16 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 7; white-space: nowrap;">We provide our best services for our students and always<br>try to achieve a bright, successful future.</div>
+                                                style="z-index: 7; background: rgba(0, 82, 165, 0.6); padding: 8px 12px; border-radius: 5px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{ $texts[2] }}</div>
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0"
-                                                data-x="['left','left','left','left']" data-hoffset="['53','53','53','30']"
-                                                data-y="['top','top','top','top']" data-voffset="['410','290','260','250']"
-                                                data-fontsize="['18','18','16','16']"
-                                                data-lineheight="['30','30','30','30']"
+                                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                                data-y="['top','top','top','top']" data-voffset="['310','250','200','170']"
+                                                data-fontsize="['18','16','14','12']"
+                                                data-lineheight="['28','26','24','22']"
                                                 data-fontweight="['600','600','600','600']"
-                                                data-width="['700','650','600','420']"
+                                                data-width="['600','500','400','300']"
                                                 data-height="none"
-                                                data-whitespace="nowrap"
+                                                data-whitespace="normal"
                                                 data-transform_idle="o:1;"
                                                 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1000;e:Power3.easeInOut;"
                                                 data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
@@ -292,9 +327,9 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 7; white-space: nowrap;">
-                                                <a href="{{ route('donate') }}" class="btn btn-dark btn-circled btn-round btn-theme-colored1 mr-10 pr-30 pl-30">Donate Now</a>
-                                                <a href="{{ route('volunteer-form') }}" class="btn btn-light btn-round pr-30 pl-30">Join Us</a>
+                                                style="z-index: 7;">
+                                                <a href="{{ route('donate') }}" class="btn btn-dark btn-circled btn-round btn-theme-colored1 mr-10 pr-20 pl-20" style="font-size: 0.9rem;" aria-label="Donate Now">Donate Now</a>
+                                                <a href="{{ route('volunteer-form') }}" class="btn btn-light btn-round pr-20 pl-20" style="font-size: 0.9rem;" aria-label="Join Us">Join Us</a>
                                             </div>
                                         </li>
                                     @endforeach
@@ -314,7 +349,7 @@
                                         jsFileLocation: "{{ asset('assets/dist/js/revolution-slider/js/') }}",
                                         sliderLayout: "fullwidth",
                                         dottedOverlay: "none",
-                                        delay: 9000,
+                                        delay: 7000,
                                         navigation: {
                                             keyboardNavigation: "on",
                                             keyboard_direction: "horizontal",
@@ -330,8 +365,8 @@
                                             arrows: {
                                                 enable: true,
                                                 style: 'gyges',
-                                                left: { h_align: "left", v_align: "center", h_offset: 0, v_offset: 0 },
-                                                right: { h_align: "right", v_align: "center", h_offset: 0, v_offset: 0 }
+                                                left: { h_align: "left", v_align: "center", h_offset: 10, v_offset: 0 },
+                                                right: { h_align: "right", v_align: "center", h_offset: 10, v_offset: 0 }
                                             },
                                             bullets: {
                                                 enable: true,
@@ -346,27 +381,27 @@
                                                 h_align: "center",
                                                 v_align: "bottom",
                                                 h_offset: 0,
-                                                v_offset: 30,
+                                                v_offset: 20,
                                                 space: 5
                                             }
                                         },
-                                        viewPort: { enable: true, outof: "pause", visible_area: "80%" },
-                                        responsiveLevels: [1240, 1024, 778, 480],
-                                        gridwidth: [1240, 1024, 778, 480],
-                                        gridheight: [660, 550, 500, 450],
-                                        lazyType: "none",
+                                        viewPort: { enable: true, outof: "pause", visible_area: "90%" },
+                                        responsiveLevels: [1240, 1024, 768, 360],
+                                        gridwidth: [1240, 1024, 768, 360],
+                                        gridheight: [700, 600, 500, 400],
+                                        lazyType: "smart",
                                         parallax: { type: "scroll", origo: "enterpoint", speed: 400, levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50] },
                                         shadow: 0,
                                         spinner: "off",
                                         stopLoop: "off",
                                         stopAfterLoops: -1,
-                                        stopAtSlide: 1,
+                                        stopAtSlide: -1,
                                         shuffle: "off",
                                         autoHeight: "off",
-                                        hideThumbsOnMobile: "off",
+                                        hideThumbsOnMobile: "on",
                                         hideSliderAtLimit: 0,
                                         hideCaptionAtLimit: 0,
-                                        hideAllCaptionAtLilmit: 0,
+                                        hideAllCaptionAtLimit: 0,
                                         debugMode: false,
                                         fallbacks: {
                                             simplifyAll: "off",
@@ -574,7 +609,7 @@
         </section>
 
         <!-- Testimonials Section -->
-        {{-- <section class="layer-overlay overlay-white-4" data-tm-bg-color="#f8f4f0" data-tm-bg-img="{{ asset('images/testimonials/bg.png') }}">
+        <section class="layer-overlay overlay-white-4" data-tm-bg-color="#f8f4f0" data-tm-bg-img="{{ asset('images/testimonials/bg.png') }}">
             <div class="container">
                 <div class="section-title text-center">
                     <div class="row justify-content-md-center">
@@ -628,7 +663,7 @@
             </div>
         </section>
 
-        <!-- Contact Us Section --> --}}
+        <!-- Contact Us Section -->
         <section id="contact" style="background-color: #f8f9fa !important;">
             <div class="container">
                 <div class="section-title text-center">

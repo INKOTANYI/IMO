@@ -326,8 +326,7 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" srcset="{{ asset('images/logo-wide@2x.png') }} 2x" alt="Izere Mubyeyi Organization Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
@@ -339,13 +338,14 @@
                                                     <ul class="dropdown">
                                                         <li><a href="{{ route('our-founders') }}" {{ Route::is('our-founders') ? 'aria-current="page"' : '' }}>Our Founders</a></li>
                                                         <li><a href="{{ route('our-board') }}" {{ Route::is('our-board') ? 'aria-current="page"' : '' }}>Our Board</a></li>
-                                                        <li class="{{ Route::is('our-staff') ? 'active' : '' }}"><a href="{{ route('our-staff') }}" {{ Route::is('our-staff') ? 'aria-current="page"' : '' }}>Our Staff</a></li>
+                                                        <li><a href="{{ route('our-staff') }}" {{ Route::is('our-staff') ? 'aria-current="page"' : '' }}>Our Staff</a></li>
                                                         <li><a href="{{ route('our-values') }}" {{ Route::is('our-values') ? 'aria-current="page"' : '' }}>Our Values</a></li>
                                                         <li><a href="{{ route('our-history') }}" {{ Route::is('our-history') ? 'aria-current="page"' : '' }}>Our History</a></li>
                                                         <li><a href="{{ route('mission-vision') }}" {{ Route::is('mission-vision') ? 'aria-current="page"' : '' }}>Our Mission and Vision</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">What We Do</a>
+                                                <li class="{{ Route::is('inclusive-education', 'health-care', 'capacity-building', 'research-advocacy', 'family-resilience', 'community-engagement') ? 'active' : '' }}">
+                                                    <a href="#">What We Do</a>
                                                     <ul class="dropdown">
                                                         <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive and Special Needs Education</a></li>
                                                         <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Essential Health Care</a></li>
@@ -371,7 +371,7 @@
                                                         <li><a href="{{ route('tenders') }}" {{ Route::is('tenders') ? 'aria-current="page"' : '' }}>Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact-Us</a></li>
                                                 
                                             </ul>
                                         </nav>
@@ -481,23 +481,11 @@
         </section>
 
         <!-- Call to Action Section -->
-        <section class="section" data-tm-bg-color="#f2f3f5">
-            <div class="container pt-60 pb-60">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="text-theme-colored1 mb-30">Join Our Mission</h2>
-                            <p class="lead mb-30">Support our staff’s efforts to create a more inclusive Rwanda for children with disabilities.</p>
-                            <a href="{{ route('donate') }}" class="btn btn-theme-colored2 btn-lg">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </div>
 
     <!-- Footer -->
-    <footer id="footer" class="footer">
+     <footer id="footer" class="footer">
         <div class="footer-widget-area">
             <div class="container pt-40 pb-30">
                 <div class="row">
@@ -505,7 +493,6 @@
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
                             <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                
                                 <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
                                 <ul>
                                     <li class="contact-email">
@@ -533,11 +520,11 @@
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="menu-quick-links-container">
                                 <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}" {{ Route::is('who-we-are') ? 'aria-current="page"' : '' }}>About Us</a></li>
-                                    <li><a href="{{ route('gallery') }}" {{ Route::is('gallery') ? 'aria-current="page"' : '' }}>Gallery</a></li>
-                                    <li><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}" {{ Route::is('news-updates') ? 'aria-current="page"' : '' }}>News Portal</a></li>
-                                    <li><a href="{{ route('publications') }}" {{ Route::is('publications') ? 'aria-current="page"' : '' }}>Publications</a></li>
+                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
+                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
+                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
+                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
                                 </ul>
                             </div>
                         </div>

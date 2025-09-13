@@ -117,6 +117,10 @@ Route::get('/donate', function () {
     return view('donate');
 })->name('donate');
 
+Route::get('/volunteer', function () {
+    return view('volunteer');
+})->name('volunteer');
+
 Route::get('/volunteer-form', function () {
     return view('volunteer-form');
 })->name('volunteer-form');

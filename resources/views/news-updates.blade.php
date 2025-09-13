@@ -4,17 +4,18 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Research and Advocacy - Izere Mubyeyi Organization NGO"/>
-    <meta name="keywords" content="disability, inclusion, research, advocacy, policy, Rwanda"/>
+    <meta name="description" content="Izere Mubyeyi Organization - Latest News on Disability Inclusion"/>
+    <meta name="keywords" content="news, disability, inclusion, education, health, advocacy, Rwanda"/>
     <meta name="author" content="Izere Mubyeyi Organization"/>
-    <meta property="og:title" content="Research and Advocacy - Izere Mubyeyi Organization NGO"/>
-    <meta property="og:description" content="Explore Izere Mubyeyi Organization’s Research and Advocacy program, dedicated to evidence-based research and policy engagement for the inclusion of children with disabilities in Rwanda."/>
+    <meta property="og:title" content="News Updates - Izere Mubyeyi Organization NGO"/>
+    <meta property="og:description" content="Read the latest stories on disability inclusion, program milestones, and announcements from Izere Mubyeyi Organization."/>
     <meta property="og:image" content="{{ asset('images/bg/Logo-izere.png') }}"/>
-    <meta property="og:url" content="{{ url('/research-advocacy') }}"/>
+    <meta property="og:url" content="{{ url('/news-updates') }}"/>
     <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="canonical" href="{{ url('/news-updates') }}"/>
 
     <!-- Page Title -->
-    <title>Research and Advocacy - Izere Mubyeyi Organization NGO</title>
+    <title>News Updates - Izere Mubyeyi Organization NGO</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -52,12 +53,22 @@
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-theme-colored1:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
         }
         .btn-theme-colored2 {
             background-color: #FFC107;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-theme-colored2:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
         }
         p {
             font-size: 1.1rem;
@@ -69,29 +80,55 @@
             border: none;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background-color: #fff;
+            background: linear-gradient(135deg, #fff, #F8F9FA);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card-body {
             padding: 25px;
         }
-        .program-item h4 {
-            font-size: 1.4rem;
+        .content-section h4 {
+            font-size: 1.6rem;
             font-weight: bold;
             color: #0052A5;
-            margin-bottom: 10px;
-        }
-        .program-item {
             margin-bottom: 20px;
+            text-align: center;
         }
-        .program-item ul {
-            list-style-type: disc;
-            margin-left: 20px;
+        .content-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #333;
+            margin-bottom: 15px;
         }
-        .program-item ul li {
+        .content-section .news-date {
+            font-size: 0.9rem;
+            color: #666;
             margin-bottom: 10px;
+        }
+        .content-section .news-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0052A5;
+            margin-bottom: 10px;
+        }
+        .content-section .news-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .content-section .read-more {
+            color: #FFC107;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .content-section .read-more:hover {
+            text-decoration: underline;
+            color: #e0a800;
         }
         .footer-widget-area {
             background-color: #0052A5 !important;
@@ -165,91 +202,100 @@
             text-align: center;
         }
         /* Login Modal Styles */
-        .login-modal .modal-content { 
-            background-color: #FFFFFF; 
-            border-radius: 15px; 
-            box-shadow: 0 8px 24px rgba(0, 82, 165, 0.3); 
+        .login-modal .modal-content {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 82, 165, 0.3);
             border: none;
         }
-        .login-modal .modal-header { 
-            background-color: #0052A5; 
-            border-radius: 15px 15px 0 0; 
-            padding: 20px; 
+        .login-modal .modal-header {
+            background-color: #0052A5;
+            border-radius: 15px 15px 0 0;
+            padding: 20px;
             border-bottom: none;
         }
-        .login-modal .modal-title { 
-            color: #FFFFFF; 
-            font-weight: 600; 
-            font-size: 1.5rem; 
+        .login-modal .modal-title {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1.5rem;
         }
-        .login-modal .modal-body { 
-            padding: 30px; 
+        .login-modal .modal-body {
+            padding: 30px;
             background: linear-gradient(135deg, #FFFFFF, #F8F9FA);
         }
-        .login-modal .form-control { 
-            border: 2px solid #009A49; 
-            border-radius: 8px; 
-            padding: 12px; 
-            font-size: 1rem; 
-            transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+        .login-modal .form-control {
+            border: 2px solid #009A49;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 15px;
         }
-        .login-modal .form-control:focus { 
-            border-color: #FFC107; 
-            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3); 
+        .login-modal .form-control:focus {
+            border-color: #FFC107;
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
             outline: none;
         }
-        .login-modal .btn-login { 
-            background-color: #0052A5; 
-            color: #FFFFFF; 
-            border-radius: 8px; 
-            padding: 12px 24px; 
-            font-size: 1rem; 
-            font-weight: 600; 
+        .login-modal .btn-login {
+            background-color: #0052A5;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .login-modal .btn-login:hover { 
-            background-color: #FFC107; 
-            color: #0052A5; 
+        .login-modal .btn-login:hover {
+            background-color: #FFC107;
+            color: #0052A5;
             transform: translateY(-2px);
         }
-        .login-modal .close { 
-            color: #FFFFFF; 
-            opacity: 0.8; 
-            font-size: 1.5rem; 
+        .login-modal .close {
+            color: #FFFFFF;
+            opacity: 0.8;
+            font-size: 1.5rem;
             transition: opacity 0.3s ease;
         }
-        .login-modal .close:hover { 
-            opacity: 1; 
+        .login-modal .close:hover {
+            opacity: 1;
         }
-        .login-modal .form-label { 
-            color: #0052A5; 
-            font-weight: 500; 
+        .login-modal .form-label {
+            color: #0052A5;
+            font-weight: 500;
             font-size: 0.95rem;
         }
-        .login-modal .modal-footer { 
-            border-top: none; 
-            padding: 15px 30px; 
-            background-color: #F8F9FA; 
+        .login-modal .modal-footer {
+            border-top: none;
+            padding: 15px 30px;
+            background-color: #F8F9FA;
             border-radius: 0 0 15px 15px;
         }
-        .login-modal .forgot-password { 
-            color: #009A49; 
-            font-size: 0.9rem; 
+        .login-modal .forgot-password {
+            color: #009A49;
+            font-size: 0.9rem;
             text-decoration: none;
         }
-        .login-modal .forgot-password:hover { 
-            color: #FFC107; 
+        .login-modal .forgot-password:hover {
+            color: #FFC107;
             text-decoration: underline;
         }
-        .modal.fade .modal-dialog { 
-            transform: translate(0, -50px); 
+        .modal.fade .modal-dialog {
+            transform: translate(0, -50px);
         }
-        .modal.show .modal-dialog { 
-            transform: translate(0, 0); 
+        .modal.show .modal-dialog {
+            transform: translate(0, 0);
             transition: transform 0.3s ease-out;
         }
         @media (max-width: 767px) {
+            .card {
+                margin-bottom: 15px;
+            }
+            .content-section h4 {
+                font-size: 1.4rem;
+            }
+            .content-section .news-title {
+                font-size: 1.2rem;
+            }
             .footer-widget-area .col-lg-4 {
                 margin-bottom: 25px;
             }
@@ -286,8 +332,7 @@
                                 <div class="row header-nav-col-row">
                                     <div class="col-sm-auto align-self-center">
                                         <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" alt="Izere Mubyeyi Organization Logo">
-                                            <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="Izere Mubyeyi Organization Logo">
+                                            <img class="logo-default logo-1x" src="{{ asset('images/bg/Logo-izere.png') }}" srcset="{{ asset('images/logo-wide@2x.png') }} 2x" alt="Izere Mubyeyi Organization Logo">
                                         </a>
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
@@ -333,6 +378,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}" {{ Route::is('contact-us') ? 'aria-current="page"' : '' }}>Contact</a></li>
+                                                <li class="{{ Route::is('donate') ? 'active' : '' }}"><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
+                                                <li class="{{ Route::is('volunteer') ? 'active' : '' }}"><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -358,7 +405,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -389,45 +436,53 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content">
-        <!-- Hero Section -->
+    <div id="main-content" role="main">
+        <!-- News Hero Section -->
         <section class="section" data-tm-bg-color="#0052A5">
             <div class="container pt-40 pb-20">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1 class="text-white display-4">Research and Advocacy</h1>
+                            <h1 class="text-white display-4">News Updates</h1>
+                            <p class="text-white lead">Stay Informed on Our Impact</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Program Content Section -->
-        <section class="section">
+        <!-- News Content Section -->
+        {{-- <section class="section">
             <div class="container pt-20 pb-20">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-lg-10 mx-auto">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="lead mb-30">At Izere Mubyeyi Organization, we believe that lasting change begins with knowledge and action. Our Evidence-based Research and Advocacy program is dedicated to generating reliable data, informing public discourse, and influencing policies that advance the rights and inclusion of children and youth with intellectual disabilities.</p>
-                                    <div class="program-item">
-                                        <h4>Key Components of the Program</h4>
-                                        <ul>
-                                            <li><strong>Evidence-based Research:</strong> We conduct systematic studies, surveys, and assessments to identify the needs, barriers, and opportunities affecting children with disabilities and their families. Research outputs provide actionable insights that guide the design of programs, inform stakeholders, and highlight best practices in inclusive education, health care, and family support.</li>
-                                            <li><strong>Policy Engagement:</strong> We actively engage with government institutions, policymakers, and civil society organizations to advocate for the development, implementation, and monitoring of disability-inclusive policies. Our advocacy efforts aim to ensure that the rights of children with disabilities are recognized, protected, and mainstreamed into national and local development agendas.</li>
-                                            <li><strong>Public Awareness and Sensitization:</strong> Through campaigns, workshops, and community dialogues, we raise awareness about disability rights, inclusive education, and equitable access to health and social services. By engaging communities, leaders, and the media, we challenge stigma and promote social norms that value diversity and inclusion.</li>
-                                            <li><strong>Evidence-to-Action:</strong> Research findings are translated into policy briefs, recommendations, and advocacy tools, enabling decision-makers and stakeholders to implement practical, impactful interventions. We monitor and evaluate policy adoption and program implementation to ensure tangible outcomes for children, families, and communities.</li>
-                                        </ul>
+                            <div class="content-section">
+                                <h4>Latest Stories</h4>
+                                <p>Latest stories on disability inclusion, our program milestones, and important announcements from Izere Mubyeyi Organization.</p>
+                                <!-- Placeholder News Articles -->
+                                <div class="card" tabindex="0" aria-label="New Education Center Opened">
+                                    <div class="card-body">
+                                        <div class="news-date">September 1, 2025</div>
+                                        <h5 class="news-title">New Education Center Opened in Kigali</h5>
+                                        <p class="news-excerpt">We’re thrilled to announce the opening of our new Special Needs and Inclusive Education Center in Kigali, accredited by NESA, to serve more children with disabilities.</p>
+                                        <a href="{{ url('/news/1') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                                     </div>
-                                    <div class="program-item">
-                                        <h4>Why Our Program is Unique</h4>
-                                        <ul>
-                                            <li>Combines evidence-based research with proactive advocacy, bridging the gap between knowledge and policy.</li>
-                                            <li>Empowers communities and families to voice their needs and influence decisions that affect their lives.</li>
-                                            <li>Positions Izere Mubyeyi Organization as a trusted authority on disability inclusion, fostering collaboration with national, regional, and international partners.</li>
-                                        </ul>
+                                </div>
+                                <div class="card" tabindex="0" aria-label="Community Engagement Workshop">
+                                    <div class="card-body">
+                                        <div class="news-date">August 15, 2025</div>
+                                        <h5 class="news-title">Community Engagement Workshop Success</h5>
+                                        <p class="news-excerpt">Our recent workshop brought together local leaders to combat stigma and promote disability-friendly practices across Rwanda.</p>
+                                        <a href="{{ url('/news/2') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card" tabindex="0" aria-label="Health Care Program Expansion">
+                                    <div class="card-body">
+                                        <div class="news-date">July 20, 2025</div>
+                                        <h5 class="news-title">Health Care Program Expansion</h5>
+                                        <p class="news-excerpt">Izere Mubyeyi expands its physiotherapy and occupational therapy services to reach more families in rural areas.</p>
+                                        <a href="{{ url('/news/3') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -435,10 +490,22 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Call to Action Section -->
-       
+        <section class="section" data-tm-bg-color="#f2f3f5">
+            <div class="container pt-60 pb-60">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 class="text-theme-colored1 mb-30">Stay Connected</h2>
+                            <p class="lead mb-30">Want to stay updated on our latest news and initiatives? Contact us to join our newsletter or follow our journey.</p>
+                            <a href="{{ route('contact-us') }}" class="btn btn-theme-colored1 btn-lg">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
