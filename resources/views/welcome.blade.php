@@ -8,12 +8,8 @@
     <meta name="author" content="Izere Mubyeyi Organization">
     <title>Izere Mubyeyi Organization NGO</title>
 
-    <!-- Favicon -->
-    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
-    <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
-    <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
-    <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
+    <!-- Explicitly set no favicon to prevent default icon -->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -72,19 +68,45 @@
         .btn-slider:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.4); background-color: #FFD54F !important; }
         .btn-slider-secondary { border: 2px solid #FFFFFF; background-color: transparent !important; color: #FFFFFF !important; }
         .btn-slider-secondary:hover { background-color: #0052A5 !important; color: #FFFFFF !important; border-color: #0052A5; }
-        .menuzord .showhide { display: none; float: right; width: 50px; height: 50px; cursor: pointer; background: #009A49; border-radius: 8px; margin: 8px 10px; z-index: 1002; }
-        .menuzord .showhide em { display: block; width: 30px; height: 4px; background: #FFFFFF; margin: 6px auto; transition: all 0.3s ease; }
-        .menuzord .showhide.active em:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
-        .menuzord .showhide.active em:nth-child(2) { opacity: 0; }
-        .menuzord .showhide.active em:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+        /* Updated CSS for mobile menu toggle */
         @media (max-width: 991px) {
-            .menuzord .showhide { display: block; }
-            .menuzord-menu { display: none; width: 100%; background: #009A49; position: absolute; top: 100%; left: 0; z-index: 1001; padding: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-            .menuzord-menu.show { display: block; }
+            .menuzord-menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                color: #FFFFFF;
+                padding: 15px;
+                cursor: pointer;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .menuzord-menu {
+                display: none;
+                width: 100%;
+                background: #009A49;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1001;
+                padding: 15px 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                transition: all 0.3s ease;
+            }
+            .menuzord-menu.show {
+                display: block !important;
+            }
             .menuzord-menu > li { display: block; text-align: left; }
             .menuzord-menu > li > a { padding: 15px 20px; display: block; font-size: 1.2rem; color: #FFFFFF; }
-            .dropdown { display: none; background: #0052A5; padding: 0; }
-            .dropdown.show { display: block; }
+            .dropdown {
+                display: none;
+                background: #0052A5;
+                padding: 0;
+                transition: all 0.3s ease;
+            }
+            .dropdown.show {
+                display: block !important;
+            }
             .dropdown > li > a { padding: 12px 30px; font-size: 1.1rem; color: #FFFFFF; }
             .dropdown > li > a:hover { background-color: #FFC107; color: #0052A5; }
         }
@@ -94,6 +116,8 @@
             .btn-slider { padding: 10px 20px; font-size: 1.1rem !important; }
             .menuzord-menu > li > a { font-size: 1.3rem; }
             .dropdown > li > a { font-size: 1.2rem; }
+            section { padding: 15px 0 !important; }
+            .tm-service { min-height: 300px; padding: 15px; }
         }
         @media (max-width: 480px) {
             .tp-caption { font-size: 1.0rem !important; padding: 5px 8px; }
@@ -101,6 +125,42 @@
             .btn-slider { padding: 8px 15px; font-size: 1.0rem !important; }
             .menuzord-menu > li > a { font-size: 1.2rem; }
             .dropdown > li > a { font-size: 1.1rem; }
+            section { padding: 10px 0 !important; }
+            .tm-service { min-height: 250px; padding: 10px; font-size: 0.9rem; }
+            h2.title { font-size: 1.5rem !important; }
+            .lead { font-size: 1rem !important; }
+        }
+        /* Custom CSS for scrolling partners */
+        #partners .partners-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        #partners .partners-scroll .tm-partner {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+        #partners .partners-scroll .tm-partner:hover {
+            transform: scale(1.1);
+        }
+        #partners .partners-scroll img {
+            max-height: 100px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            #partners .partners-scroll img {
+                max-height: 80px;
+            }
+        }
+        @media (max-width: 480px) {
+            #partners .partners-scroll img {
+                max-height: 60px;
+            }
         }
     </style>
 
@@ -108,10 +168,65 @@
     <script src="{{ asset('assets/dist/js/jquery.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $("#top-primary-nav").menuzord({ showDelayed: 0, hideDelayed: 0, align: "right" });
-            $('.showhide').on('click', function(e) { e.preventDefault(); $(this).toggleClass('active'); $('.menuzord-menu').slideToggle(200); $('.dropdown').slideUp(200); });
-            $('.menuzord-menu > li > a').on('click', function(e) { if ($(window).width() <= 991) { var dropdown = $(this).next('.dropdown'); if (dropdown.length) { e.preventDefault(); dropdown.slideToggle(200); $(this).parent().siblings().find('.dropdown').slideUp(200); } } });
-            $(window).on('load', function() { if ($('#rev_slider_home').length) { $('#top-primary-nav').menuzord('destroy').menuzord({ showDelayed: 0, hideDelayed: 0, align: "right" }); } });
+            // Initialize Menuzord
+            try {
+                $("#top-primary-nav").menuzord({
+                    showDelayed: 0,
+                    hideDelayed: 0,
+                    align: "right",
+                    clone: true,
+                    mobileMenu: {
+                        autoCollapse: true,
+                        scrollTo: false
+                    }
+                });
+                console.log("Menuzord initialized successfully");
+            } catch (e) {
+                console.error("Menuzord initialization failed:", e);
+            }
+
+            // Add toggle button for mobile menu
+            $('.menuzord-responsive .menuzord-brand').after('<a href="javascript:void(0)" class="menuzord-menu-toggle"><i class="fa fa-bars"></i></a>');
+
+            // Toggle mobile menu
+            $('.menuzord-menu-toggle').on('click', function(e) {
+                e.preventDefault();
+                $('.menuzord-menu').toggleClass('show');
+                $('.dropdown').removeClass('show'); // Close any open dropdowns
+                console.log("Menu toggle clicked");
+            });
+
+            // Handle dropdown toggles in mobile view
+            $('.menuzord-menu > li > a').on('click', function(e) {
+                if ($(window).width() <= 991) {
+                    e.preventDefault();
+                    $(this).next('.dropdown').toggleClass('show');
+                    console.log("Dropdown toggled for:", $(this).text());
+                }
+            });
+
+            // Log window size for debugging
+            console.log("Window width:", $(window).width());
+        });
+
+        $(window).on('load', function() {
+            if ($('#rev_slider_home').length) {
+                try {
+                    $('#top-primary-nav').menuzord('destroy').menuzord({
+                        showDelayed: 0,
+                        hideDelayed: 0,
+                        align: "right",
+                        clone: true,
+                        mobileMenu: {
+                            autoCollapse: true,
+                            scrollTo: false
+                        }
+                    });
+                    console.log("Menuzord reinitialized on load");
+                } catch (e) {
+                    console.error("Menuzord reinitialization failed:", e);
+                }
+            }
         });
     </script>
     <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
@@ -153,7 +268,6 @@
                                     </div>
                                     <div class="col-sm-auto ml-auto pr-0 align-self-center">
                                         <nav id="top-primary-nav" class="menuzord green" data-effect="fade" data-animation="none" data-align="right">
-                                            <div class="showhide"><em></em><em></em><em></em></div>
                                             <ul id="main-nav" class="menuzord-menu">
                                                 <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
                                                 <li class="{{ Route::is('who-we-are', 'our-founders', 'our-board', 'our-staff', 'our-values', 'our-history', 'mission-vision') ? 'active' : '' }}"><a href="#">Who We Are</a>
@@ -195,6 +309,14 @@
                                         </nav>
                                     </div>
                                 </div>
+                                <!-- Mobile Clone Nav -->
+                                <div class="row d-block d-xl-none">
+                                    <div class="col-12">
+                                        <nav id="top-primary-nav-clone" class="menuzord d-block d-xl-none default menuzord-color-default menuzord-border-boxed menuzord-responsive" data-effect="slide" data-animation="none" data-align="right">
+                                            <ul id="main-nav-clone" class="menuzord-menu menuzord-right menuzord-indented scrollable"></ul>
+                                        </nav>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -209,7 +331,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login to Izere Mubyeyi</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form class="login-form" action="{{ route('login') }}" method="post">
@@ -488,11 +610,18 @@
                         <p class="text-muted">We collaborate with organizations and individuals to amplify our impact.</p>
                     </div>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-3 col-sm-6"><div class="tm-partner"><a href="#"><img src="{{ asset('images/partners/partner1.jpg') }}" alt="Partner 1" class="img-fluid"></a></div></div>
-                    <div class="col-md-3 col-sm-6"><div class="tm-partner"><a href="#"><img src="{{ asset('images/partners/partner2.jpg') }}" alt="Partner 2" class="img-fluid"></a></div></div>
-                    <div class="col-md-3 col-sm-6"><div class="tm-partner"><a href="#"><img src="{{ asset('images/partners/partner3.jpg') }}" alt="Partner 3" class="img-fluid"></a></div></div>
-                    <div class="col-md-3 col-sm-6"><div class="tm-partner"><a href="#"><img src="{{ asset('images/partners/partner4.jpg') }}" alt="Partner 4" class="img-fluid"></a></div></div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="partners-scroll">
+                            @for ($i = 1; $i <= 10; $i++)
+                                <div class="tm-partner">
+                                    <a href="#">
+                                        <img src="{{ asset('images/partners/' . $i . '.jpg') }}" alt="Partner {{ $i }}" class="img-fluid">
+                                    </a>
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -577,4 +706,4 @@
         function initMap(){var e={lat:-1.961054,lng:30.108164};new google.maps.Map(document.getElementById("googleMap"),{zoom:15,center:e});new google.maps.Marker({position:e,map:map,title:"Izere Mubyeyi Organization - KK 35 Avenue, Kicukiro District"})}google.maps.event.addDomListener(window,"load",initMap);
     </script>
 </body>
-</html>
+</html>  
