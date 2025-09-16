@@ -17,11 +17,7 @@
     <title>Family Resilience and Economic Empowerment - Izere Mubyeyi Organization NGO</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
-    <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" sizes="72x72" rel="apple-touch-icon">
-    <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" sizes="114x114" rel="apple-touch-icon">
-    <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" sizes="144x144" rel="apple-touch-icon">
+   
 
     <!-- Stylesheet -->
     <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">

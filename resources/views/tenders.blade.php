@@ -9,12 +9,7 @@
     <title>Izere Mubyeyi Organization NGO</title>
 
     <!-- Favicon -->
-    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
-    <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
-    <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
-    <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
-
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 

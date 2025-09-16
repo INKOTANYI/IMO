@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/events', [EventsController::class, 'publicIndex'])->name('public.events.index');
 Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
