@@ -1,241 +1,203 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Izere Mubyeyi Organization - Empowering Children with Disabilities">
-    <meta name="keywords" content="charity, disability, inclusion, education, Rwanda, non-profit">
-    <meta name="author" content="Izere Mubyeyi Organization">
-    <title>Izere Mubyeyi Organization NGO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Izere Mubyeyi Organization - Empowering Children with Disabilities">
+  <meta name="keywords" content="charity, disability, inclusion, education, Rwanda, non-profit">
+  <meta name="author" content="Izere Mubyeyi Organization">
+  <title>Izere Mubyeyi Organization NGO</title>
 
-    <!-- Explicitly set no favicon to prevent default icon -->
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+  <!-- Explicitly set no favicon to prevent default icon -->
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/javascript-plugins-bundle.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/js/menuzord/css/menuzord.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/js/timeline-cp-responsive-vertical/timeline-cp-responsive-vertical.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/style-main.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/js/menuzord/css/skins/menuzord-rounded-boxed.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/css/javascript-plugins-bundle.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/js/menuzord/css/menuzord.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/js/timeline-cp-responsive-vertical/timeline-cp-responsive-vertical.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/css/style-main.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/js/menuzord/css/skins/menuzord-rounded-boxed.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/css/responsive.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-    <!-- Revolution Slider CSS -->
-    <link href="{{ asset('assets/dist/js/revolution-slider/css/settings.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/js/revolution-slider/css/layers.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/js/revolution-slider/css/navigation.css') }}" rel="stylesheet">
+  <!-- Revolution Slider CSS -->
+  <link href="{{ asset('assets/dist/js/revolution-slider/css/settings.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/js/revolution-slider/css/layers.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dist/js/revolution-slider/css/navigation.css') }}" rel="stylesheet">
 
-    <!-- Inline CSS -->
-    <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #FFFFFF; }
-        .header-top { background-color: #0052A5; color: #FFFFFF; }
-        .header-nav { background-color: #009A49; }
-        .menuzord .menuzord-menu > li > a { color: #FFFFFF; }
-        .menuzord .menuzord-menu > li > a:hover { color: #FFC107; }
-        .dropdown { background-color: #0052A5; }
-        .dropdown li a { color: #FFFFFF; }
-        .dropdown li a:hover { background-color: #FFC107; color: #0052A5; }
-        .btn-theme-colored1 { background-color: #FFC107 !important; color: #0052A5 !important; }
-        .btn-theme-colored1:hover { background-color: #0052A5 !important; color: #FFFFFF !important; }
-        .contact-form .form-control { border-radius: 5px; margin-bottom: 15px; }
-        #formMessage { color: #0052A5; margin-top: 10px; }
-        .footer-widget-area { text-align: center; }
-        .footer-bottom { text-align: center; }
-        .footer-paragraph { display: inline-block; }
-        .tm-service { min-height: 350px; display: flex; flex-direction: column; }
-        section { padding: 20px 0 !important; }
-        .container.pt-50, .container.pb-70, .container.pt-70 { padding-top: 10px !important; padding-bottom: 10px !important; }
-        .row.mb-80, .row.mb-40 { margin-bottom: 10px !important; }
-        .mb-30, .mb-md-30 { margin-bottom: 10px !important; }
-        .modal-content { border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-        .modal-header { background-color: #0052A5; color: #FFFFFF; border-radius: 10px 10px 0 0; }
-        .modal-body { padding: 20px; }
-        .modal-footer { border-top: none; }
-        .login-form .form-control { border: 1px solid #0052A5; border-radius: 5px; }
-        .login-form .btn { width: 100%; }
-        #googleMap { height: 300px; width: 100%; border-radius: 10px; }
-        .widget.widget_nav_menu .menu-quick-links-container ul.menu li a { color: #FFFFFF !important; font-size: 0.95rem; transition: color 0.3s ease; }
-        .widget.widget_nav_menu .menu-quick-links-container ul.menu li a:hover { color: #FFC107 !important; text-decoration: none; }
-        .tp-caption { color: #FFFFFF; text-shadow: 3px 3px 6px rgba(0,0,0,0.8); padding: 8px 12px; font-family: 'Roboto', sans-serif; }
-        .rev-slidebg { object-fit: cover; width: 100%; height: 100%; filter: brightness(0.7); }
-        .btn-slider { transition: all 0.3s ease; border-radius: 50px; padding: 12px 30px; }
-        .btn-slider:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.4); background-color: #FFD54F !important; }
-        .btn-slider-secondary { border: 2px solid #FFFFFF; background-color: transparent !important; color: #FFFFFF !important; }
-        .btn-slider-secondary:hover { background-color: #0052A5 !important; color: #FFFFFF !important; border-color: #0052A5; }
-        /* Updated CSS for mobile menu toggle */
-        @media (max-width: 991px) {
-            .menuzord-menu-toggle {
-                display: block;
-                font-size: 1.5rem;
-                color: #FFFFFF;
-                padding: 15px;
-                cursor: pointer;
-                position: absolute;
-                right: 15px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .menuzord-menu {
-                display: none;
-                width: 100%;
-                background: #009A49;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                z-index: 1001;
-                padding: 15px 0;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-                transition: all 0.3s ease;
-            }
-            .menuzord-menu.show {
-                display: block !important;
-            }
-            .menuzord-menu > li { display: block; text-align: left; }
-            .menuzord-menu > li > a { padding: 15px 20px; display: block; font-size: 1.2rem; color: #FFFFFF; }
-            .dropdown {
-                display: none;
-                background: #0052A5;
-                padding: 0;
-                transition: all 0.3s ease;
-            }
-            .dropdown.show {
-                display: block !important;
-            }
-            .dropdown > li > a { padding: 12px 30px; font-size: 1.1rem; color: #FFFFFF; }
-            .dropdown > li > a:hover { background-color: #FFC107; color: #0052A5; }
-        }
-        @media (max-width: 768px) {
-            .tp-caption { font-size: 1.1rem !important; line-height: 1.5 !important; padding: 6px 10px; }
-            .rev_slider_wrapper { height: 400px !important; }
-            .btn-slider { padding: 10px 20px; font-size: 1.1rem !important; }
-            .menuzord-menu > li > a { font-size: 1.3rem; }
-            .dropdown > li > a { font-size: 1.2rem; }
-            section { padding: 15px 0 !important; }
-            .tm-service { min-height: 300px; padding: 15px; }
-        }
-        @media (max-width: 480px) {
-            .tp-caption { font-size: 1.0rem !important; padding: 5px 8px; }
-            .rev_slider_wrapper { height: 300px !important; }
-            .btn-slider { padding: 8px 15px; font-size: 1.0rem !important; }
-            .menuzord-menu > li > a { font-size: 1.2rem; }
-            .dropdown > li > a { font-size: 1.1rem; }
-            section { padding: 10px 0 !important; }
-            .tm-service { min-height: 250px; padding: 10px; font-size: 0.9rem; }
-            h2.title { font-size: 1.5rem !important; }
-            .lead { font-size: 1rem !important; }
-        }
-        /* Custom CSS for scrolling partners */
-        #partners .partners-scroll {
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 20px 0;
-            -webkit-overflow-scrolling: touch;
-        }
-        #partners .partners-scroll .tm-partner {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0 15px;
-            transition: transform 0.3s ease;
-        }
-        #partners .partners-scroll .tm-partner:hover {
-            transform: scale(1.1);
-        }
-        #partners .partners-scroll img {
-            max-height: 100px;
-            width: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        @media (max-width: 768px) {
-            #partners .partners-scroll img {
-                max-height: 80px;
-            }
-        }
-        @media (max-width: 480px) {
-            #partners .partners-scroll img {
-                max-height: 60px;
-            }
-        }
-    </style>
+  <!-- Inline CSS -->
+  <style>
+    body { font-family: 'Roboto', sans-serif; background-color: #FFFFFF; }
+    .header-top { background-color: #0052A5; color: #FFFFFF; }
+    .header-nav { background-color: #009A49; }
+    .menuzord .menuzord-menu > li > a { color: #FFFFFF; }
+    .menuzord .menuzord-menu > li > a:hover { color: #FFC107; }
+    .dropdown { background-color: #0052A5; }
+    .dropdown li a { color: #FFFFFF; }
+    .dropdown li a:hover { background-color: #FFC107; color: #0052A5; }
+    .btn-theme-colored1 { background-color: #FFC107 !important; color: #0052A5 !important; }
+    .btn-theme-colored1:hover { background-color: #0052A5 !important; color: #FFFFFF !important; }
+    .contact-form .form-control { border-radius: 5px; margin-bottom: 15px; }
+    #formMessage { color: #0052A5; margin-top: 10px; }
+    .footer-widget-area { text-align: center; }
+    .footer-bottom { text-align: center; }
+    .footer-paragraph { display: inline-block; }
+    .tm-service { min-height: 350px; display: flex; flex-direction: column; }
+    section { padding: 20px 0 !important; }
+    .container.pt-50, .container.pb-70, .container.pt-70 { padding-top: 10px !important; padding-bottom: 10px !important; }
+    .row.mb-80, .row.mb-40 { margin-bottom: 10px !important; }
+    .mb-30, .mb-md-30 { margin-bottom: 10px !important; }
+    .modal-content { border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .modal-header { background-color: #0052A5; color: #FFFFFF; border-radius: 10px 10px 0 0; }
+    .modal-body { padding: 20px; }
+    .modal-footer { border-top: none; }
+    .login-form .form-control { border: 1px solid #0052A5; border-radius: 5px; }
+    .login-form .btn { width: 100%; }
+    #googleMap { height: 300px; width: 100%; border-radius: 10px; }
+    .widget.widget_nav_menu .menu-quick-links-container ul.menu li a { color: #FFFFFF !important; font-size: 0.95rem; transition: color 0.3s ease; }
+    .widget.widget_nav_menu .menu-quick-links-container ul.menu li a:hover { color: #FFC107 !important; text-decoration: none; }
+    .tp-caption { color: #FFFFFF; text-shadow: 3px 3px 6px rgba(0,0,0,0.8); padding: 8px 12px; font-family: 'Roboto', sans-serif; }
+    .rev-slidebg { object-fit: cover; width: 100%; height: 100%; filter: brightness(0.7); }
+    .btn-slider { transition: all 0.3s ease; border-radius: 50px; padding: 12px 30px; }
+    .btn-slider:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.4); background-color: #FFD54F !important; }
+    .btn-slider-secondary { border: 2px solid #FFFFFF; background-color: transparent !important; color: #FFFFFF !important; }
+    .btn-slider-secondary:hover { background-color: #0052A5 !important; color: #FFFFFF !important; border-color: #0052A5; }
 
-    <!-- Scripts -->
-    <script src="{{ asset('assets/dist/js/jquery.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Initialize Menuzord
-            try {
-                $("#top-primary-nav").menuzord({
-                    showDelayed: 0,
-                    hideDelayed: 0,
-                    align: "right",
-                    clone: true,
-                    mobileMenu: {
-                        autoCollapse: true,
-                        scrollTo: false
-                    }
-                });
-                console.log("Menuzord initialized successfully");
-            } catch (e) {
-                console.error("Menuzord initialization failed:", e);
-            }
+    /* Updated CSS for mobile menu toggle */
+    @media (max-width: 991px) {
+      .menuzord-menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: #FFFFFF;
+        padding: 15px;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .menuzord-menu > li {
+        display: block;
+        text-align: left;
+      }
+      .menuzord-menu > li > a {
+        padding: 15px 20px;
+        display: block;
+        font-size: 1.2rem;
+        color: #FFFFFF;
+      }
+      .dropdown > li > a {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        color: #FFFFFF;
+      }
+      .dropdown > li > a:hover {
+        background-color: #FFC107;
+        color: #0052A5;
+      }
+    }
+    @media (max-width: 768px) {
+      .tp-caption { font-size: 1.1rem !important; line-height: 1.5 !important; padding: 6px 10px; }
+      .rev_slider_wrapper { height: 400px !important; }
+      .btn-slider { padding: 10px 20px; font-size: 1.1rem !important; }
+      .menuzord-menu > li > a { font-size: 1.3rem; }
+      .dropdown > li > a { font-size: 1.2rem; }
+      section { padding: 15px 0 !important; }
+      .tm-service { min-height: 300px; padding: 15px; }
+    }
+    @media (max-width: 480px) {
+      .tp-caption { font-size: 1.0rem !important; padding: 5px 8px; }
+      .rev_slider_wrapper { height: 300px !important; }
+      .btn-slider { padding: 8px 15px; font-size: 1.0rem !important; }
+      .menuzord-menu > li > a { font-size: 1.2rem; }
+      .dropdown > li > a { font-size: 1.1rem; }
+      section { padding: 10px 0 !important; }
+      .tm-service { min-height: 250px; padding: 10px; font-size: 0.9rem; }
+      h2.title { font-size: 1.5rem !important; }
+      .lead { font-size: 1rem !important; }
+    }
 
-            // Add toggle button for mobile menu
-            $('.menuzord-responsive .menuzord-brand').after('<a href="javascript:void(0)" class="menuzord-menu-toggle"><i class="fa fa-bars"></i></a>');
+    /* Custom CSS for scrolling partners */
+    #partners .partners-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 20px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    #partners .partners-scroll .tm-partner {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 15px;
+      transition: transform 0.3s ease;
+    }
+    #partners .partners-scroll .tm-partner:hover {
+      transform: scale(1.1);
+    }
+    #partners .partners-scroll img {
+      max-height: 100px;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 768px) {
+      #partners .partners-scroll img { max-height: 80px; }
+    }
+    @media (max-width: 480px) {
+      #partners .partners-scroll img { max-height: 60px; }
+    }
+  </style>
 
-            // Toggle mobile menu
-            $('.menuzord-menu-toggle').on('click', function(e) {
-                e.preventDefault();
-                $('.menuzord-menu').toggleClass('show');
-                $('.dropdown').removeClass('show'); // Close any open dropdowns
-                console.log("Menu toggle clicked");
-            });
+  <!-- Scripts (correct order) -->
+  <script src="{{ asset('assets/dist/js/jquery.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
+  <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}" defer></script>
+  <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}" defer></script>
+  <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 
-            // Handle dropdown toggles in mobile view
-            $('.menuzord-menu > li > a').on('click', function(e) {
-                if ($(window).width() <= 991) {
-                    e.preventDefault();
-                    $(this).next('.dropdown').toggleClass('show');
-                    console.log("Dropdown toggled for:", $(this).text());
-                }
-            });
+  <!-- Custom Script -->
+  <script>
+  $(document).ready(function() {
+      // Initialize Menuzord
+      try {
+          $("#top-primary-nav").menuzord({
+              showDelayed: 0,
+              hideDelayed: 0,
+              align: "right",
+              clone: true,
+              mobileMenu: { autoCollapse: true, scrollTo: false }
+          });
+      } catch (e) {
+          console.error("Menuzord initialization failed:", e);
+      }
 
-            // Log window size for debugging
-            console.log("Window width:", $(window).width());
-        });
-
-        $(window).on('load', function() {
-            if ($('#rev_slider_home').length) {
-                try {
-                    $('#top-primary-nav').menuzord('destroy').menuzord({
-                        showDelayed: 0,
-                        hideDelayed: 0,
-                        align: "right",
-                        clone: true,
-                        mobileMenu: {
-                            autoCollapse: true,
-                            scrollTo: false
-                        }
-                    });
-                    console.log("Menuzord reinitialized on load");
-                } catch (e) {
-                    console.error("Menuzord reinitialization failed:", e);
-                }
-            }
-        });
-    </script>
-    <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}" defer></script>
-    <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
-    <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}" defer></script>
-    <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+      // Fix dropdowns for mobile
+      $(document).on('click', '.menuzord-menu > li > a', function(e) {
+          if ($(window).width() <= 991) {
+              var $link = $(this);
+              var $dropdown = $link.next('.dropdown');
+              if ($dropdown.length) {
+                  e.preventDefault();
+                  // close others
+                  $('.menuzord-menu .dropdown').not($dropdown).slideUp(300).removeClass('open');
+                  // toggle this one
+                  $dropdown.stop(true, true).slideToggle(300).toggleClass('open');
+              }
+          }
+      });
+  });
+  </script>
 </head>
+
+
+
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">
     <!-- Header -->
@@ -602,30 +564,7 @@
         </section>
 
         <!-- Partners Section -->
-        <section id="partners" style="background-color: #ffffff !important;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mx-auto text-center">
-                        <h2 class="title text-uppercase mt-0"><span>Our</span> <span style="color: #0052A5;">Partners</span></h2>
-                        <p class="text-muted">We collaborate with organizations and individuals to amplify our impact.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="partners-scroll">
-                            @for ($i = 1; $i <= 10; $i++)
-                                <div class="tm-partner">
-                                    <a href="#">
-                                        <img src="{{ asset('images/partners/' . $i . '.jpg') }}" alt="Partner {{ $i }}" class="img-fluid">
-                                    </a>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+     </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer" style="background-color: #0052A5 !important;">
