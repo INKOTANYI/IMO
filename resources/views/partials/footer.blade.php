@@ -69,3 +69,14 @@
         </div>
     </div>
 </footer>
+<!-- Floating WhatsApp Button -->
+<style>
+  .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s ease,box-shadow .2s ease}
+  .whatsapp-float:hover{transform:scale(1.05);box-shadow:0 8px 22px rgba(0,0,0,0.3)}
+  .whatsapp-float i{font-size:28px;line-height:1}
+  @media (max-width:480px){.whatsapp-float{width:52px;height:52px;right:14px;bottom:14px}}
+  @media (max-width:360px){.whatsapp-float{width:48px;height:48px;right:12px;bottom:12px}}
+  </style>
+<a href="https://wa.me/250786721626" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>

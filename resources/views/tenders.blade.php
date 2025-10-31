@@ -223,8 +223,6 @@
     <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}" defer></script>
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">
@@ -235,7 +233,7 @@
                 <div class="row">
                     <div class="col-xl-auto header-top-left align-self-center text-center text-xl-left">
                         <ul class="element contact-info">
-                            <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250786721626</li>
+                            <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250786721626 <a href="https://wa.me/250786721626" class="ml-10" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</a></li>
                             <li class="contact-email"><i class="fa fa-envelope-o font-icon sm-display-block"></i> info@izeremubyeyi.org</li>
                             <li class="contact-address"><i class="fa fa-map-o font-icon sm-display-block"></i> KK 35 Avenue, Kicukiro District</li>
                         </ul>
@@ -430,7 +428,8 @@
                                                 data-responsive_offset="on"
                                                 style="z-index: 7;">
                                                 <a href="{{ route('donate') }}" class="btn btn-slider btn-theme-colored1 mr-10" style="font-family: 'Roboto', sans-serif;" aria-label="Donate Now">Donate Now</a>
-                                                <a href="{{ route('volunteer-form') }}" class="btn btn-slider btn-slider-secondary" style="font-family: 'Roboto', sans-serif;" aria-label="Join Us">Join Us</a>
+                                                <a href="{{ route('volunteer-form') }}" class="btn btn-slider btn-slider-secondary mr-10" style="font-family: 'Roboto', sans-serif;" aria-label="Join Us">Join Us</a>
+                                                <a href="https://wa.me/250786721626" class="btn btn-slider" style="background-color: #25D366 !important; color: #FFFFFF !important; font-family: 'Roboto', sans-serif;" target="_blank" rel="noopener" aria-label="WhatsApp Chat">WhatsApp</a>
                                             </div>
                                         </li>
                                     @endforeach
@@ -820,7 +819,9 @@
                                 <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
                             </ul>
                             <h4 class="mt-20 mb-20">Our Location</h4>
-                            <div id="googleMap"></div>
+                            <div class="map-responsive">
+                                <iframe src="https://www.google.com/maps?q=KK%2035%20Avenue%2C%20Kicukiro%20District%2C%20Kigali%2C%20Rwanda&output=embed" width="100%" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             <h4 class="mt-20 mb-20">Follow Us</h4>
                             <ul class="tm-widget tm-widget-social-list styled-icons icon-dark icon-rounded icon-theme-colored1">
                                 <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
@@ -961,21 +962,16 @@
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}" defer></script>
-    <!-- Google Maps Initialization -->
-    <script>
-        function initMap() {
-            var location = { lat: -1.961054, lng: 30.108164 }; // Approximate coordinates for KK 35 Ave, Kicukiro, Kigali
-            var map = new google.maps.Map(document.getElementById('googleMap'), {
-                zoom: 15,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: 'Izere Mubyeyi Organization - KK 35 Avenue, Kicukiro District'
-            });
-        }
-        google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
+    <!-- Floating WhatsApp Button -->
+    <style>
+      .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s ease,box-shadow .2s ease}
+      .whatsapp-float:hover{transform:scale(1.05);box-shadow:0 8px 22px rgba(0,0,0,0.3)}
+      .whatsapp-float i{font-size:28px;line-height:1}
+      @media (max-width:480px){.whatsapp-float{width:52px;height:52px;right:14px;bottom:14px}}
+      @media (max-width:360px){.whatsapp-float{width:48px;height:48px;right:12px;bottom:12px}}
+    </style>
+    <a href="https://wa.me/250786721626" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>

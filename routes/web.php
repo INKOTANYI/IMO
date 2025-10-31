@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -124,3 +125,6 @@ Route::get('/volunteer', function () {
 Route::get('/volunteer-form', function () {
     return view('volunteer-form');
 })->name('volunteer-form');
+
+// Newsletter subscribe
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'store'])->name('newsletter.subscribe');

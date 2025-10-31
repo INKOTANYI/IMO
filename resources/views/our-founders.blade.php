@@ -157,6 +157,17 @@
             }
         }
     </style>
+    <style>
+      /* Menu: default links white */
+      .menuzord-menu > li > a, .dropdown > li > a { color: #FFFFFF !important; }
+      /* Menu active/hover: white background with green text */
+      .menuzord-menu > li:hover > a,
+      .menuzord-menu > li > a:focus,
+      .menuzord-menu > li.active > a { background:#ffffff !important; color:#009A49 !important; }
+      .menuzord .dropdown > li:hover > a,
+      .menuzord .dropdown > li > a:focus,
+      .menuzord .dropdown > li.active > a { background:#ffffff !important; color:#009A49 !important; }
+    </style>
 </head>
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">

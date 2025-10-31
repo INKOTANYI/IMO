@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-xl-auto header-top-left align-self-center text-center text-xl-left">
                     <ul class="element contact-info">
-                        <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250-78-123-4567</li>
+                        <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: +250786721626 <a href="https://wa.me/250786721626" class="ml-10" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</a></li>
                         <li class="contact-email"><i class="fa fa-envelope-o font-icon sm-display-block"></i> info@izeremubyeyi.rw</li>
                         <li class="contact-address"><i class="fa fa-map-o font-icon sm-display-block"></i> Kigali, Rwanda</li>
                     </ul>

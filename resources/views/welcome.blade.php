@@ -14,6 +14,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
+  @vite(['resources/css/app.css','resources/js/react/main.jsx'])
+
   <!-- Stylesheets -->
   <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/dist/css/animate.min.css') }}" rel="stylesheet">
@@ -49,7 +51,7 @@
     .footer-bottom { text-align: center; }
     .footer-paragraph { display: inline-block; }
     .tm-service { min-height: 350px; display: flex; flex-direction: column; }
-    section { padding: 20px 0 !important; }
+    section { padding: 16px 0 !important; }
     .container.pt-50, .container.pb-70, .container.pt-70 { padding-top: 10px !important; padding-bottom: 10px !important; }
     .row.mb-80, .row.mb-40 { margin-bottom: 10px !important; }
     .mb-30, .mb-md-30 { margin-bottom: 10px !important; }
@@ -62,25 +64,167 @@
     #googleMap { height: 300px; width: 100%; border-radius: 10px; }
     .widget.widget_nav_menu .menu-quick-links-container ul.menu li a { color: #FFFFFF !important; font-size: 0.95rem; transition: color 0.3s ease; }
     .widget.widget_nav_menu .menu-quick-links-container ul.menu li a:hover { color: #FFC107 !important; text-decoration: none; }
-    .tp-caption { color: #FFFFFF; text-shadow: 3px 3px 6px rgba(0,0,0,0.8); padding: 8px 12px; font-family: 'Roboto', sans-serif; }
+    .tp-caption { color: #FFFFFF; text-shadow: 2px 3px 8px rgba(0,0,0,0.75); padding: 6px 10px; font-family: 'Roboto', sans-serif; letter-spacing: .2px; }
     .rev-slidebg { object-fit: cover; width: 100%; height: 100%; filter: brightness(0.7); }
     .btn-slider { transition: all 0.3s ease; border-radius: 50px; padding: 12px 30px; }
     .btn-slider:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.4); background-color: #FFD54F !important; }
     .btn-slider-secondary { border: 2px solid #FFFFFF; background-color: transparent !important; color: #FFFFFF !important; }
     .btn-slider-secondary:hover { background-color: #0052A5 !important; color: #FFFFFF !important; border-color: #0052A5; }
 
+    /* Hide slider arrows and style bullets */
+    .tparrows { display: none !important; }
+    .tp-bullets { display: none !important; }
+    .tp-bullets .tp-bullet { display: none !important; }
+
+    /* Service cards hover and shadows */
+    .tm-service { border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.10) !important; transition: transform .2s ease, box-shadow .2s ease !important; }
+    .tm-service:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.18) !important; }
+    .tm-service .title a { color: #003d76; font-weight: 700; }
+    .tm-service .title a:hover { color: #0052A5; text-decoration: none; }
+    .tm-service .paragraph { color: #495057; }
+
+    /* Hero overlay for better readability */
+    .rev_slider_wrapper { position: relative; }
+    .rev_slider_wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.6) 100%);
+      pointer-events: none;
+      z-index: 1; /* above image */
+    }
+    .rev_slider { position: relative; z-index: 2; } /* captions/buttons stay above overlay */
+    .rev-slidebg { position: relative; z-index: 0; }
+
+    /* Remove background from captions; rely on overlay */
+    .tp-caption { background: transparent; }
+
+    /* Volunteer + footer spacing refinements */
+    #volunteer { padding: 24px 0 !important; background: linear-gradient(90deg, #0052A5 0%, #0079d3 100%) !important; }
+    .welcome-banner { position: relative; padding: 8px 0 !important; }
+    .welcome-banner h2 { margin-bottom: 2px; }
+    .welcome-banner .lead { margin-bottom: 0; }
+    #volunteer .btn { padding: 10px 18px; box-shadow: 0 6px 14px rgba(0,0,0,0.18); border-radius: 9999px; }
+    #volunteer .btn:hover { transform: translateY(-1px); }
+
+    /* Footer: use original inline styles from markup; no fixed positioning */
+    /* Intentionally no overriding CSS here to respect section's inline styles */
+
+    /* Footer compact tweaks (keep existing colors) */
+    footer.footer .footer-widget-area { padding-top: 8px !important; padding-bottom: 8px !important; }
+    footer.footer .container.pt-40.pb-40 { padding-top: 10px !important; padding-bottom: 10px !important; }
+    footer.footer .widget-title { font-size: 1.02rem; margin-bottom: 6px; }
+    /* Quick Links: remove decorative arrows and extra indent */
+    footer.footer .widget_nav_menu ul.menu { list-style: none; margin: 0; padding: 0; }
+    footer.footer .widget_nav_menu ul.menu li { margin: 4px 0; }
+    footer.footer .widget_nav_menu ul.menu li a { padding-left: 0 !important; position: relative; }
+    footer.footer .widget_nav_menu ul.menu li a::before { content: none !important; }
+    /* Opening Hours: tighter rows */
+    footer.footer .tm-widget-opening-hours li { margin: 4px 0; line-height: 1.2; }
+    footer.footer .tm-widget-opening-hours .value { font-weight: 600; }
+    /* Social icons smaller and tighter */
+    footer.footer .tm-widget-social-list .social-link i { font-size: 14px; }
+    footer.footer .tm-widget-social-list .social-link { width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; }
+    /* Bottom bar compact */
+    footer.footer .footer-bottom .row.pt-20.pb-20 { padding-top: 8px !important; padding-bottom: 8px !important; }
+
+    /* Subtle vertical separators between footer columns on desktop */
+    @media (min-width: 992px) {
+      footer.footer .footer-widget-area .row > [class*="col-"]:not(:first-child) {
+        border-left: 1px solid rgba(255,255,255,0.18);
+      }
+      footer.footer .footer-widget-area .row > [class*="col-"]:not(:first-child) { padding-left: 18px; }
+    }
+    @media (max-width: 991px) {
+      footer.footer .footer-widget-area .row > [class*="col-"] { border-left: none; padding-left: 15px; }
+    }
+
+    /* Visual separation above footer (no color change) */
+    footer.footer { margin-top: 0 !important; position: relative; }
+    footer.footer::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 0; }
+
+    /* Modern footer & CTA styles (local to footer area) */
+    .footer-modern { background: #0a1a2b !important; }
+    .footer-modern .footer-bottom { background: #071421 !important; }
+    .footer-modern .footer-paragraph { color: #94a3b8 !important; }
+    .footer-modern .widget-title { color: #e2e8f0 !important; font-weight: 800; }
+    .footer-modern a { color: #e2e8f0 !important; }
+    .footer-modern a:hover { color: #FFC107 !important; }
+    .footer-modern .tm-widget-opening-hours span, .footer-modern .tm-widget-opening-hours .value { color: #cbd5e1; }
+    .footer-modern .contact-card { border: 1px solid rgba(148,163,184,0.25); border-radius: 12px; padding: 14px; background: rgba(2,6,23,0.15); }
+    .footer-modern .contact-card .icon { color: #FFC107; margin-right: 10px; }
+    .footer-modern .social-link { background: #0f243a; color: #e2e8f0 !important; border-radius: 8px; width: 36px; height: 36px; display:inline-flex;align-items:center;justify-content:center; }
+    .footer-modern .social-link:hover { background: #183556; }
+    /* Center footer content */
+    footer.footer .footer-widget-area .row { justify-content: center; text-align: center; }
+    footer.footer .footer-widget-area .widget-title, footer.footer .footer-paragraph { text-align: center; }
+
+    /* CTA subscribe (green) */
+    .cta-band { background: transparent; padding: 0; margin-top: 10px !important; margin-bottom: 10px !important; }
+    .cta-band .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+    .cta-card { margin: 0 !important; }
+    .cta-card { background: #009A49; border: none; border-radius: 12px; padding: 12px; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .cta-card h3 { margin: 0; font-weight: 800; font-size: 1.05rem; color: #ffffff; }
+    .subscribe-wrap { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 520px; }
+    .subscribe-input { flex: 1; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 10px 12px; border-radius: 10px; outline: none; }
+    .subscribe-input::placeholder { color: rgba(255,255,255,0.85); }
+    .subscribe-btn { background: #FFC107; color: #0f172a; font-weight: 700; padding: 10px 14px; border-radius: 10px; border: none; cursor: pointer; white-space: nowrap; }
+    .subscribe-note { font-size: .85rem; color: rgba(255,255,255,0.9); margin-top: 6px; }
+    @media (max-width: 768px){ .cta-card { flex-direction: column; align-items: stretch; } .subscribe-wrap { max-width: 100%; } }
+
+    /* Compact contact/footer spacing */
+    #contact { padding-top: 4px !important; padding-bottom: 0 !important; }
+    #contact .container { padding-bottom: 0 !important; }
+    #contact .row:last-child { margin-bottom: 0 !important; }
+    #contact h4 { margin-bottom: 6px !important; }
+    #contact .map-responsive { margin-bottom: 10px; }
+
+    /* Footer top padding tighter so it sits closer to CTA */
+    footer.footer .footer-widget-area { padding-top: 4px !important; }
+    footer.footer .container.pt-20.pb-20 { padding-top: 6px !important; }
+
+    /* Modal popup for newsletter success */
+    .modal-backdrop-lite { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; align-items: center; justify-content: center; z-index: 1050; }
+    .modal-card { background: #ffffff; border-radius: 12px; padding: 18px; width: 90%; max-width: 420px; box-shadow: 0 10px 24px rgba(0,0,0,0.2); text-align: center; }
+    .modal-card h4 { margin: 0 0 6px; color: #0f172a; font-weight: 800; }
+    .modal-card p { margin: 0; color: #334155; }
+
     /* Updated CSS for mobile menu toggle */
     @media (max-width: 991px) {
+      /* Smaller top header on tablet/phone */
+      .header-top { padding: 6px 0 !important; }
+      .header-top .element.contact-info li { font-size: 0.95rem; }
+
+      /* Hide hero buttons on tablet/phone */
+      .btn-slider { display: none !important; }
+
+      /* Mobile menu links in white */
+      .dropdown-item, .menuzord-menu > li > a { color: #ffffff !important; }
+    }
+
+    .welcome-banner .container { padding-top: 10px !important; padding-bottom: 15px !important; }
+    .welcome-banner { margin-bottom: 10px !important; }
+    .welcome-banner h2 { margin-bottom: 6px !important; }
+    .welcome-banner p { margin-bottom: 8px !important; }
+    #who-we-are { margin-top: 10px !important; padding-top: 0 !important; margin-bottom: 10px !important; }
+    #who-we-are .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+    #mission-vision { margin-top: 0 !important; padding-top: 0 !important; }
+    #mission-vision .container { padding-top: 0 !important; }
+    /* What We Do spacing: keep only 10px between sections */
+    #what-we-do { margin-top: 10px !important; margin-bottom: 10px !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+    #what-we-do .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+    /* Global: keep 10px gap between all homepage sections */
+    section { margin-top: 10px !important; margin-bottom: 10px !important; }
+    section > .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+    .menuzord .dropdown > li > a { color: #FFFFFF !important; }
+
       .menuzord-menu-toggle {
         display: block;
         font-size: 1.5rem;
         color: #FFFFFF;
         padding: 15px;
-        cursor: pointer;
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
       }
       .menuzord-menu > li {
         display: block;
@@ -102,25 +246,33 @@
         color: #0052A5;
       }
     }
+    /* Menu active/hover: white background with green text */
+    .menuzord-menu > li:hover > a,
+    .menuzord-menu > li > a:focus,
+    .menuzord-menu > li.active > a { background:#ffffff !important; color:#009A49 !important; }
+    .menuzord .dropdown > li:hover > a,
+    .menuzord .dropdown > li > a:focus,
+    .menuzord .dropdown > li.active > a { background:#ffffff !important; color:#009A49 !important; }
     @media (max-width: 768px) {
-      .tp-caption { font-size: 1.1rem !important; line-height: 1.5 !important; padding: 6px 10px; }
-      .rev_slider_wrapper { height: 400px !important; }
-      .btn-slider { padding: 10px 20px; font-size: 1.1rem !important; }
+      .tp-caption { font-size: 1.15rem !important; line-height: 1.45 !important; padding: 6px 10px; }
+      .rev_slider_wrapper { height: 280px !important; }
+      /* Even tighter top header on phones */
+      .header-top { padding: 4px 0 !important; }
+      .header-top .element.contact-info li { font-size: 0.9rem; }
       .menuzord-menu > li > a { font-size: 1.3rem; }
       .dropdown > li > a { font-size: 1.2rem; }
       section { padding: 15px 0 !important; }
       .tm-service { min-height: 300px; padding: 15px; }
     }
     @media (max-width: 480px) {
-      .tp-caption { font-size: 1.0rem !important; padding: 5px 8px; }
-      .rev_slider_wrapper { height: 300px !important; }
+      .tp-caption { font-size: 1.05rem !important; padding: 5px 8px; }
+      .rev_slider_wrapper { height: 200px !important; }
       .btn-slider { padding: 8px 15px; font-size: 1.0rem !important; }
       .menuzord-menu > li > a { font-size: 1.2rem; }
       .dropdown > li > a { font-size: 1.1rem; }
       section { padding: 10px 0 !important; }
       .tm-service { min-height: 250px; padding: 10px; font-size: 0.9rem; }
-      h2.title { font-size: 1.5rem !important; }
-      .lead { font-size: 1rem !important; }
+      .welcome-banner { padding: 8px 0 !important; }
     }
 
     /* Custom CSS for scrolling partners */
@@ -160,7 +312,6 @@
   <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}"></script>
   <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}" defer></script>
   <script src="{{ asset('assets/dist/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}" defer></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 
   <!-- Custom Script -->
   <script>
@@ -198,8 +349,8 @@
 
 
 
-<body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
-<div id="wrapper" class="clearfix">
+  <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
+  <div id="wrapper" class="clearfix">
     <!-- Header -->
     <header id="header" class="header header-layout-type-header-2rows">
         <div class="header-top">
@@ -287,6 +438,11 @@
         </div>
     </header>
 
+    <!-- React Mount Point -->
+    <div class="container my-4">
+        <div id="react-root"></div>
+    </div>
+
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -332,7 +488,7 @@
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['210','170','140','120']" data-fontsize="['22','20','18','16']" data-lineheight="['32','30','28','26']" data-fontweight="['400','400','400','400']" data-width="['900','800','700','600']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:-50px;opacity:0;s:500;e:Power4.easeInOut;" data-transform_out="y:50px;opacity:0;s:500;e:Power4.easeInOut;" data-start="900" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; font-family: 'Roboto', sans-serif; text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">{{ $texts[2] }}</div>
                                             <div class="tp-caption tp-resizeme text-white rs-parallaxlevel-0" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['290','230','190','160']" data-fontsize="['22','20','18','16']" data-lineheight="['32','30','28','26']" data-fontweight="['700','700','700','700']" data-width="['900','800','700','600']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:500;e:Power4.easeInOut;" data-transform_out="y:-50px;opacity:0;s:500;e:Power4.easeInOut;" data-start="1100" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7;">
                                                 <a href="{{ route('donate') }}" class="btn btn-slider btn-theme-colored1 mr-15" style="font-size: 1.2rem; background-color: #FFC107 !important; color: #0052A5 !important; font-family: 'Roboto', sans-serif;" aria-label="Donate Now">Donate Now</a>
-                                                <a href="{{ route('volunteer-form') }}" class="btn btn-slider btn-slider-secondary" style="font-size: 1.2rem; font-family: 'Roboto', sans-serif;" aria-label="Join Us">Join Us</a>
+                                                <a href="{{ route('volunteer-form') }}" class="btn btn-slider btn-slider-secondary mr-15" style="font-size: 1.2rem; font-family: 'Roboto', sans-serif;" aria-label="Join Us">Join Us</a>
                                             </div>
                                         </li>
                                     @endforeach
@@ -341,15 +497,23 @@
                             </div>
                         </div>
                         <script>
-                            var tpj=jQuery;tpj.noConflict();tpj(document).ready(function(){if(tpj("#rev_slider_home").revolution==undefined){console.error("Revolution Slider Error: Plugin not loaded");}else{tpj("#rev_slider_home").show().revolution({sliderType:"standard",jsFileLocation:"{{ asset('assets/dist/js/revolution-slider/js/') }}",sliderLayout:"fullwidth",dottedOverlay:"none",delay:5000,navigation:{keyboardNavigation:"on",keyboard_direction:"horizontal",mouseScrollNavigation:"off",onHoverStop:"on",touch:{touchenabled:"on",swipe_threshold:75,swipe_min_touches:1,swipe_direction:"horizontal",drag_block_vertical:false},arrows:{enable:true,style:'uranus',left:{h_align:"left",v_align:"center",h_offset:20,v_offset:0},right:{h_align:"right",v_align:"center",h_offset:20,v_offset:0}},bullets:{enable:true,style:'uranus',tmp:'',hide_onmobile:true,hide_under:600,hide_onleave:true,hide_delay:200,hide_delay_mobile:1200,direction:"horizontal",h_align:"center",v_align:"bottom",h_offset:0,v_offset:20,space:10}},viewPort:{enable:true,outof:"wait",visible_area:"90%"},responsiveLevels:[1240,1024,768,480],gridwidth:[1200,1000,750,450],gridheight:[650,550,450,350],lazyType:"smart",parallax:{type:"scroll",origo:"enterpoint",speed:200,levels:[2,4,6,8,10,12,14,16,18,20]},shadow:0,spinner:"off",stopLoop:"off",stopAfterLoops:-1,stopAtSlide:-1,shuffle:"off",autoHeight:"off",hideThumbsOnMobile:"on",hideSliderAtLimit:0,hideCaptionAtLimit:0,hideAllCaptionAtLimit:0,debugMode:false,fallbacks:{simplifyAll:"on",nextSlideOnWindowFocus:"off",disableFocusListener:false}})}});
+                            var tpj=jQuery;tpj.noConflict();tpj(document).ready(function(){if(tpj("#rev_slider_home").revolution==undefined){console.error("Revolution Slider Error: Plugin not loaded");}else{tpj("#rev_slider_home").show().revolution({sliderType:"standard",jsFileLocation:"{{ asset('assets/dist/js/revolution-slider/js/') }}",sliderLayout:"fullwidth",dottedOverlay:"none",delay:5000,navigation:{keyboardNavigation:"on",keyboard_direction:"horizontal",mouseScrollNavigation:"off",onHoverStop:"on",touch:{touchenabled:"on",swipe_threshold:75,swipe_min_touches:1,swipe_direction:"horizontal",drag_block_vertical:false},arrows:{enable:true,style:'uranus',left:{h_align:"left",v_align:"center",h_offset:20,v_offset:0},right:{h_align:"right",v_align:"center",h_offset:20,v_offset:0}},bullets:{enable:true,style:'uranus',tmp:'',hide_onmobile:true,hide_under:600,hide_onleave:true,hide_delay:200,hide_delay_mobile:1200,direction:"horizontal",h_align:"center",v_align:"bottom",h_offset:0,v_offset:20,space:10}},viewPort:{enable:true,outof:"wait",visible_area:"90%"},responsiveLevels:[1240,1024,768,480],gridwidth:[1200,1000,750,450],gridheight:[420,320,260,200],lazyType:"smart",parallax:{type:"scroll",origo:"enterpoint",speed:200,levels:[2,4,6,8,10,12,14,16,18,20]},shadow:0,spinner:"off",stopLoop:"off",stopAfterLoops:-1,stopAtSlide:-1,shuffle:"off",autoHeight:"off",hideThumbsOnMobile:"on",hideSliderAtLimit:0,hideCaptionAtLimit:0,hideAllCaptionAtLimit:0,debugMode:false,fallbacks:{simplifyAll:"on",nextSlideOnWindowFocus:"off",disableFocusListener:false}})}});
                         </script>
                     </div>
                 </div>
             </div>
         </section>
 
+    <!-- Newsletter Success Modal -->
+    <div id="nlModal" class="modal-backdrop-lite">
+      <div class="modal-card">
+        <h4 id="modalTitle">Notice</h4>
+        <p id="modalText">Action completed.</p>
+      </div>
+    </div>
+
         <!-- Welcome Section -->
-        <section class="bg-theme-colored1" style="background-color: #0052A5 !important;">
+        <section class="bg-theme-colored1 welcome-banner" style="background-color: #0052A5 !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
@@ -455,70 +619,26 @@
             </div>
         </section>
 
-        <!-- Photo Gallery Section -->
-        <section id="gallery">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mx-auto text-center">
-                        <h2 class="title text-uppercase mt-0"><span>Photo</span> <span class="text-theme-colored1">Gallery</span></h2>
-                        <p>Explore our impactful moments and activities through our photo gallery.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="tm-sc tm-sc-gallery tm-sc-gallery-masonry gallery-style1-current-theme">
-                            <div class="isotope-layout-filter filter-style-2 text-center cat-filter-default" data-link-with="gallery-holder-1">
-                                <a href="#" class="active" data-filter="*">All</a>
-                                <a href="#festival" data-filter=".festival">Festival</a>
-                                <a href="#picnic" data-filter=".picnic">Picnic</a>
-                                <a href="#meeting" data-filter=".meeting">Meeting</a>
-                            </div>
-                            <div id="gallery-holder-1" class="isotope-layout masonry grid-3 gutter-15 clearfix lightgallery-lightbox">
-                                <div class="isotope-layout-inner">
-                                    <div class="isotope-item isotope-item-sizer"></div>
-                                    @foreach (['festival picnic', 'festival picnic', 'meeting picnic', 'festival picnic', 'festival', 'meeting'] as $category)
-                                        <div class="isotope-item {{ $category }}">
-                                            <div class="isotope-item-inner tm-gallery">
-                                                <div class="tm-gallery-inner">
-                                                    <div class="thumb"><a href="#"><img src="{{ asset('images/bg/izere1.jpg') }}" alt="Gallery Image"></a></div>
-                                                    <div class="tm-gallery-content-wrapper">
-                                                        <div class="tm-gallery-content">
-                                                            <div class="tm-gallery-content-inner">
-                                                                <div class="icons-holder-inner">
-                                                                    <div class="styled-icons icon-dark icon-circled icon-theme-colored1">
-                                                                        <a class="lightgallery-trigger styled-icons-item" data-exthumbimage="{{ asset('images/bg/P1110133-1024x768.jpg') }}" data-src="{{ asset('images/bg/children-eating-at-school-2-1.jpg') }}" title="Project Title" href="{{ asset('images/bg/izere3.jpg') }}"><i class="fa fa-plus"></i></a>
-                                                                        <a class="styled-icons-item" title="Project Title" href="#"><i class="fa fa-link"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="title-holder"><h5 class="title"><a href="#">Project Title</a></h5></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Volunteer Call to Action -->
-        <section id="volunteer" class="divider" style="background-color: #0052A5 !important;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <h2 class="text-white font-weight-600" style="font-size: 36px;">Volunteer With Us</h2>
-                        <p class="text-white" style="font-size: 16px;">Make a Real Difference for Inclusion</p>
-                        <div class="tm-sc tm-sc-button text-center mt-15">
-                            <a href="{{ route('volunteer-form') }}" target="_self" class="btn btn-round" style="background-color: #002c42 !important; color: #FFC107 !important;">Become a Volunteer</a>
-                        </div>
+        <!-- Volunteer With Us (Card) -->
+        <section id="volunteer">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="card" style="border:1px solid rgba(0,0,0,0.08); border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.06);">
+                  <div class="card-body" style="padding:20px;">
+                    <h2 class="mb-2 text-center" style="color:#0052A5; font-weight:800;">Volunteer with us</h2>
+                    <p class="mb-3" style="margin-bottom:12px;">
+                      Make a real difference in the lives of children, youth, and families. Our volunteer opportunities cover all program areas, from assisting in inclusive classrooms and vocational training workshops, supporting healthcare and therapy services, engaging in family resilience and economic empowerment activities, to contributing to research, advocacy, and community awareness campaigns. Whether short-term or long-term, volunteering with us allows you to learn, grow, and give back, while actively participating in the journey toward inclusive education, health, and community empowerment.
+                    </p>
+                    <div class="text-center">
+                      <a href="{{ route('volunteer-form') }}" class="btn btn-round" style="background-color:#009A49; color:#ffffff; font-weight:700;">Become a Volunteer</a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </section>
 
         <!-- Contact Us Section -->
@@ -527,33 +647,43 @@
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center">
                         <h2 class="title text-uppercase mt-0"><span>Contact</span> <span class="text-theme-colored1">Us</span></h2>
-                        <p>Get in touch with us for more information or to join our mission.</p>
+                        <p>We would love to hear from you. Whether you are a parent seeking support, a donor exploring partnership opportunities, a volunteer eager to contribute, or a community member wanting to learn more, we welcome your message. Reach out today and join us in creating inclusive, empowering, and transformative opportunities for children, youth, and families.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <h4 class="mb-20">Contact Information</h4>
                         <ul class="list-unstyled">
-                            <li><i class="fa fa-map-marker mr-10"></i>KK 35 Avenue, Kicukiro District, Kigali, Rwanda</li>
-                            <li><i class="fa fa-phone mr-10"></i>+250786721626</li>
-                            <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
+                          <li><i class="fa fa-map-marker mr-10"></i>KK 35 Avenue, Kicukiro District, Kigali, Rwanda</li>
+                          <li><i class="fa fa-phone mr-10"></i>+250786721626</li>
+                          <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
                         </ul>
-                        <h4 class="mt-20 mb-20">Our Location</h4>
-                        <div id="googleMap"></div>
-                        <h4 class="mt-20 mb-20">Follow Us</h4>
-                        <ul class="tm-widget tm-widget-social-list styled-icons icon-dark icon-rounded icon-theme-colored1">
-                            <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                            <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                            <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
+                        <h4 class="mt-20 mb-10">Our Location</h4>
+                        <div class="map-responsive">
+                          <iframe src="https://www.google.com/maps?q=KK%2035%20Avenue%2C%20Kicukiro%20District%2C%20Kigali%2C%20Rwanda&output=embed" width="100%" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <h4 class="mb-20">Send Us a Message</h4>
-                        <form class="contact-form" action="" method="post">
+                        @if (session('status'))
+                            <div id="flashSuccess" class="alert alert-success" role="alert">{{ session('status') }}</div>
+                        @endif
+                        @error('service')<div class="text-danger small">{{ $message }}</div>@enderror
+                        <form id="contactForm" class="contact-form" action="{{ route('contact.store') }}" method="post">
                             @csrf
                             <div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name"></div>
                             <div class="form-group"><input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email"></div>
+                            <div class="form-group">
+                              <select name="service" class="form-control" required aria-label="Service">
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Essential Health Care">Essential Health Care</option>
+                                <option value="Inclusive Education">Inclusive Education</option>
+                                <option value="Family Resilience">Family Resilience</option>
+                                <option value="Community Engagement">Community Engagement</option>
+                                <option value="Research & Advocacy">Research & Advocacy</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
                             <div class="form-group"><textarea name="message" class="form-control" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea></div>
                             <div class="form-group text-center"><button type="submit" class="btn btn-theme-colored1 btn-round">Send Message</button></div>
                             <div id="formMessage"></div>
@@ -566,68 +696,184 @@
         <!-- Partners Section -->
      </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="footer" style="background-color: #0052A5 !important;">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-40">
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                        <div class="widget widget-contact-info">
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="description">KK 35 Avenue, Kicukiro District, Kigali, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email"><div class="icon"><i class="fa fa-envelope-o"></i></div><div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div></li>
-                                    <li class="contact-phone"><div class="icon"><i class="fa fa-phone"></i></div><div class="text">+250786721626</div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget widget-social-list-custom">
-                            <h4 class="widget-title text-white">Follow Us</h4>
-                            <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                                <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                                <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title text-white">Quick Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}">About Us</a></li>
-                                    <li><a href="{{ route('public.events.index') }}">Events</a></li>
-                                    <li><a href="{{ route('news-updates') }}">News Updates</a></li>
-                                    <li><a href="{{ route('donate') }}">Donate</a></li>
-                                    <li><a href="#contact">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                        <div class="widget widget-opening-hours-compressed">
-                            <h4 class="widget-title text-white">Opening Hours</h4>
-                            <ul class="tm-widget tm-widget-opening-hours">
-                                <li class="clearfix"><span>Monday - Tuesday</span><div class="value">9:00 - 17:00</div></li>
-                                <li class="clearfix"><span>Wednesday</span><div class="value">9:00 - 16:00</div></li>
-                                <li class="clearfix"><span>Thursday - Friday</span><div class="value">9:00 - 16:00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9:00 - 16:00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" style="background-color: #002c42 !important;">
-                <div class="container">
-                    <div class="row pt-20 pb-20 justify-content-center">
-                        <div class="col-sm-12"><div class="footer-paragraph text-white">© 2025 Izere Mubyeyi Organization. All Rights Reserved.</div></div>
-                    </div>
-                </div>
-            </div>
+    <!-- CTA Band (above footer) -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h3>Subscribe for our news</h3>
+            <div class="subscribe-note">Get updates about inclusion, events and opportunities.</div>
+          </div>
+          @if (session('newsletter_status'))
+            <div id="newsletterFlash" class="subscribe-note">{{ session('newsletter_status') }}</div>
+          @endif
+          @error('newsletter_email')
+            <div class="subscribe-note" style="color:#ffb3b3">{{ $message }}</div>
+          @enderror
+          <form class="subscribe-wrap" method="post" action="{{ route('newsletter.subscribe') }}">
+            @csrf
+            <input type="email" name="newsletter_email" class="subscribe-input" placeholder="Enter your email" required aria-label="Email address" value="{{ old('newsletter_email') }}">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
         </div>
-        <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var f = document.getElementById('newsletterFlash');
+        if (f) setTimeout(function(){ f.style.display='none'; }, 3000);
+
+        var form = document.querySelector('form.subscribe-wrap');
+        var input = document.querySelector('input[name="newsletter_email"]');
+        var errorNode = document.getElementById('nlError');
+        var modal = document.getElementById('nlModal');
+        var modalTitle = document.getElementById('modalTitle');
+        var modalText = document.getElementById('modalText');
+
+        if (!errorNode) {
+          errorNode = document.createElement('div');
+          errorNode.id = 'nlError';
+          errorNode.className = 'subscribe-note';
+          errorNode.style.color = '#ffb3b3';
+          form.parentElement.insertBefore(errorNode, form.nextSibling);
+        }
+
+        if (form) {
+          form.addEventListener('submit', async function(e){
+            e.preventDefault();
+            errorNode.textContent = '';
+            try {
+              const fd = new FormData(form);
+              const res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: fd
+              });
+              if (res.ok) {
+                if (modal) {
+                  modalTitle.textContent = 'Subscribed';
+                  modalText.textContent = 'Thanks! You are now subscribed to our news.';
+                  modal.style.display = 'flex';
+                  setTimeout(function(){ modal.style.display = 'none'; }, 2500);
+                }
+                // clear
+                if (input) input.value = '';
+              } else if (res.status === 422) {
+                const data = await res.json();
+                const msg = data?.errors?.newsletter_email?.[0] || 'Please provide a valid email.';
+                errorNode.textContent = '';
+                if (modal) {
+                  modalTitle.textContent = 'Already Subscribed';
+                  modalText.textContent = msg;
+                  modal.style.display = 'flex';
+                  setTimeout(function(){ modal.style.display = 'none'; }, 2500);
+                }
+              } else {
+                errorNode.textContent = 'Unable to subscribe right now. Please try again later.';
+              }
+            } catch (err) {
+              errorNode.textContent = 'Network error. Please try again.';
+            }
+          });
+        }
+
+        // Contact form AJAX
+        var cForm = document.getElementById('contactForm');
+        if (cForm) {
+          cForm.addEventListener('submit', async function(e){
+            e.preventDefault();
+            var cData = new FormData(cForm);
+            // clear previous inline errors
+            var existing = cForm.querySelectorAll('.text-danger.small, .field-error');
+            existing.forEach(function(el){ el.remove(); });
+            try {
+              const res = await fetch(cForm.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: cData });
+              if (res.ok) {
+                if (modal) {
+                  modalTitle.textContent = 'Message Sent';
+                  modalText.textContent = 'Thank you! Your message has been sent.';
+                  modal.style.display = 'flex';
+                  setTimeout(function(){ modal.style.display = 'none'; }, 2500);
+                }
+                // clear form
+                cForm.reset();
+              } else if (res.status === 422) {
+                const data = await res.json();
+                const errs = data.errors || {};
+                Object.keys(errs).forEach(function(field){
+                  var fieldEl = cForm.querySelector('[name="'+field+'"]');
+                  if (fieldEl) {
+                    var node = document.createElement('div');
+                    node.className = 'field-error text-danger small';
+                    node.textContent = errs[field][0];
+                    fieldEl.parentElement.appendChild(node);
+                  }
+                });
+              } else {
+                if (modal) {
+                  modalTitle.textContent = 'Error';
+                  modalText.textContent = 'Unable to send message right now. Please try again later.';
+                  modal.style.display = 'flex';
+                  setTimeout(function(){ modal.style.display = 'none'; }, 2500);
+                }
+              }
+            } catch (err) {
+              if (modal) {
+                modalTitle.textContent = 'Network Error';
+                modalText.textContent = 'Please check your connection and try again.';
+                modal.style.display = 'flex';
+                setTimeout(function(){ modal.style.display = 'none'; }, 2500);
+              }
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer footer-modern" style="background-color: #0a1a2b !important;">
+      <div class="footer-widget-area">
+        <div class="container pt-20 pb-20">
+          <div class="row align-items-start">
+            <!-- Left: org summary + socials -->
+            <div class="col-md-6">
+              <div class="widget">
+                <h4 class="widget-title">Izere Mubyeyi Organization</h4>
+                <p class="footer-paragraph">Empowering children with disabilities, supporting families, and building inclusive communities in Rwanda.</p>
+                <div class="footer-paragraph">
+                  Follow us:
+                  <a href="https://facebook.com/izeremubyeyi">Facebook</a> |
+                  <a href="https://twitter.com/izeremubyeyi">Twitter</a> |
+                  <a href="#">LinkedIn</a> |
+                  <a href="https://instagram.com/izeremubyeyi">Instagram</a> |
+                  <a href="https://youtube.com/izeremubyeyi">YouTube</a>
+                </div>
+              </div>
+            </div>
+            <!-- Right: contact card -->
+            <div class="col-md-6">
+              <div class="contact-card">
+                <ul class="list-unstyled mb-0">
+                  <li class="d-flex align-items-start mb-2"><span class="icon mr-2"><i class="fa fa-map-marker"></i></span><span>Niboye, Kicukiro, Kigali, Rwanda</span></li>
+                  <li class="d-flex align-items-start mb-2"><span class="icon mr-2"><i class="fa fa-phone"></i></span><span>+250 786 721 626</span></li>
+                  <li class="d-flex align-items-start"><span class="icon mr-2"><i class="fa fa-envelope-o"></i></span><span>info@izeremubyeyi.org</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row pt-20 pb-20 justify-content-center text-center">
+              <div class="col-12">
+                <div class="footer-paragraph">© 2025 Izere Mubyeyi Organization. All rights reserved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     </footer>
 
     <!-- Footer Scripts -->
@@ -641,8 +887,26 @@
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}" defer></script>
+    <!-- Floating Chat Button -->
+    <style>
+      .chat-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9999px;background:#25D366;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s ease,box-shadow .2s ease;text-decoration:none;font-weight:600}
+      .chat-float:hover{transform:scale(1.03);box-shadow:0 8px 22px rgba(0,0,0,0.3);color:#fff}
+      .chat-float i{font-size:20px;line-height:1}
+      @media (max-width:480px){.chat-float{right:14px;bottom:14px;padding:9px 12px;font-size:.95rem}}
+      @media (max-width:360px){.chat-float{right:12px;bottom:12px;padding:8px 10px;font-size:.9rem}}
+    </style>
+    <a href="https://wa.me/250786721626" class="chat-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span>Chat with us</span>
+    </a>
+
     <script>
-        function initMap(){var e={lat:-1.961054,lng:30.108164};new google.maps.Map(document.getElementById("googleMap"),{zoom:15,center:e});new google.maps.Marker({position:e,map:map,title:"Izere Mubyeyi Organization - KK 35 Avenue, Kicukiro District"})}google.maps.event.addDomListener(window,"load",initMap);
+      document.addEventListener('DOMContentLoaded', function() {
+        var flash = document.getElementById('flashSuccess');
+        if (flash) {
+          setTimeout(function(){ flash.style.display = 'none'; }, 3000);
+        }
+      });
     </script>
 </body>
-</html>  
+</html>
