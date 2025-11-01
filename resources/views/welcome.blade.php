@@ -14,7 +14,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
-  @vite(['resources/css/app.css','resources/js/react/main.jsx'])
+  
 
   <!-- Stylesheets -->
   <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -438,10 +438,7 @@
         </div>
     </header>
 
-    <!-- React Mount Point -->
-    <div class="container my-4">
-        <div id="react-root"></div>
-    </div>
+    
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
