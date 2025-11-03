@@ -114,9 +114,6 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
         .footer-widget-area .widget h4 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -175,9 +172,6 @@
         .footer-widget-area .tm-widget-opening-hours li {
             font-size: 1.1rem;
             font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
         }
         .footer-paragraph {
             color: #fff;
@@ -481,6 +475,22 @@
                                             <h5><i class="fas fa-handshake"></i> Partner with Us to Foster Inclusive Communities</h5>
                                             <p>We invite government agencies, civil society, private sector partners, and international donors to collaborate with us. Your support helps expand awareness campaigns, train local champions, and implement community-based initiatives that transform attitudes, promote inclusion, and ensure every child has the opportunity to reach their full potential.</p>
                                         </div>
+                                        <div class="community-card">
+                                            <h5><i class="fas fa-hand-holding-heart"></i> Our Partners</h5>
+                                            <p>We are deeply thankful to our partners for their invaluable contributions, which have allowed us to scale up our impact, reach more children and families, and continuously improve our services.</p>
+                                            <p>At Izere Mubyeyi Organization, we believe that partnership is at the heart of sustainable impact. Over the years, we have been fortunate to collaborate with a diverse network of government institutions, development agencies, private sector actors, civil society organizations; local, regional and international donors. These partnerships strengthen our programs, expand our reach, and ensure that children with disabilities and their families receive the support and opportunities they need.</p>
+                                            <h6>The Role of Our Partners:</h6>
+                                            <ul>
+                                                <li><strong>Capacity Building and Technical Support:</strong> Partners help us enhance the skills of our staff, teachers, therapists, and caregivers through specialized training, mentorship, and knowledge exchange.</li>
+                                                <li><strong>Resource Mobilization:</strong> By providing funding, equipment, learning materials, and assistive devices, partners enable us to deliver high-quality education, health care, and family empowerment programs.</li>
+                                                <li><strong>Infrastructure Expansion:</strong> Partners support the development and improvement of our facilities, including classrooms, therapy rooms, vocational workshops, and community spaces, creating safe, accessible, and stimulating environments for children, youth, and families.</li>
+                                                <li><strong>Policy and Advocacy Support:</strong> Many partners collaborate with us to influence national and local policies, promote inclusive practices, and ensure that disability rights are mainstreamed across sectors.</li>
+                                                <li><strong>Community Outreach:</strong> Through joint initiatives, partners help us identify children with disabilities in communities, raise awareness, and foster social acceptance and inclusion.</li>
+                                                <li><strong>Innovation and Program Development:</strong> Partners contribute technical expertise, innovative tools, and global best practices, allowing us to improve program quality and expand services to more children and families.</li>
+                                            </ul>
+                                            <h6>Join Us in Partnership:</h6>
+                                            <p>We invite government agencies, private companies, civil society organizations, foundations, and international donors to join our mission. By partnering with Izere Mubyeyi Organization, you help create inclusive, supportive, and empowered communities where every child, regardless of ability; can thrive, families are resilient, and societies are stronger.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -495,76 +505,7 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-contact-info">
-                            <h4 class="widget-title">Contact Info</h4>
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email">
-                                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
-                                    </li>
-                                    <li class="contact-phone">
-                                        <div class="icon"><i class="fas fa-phone"></i></div>
-                                        <div class="text">+250786721626</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-social-list-custom">
-                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                    <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title">Useful Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
-                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
-                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
-                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
-                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-opening-hours-compressed">
-                            <h4 class="widget-title">Opening Hours</h4>
-                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
-                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" data-tm-bg-color="#0052A5">
-                <div class="container">
-                    <div class="row pt-15 pb-15">
-                        <div class="col-sm-12 text-center">
-                            <div class="footer-paragraph">
-                                © 2025 IMO. All Rights Reserved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
-    </footer>
+    @include('partials.footer-welcome')
 
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>

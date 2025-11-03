@@ -81,9 +81,6 @@
             color: #333;
             margin-bottom: 15px;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
         .footer-widget-area .widget h4 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -142,9 +139,6 @@
         .footer-widget-area .tm-widget-opening-hours li {
             font-size: 1.1rem;
             font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
         }
         .footer-paragraph {
             color: #fff;
@@ -406,9 +400,16 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="board-content">
-                                        <p>The Board of Directors at Izere Mubyeyi Organization comprises dedicated individuals who bring diverse expertise and a shared commitment to advancing the rights and opportunities of children with disabilities in Rwanda. Their leadership ensures that our mission to foster inclusion, education, and empowerment remains steadfast.</p>
-                                        <p>Our board members include professionals from education, healthcare, advocacy, and community development, each contributing strategic guidance to shape our programs and policies. They work tirelessly to uphold the vision set by our founders, ensuring that every child with a disability has access to quality education, healthcare, and a supportive community.</p>
-                                        <p>Through their governance, Izere Mubyeyi continues to influence policy, build partnerships, and drive systemic change for disability inclusion across Rwanda. Their dedication is a cornerstone of our impact, guiding us toward a future where every child and family is empowered.</p>
+                                        <p>At the heart of Izere Mubyeyi Organization’s leadership is a dedicated Board of Directors that provides strategic oversight, ensures accountability, and upholds the values on which our organization was founded. Our board members are drawn from diverse professional backgrounds including education, health, law, business, disability rights, community development, and governance, bringing with them the expertise needed to steer the organization toward sustainable growth and impact.</p>
+                                        <p>More than advisors, they are champions of inclusion. Many have personal or professional ties to disability advocacy and share a common commitment to advancing the rights and well-being of children and youth with disabilities in Rwanda. With unwavering integrity and foresight, they guide the organization in:</p>
+                                        <ul>
+                                            <li>Setting strategic priorities and ensuring effective implementation of programs.</li>
+                                            <li>Strengthening governance, transparency, and resource stewardship.</li>
+                                            <li>Expanding partnerships that amplify our impact nationally and globally.</li>
+                                            <li>Advocating for disability inclusion at the highest levels of policy and decision-making.</li>
+                                        </ul>
+                                        <p>Our board stands as a bridge between the vision of our founding parents and the aspirations of the communities we serve today. They take pride in nurturing the legacy of perseverance, dignity, and empowerment, while positioning Izere Mubyeyi Organization as a model of inclusive development in Rwanda and beyond.</p>
+                                        <p>Through their leadership, wisdom, and commitment, our Board ensures that the voices of children with disabilities and their families are not only heard but also placed at the center of transformative action.</p>
                                         <!-- Add specific board member details here, e.g.:
                                         <h4>John Doe - Chairperson</h4>
                                         <p>John brings 20 years of experience in education policy and advocacy for disability rights. His leadership has been instrumental in expanding our inclusive education programs.</p>
@@ -429,76 +430,7 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-contact-info">
-                            <h4 class="widget-title">Contact Info</h4>
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email">
-                                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
-                                    </li>
-                                    <li class="contact-phone">
-                                        <div class="icon"><i class="fas fa-phone"></i></div>
-                                        <div class="text">+250786721626</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-social-list-custom">
-                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                    <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title">Useful Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
-                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
-                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
-                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
-                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-opening-hours-compressed">
-                            <h4 class="widget-title">Opening Hours</h4>
-                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
-                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" data-tm-bg-color="#0052A5">
-                <div class="container">
-                    <div class="row pt-15 pb-15">
-                        <div class="col-sm-12 text-center">
-                            <div class="footer-paragraph">
-                                © 2025 IMO. All Rights Reserved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
-    </footer>
+    @include('partials.footer-welcome')
 
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/custom.js') }}" defer></script>

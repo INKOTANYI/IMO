@@ -38,9 +38,13 @@
     body { font-family: 'Roboto', sans-serif; background-color: #FFFFFF; }
     .header-top { background-color: #0052A5; color: #FFFFFF; }
     .header-nav { background-color: #009A49; }
+    .header-nav .header-nav-wrapper { background-color: #009A49 !important; }
+    .header-nav .header-nav-wrapper.navbar-scrolltofixed { background-color: #009A49 !important; }
+    .header-nav .header-nav-wrapper.navbar-scrolltofixed.is-fixed { background-color: #009A49 !important; }
     .menuzord .menuzord-menu > li > a { color: #FFFFFF; }
     .menuzord .menuzord-menu > li > a:hover { color: #FFC107; }
     .dropdown { background-color: #0052A5; }
+    .menuzord .dropdown { background-color: #0052A5 !important; }
     .dropdown li a { color: #FFFFFF; }
     .dropdown li a:hover { background-color: #FFC107; color: #0052A5; }
     .btn-theme-colored1 { background-color: #FFC107 !important; color: #0052A5 !important; }
@@ -64,7 +68,7 @@
     #googleMap { height: 300px; width: 100%; border-radius: 10px; }
     .widget.widget_nav_menu .menu-quick-links-container ul.menu li a { color: #FFFFFF !important; font-size: 0.95rem; transition: color 0.3s ease; }
     .widget.widget_nav_menu .menu-quick-links-container ul.menu li a:hover { color: #FFC107 !important; text-decoration: none; }
-    .tp-caption { color: #FFFFFF; text-shadow: 2px 3px 8px rgba(0,0,0,0.75); padding: 6px 10px; font-family: 'Roboto', sans-serif; letter-spacing: .2px; }
+    .tp-caption { color: #FFFFFF; text-shadow: 2px 3px 10px rgba(0,0,0,0.85); padding: 6px 10px; font-family: 'Roboto', sans-serif; letter-spacing: .2px; white-space: normal !important; max-width: 92vw; text-align: center; display: inline-block; }
     .rev-slidebg { object-fit: cover; width: 100%; height: 100%; filter: brightness(0.7); }
     .btn-slider { transition: all 0.3s ease; border-radius: 50px; padding: 12px 30px; }
     .btn-slider:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.4); background-color: #FFD54F !important; }
@@ -96,7 +100,7 @@
     .rev_slider { position: relative; z-index: 2; } /* captions/buttons stay above overlay */
     .rev-slidebg { position: relative; z-index: 0; }
 
-    /* Remove background from captions; rely on overlay */
+    /* Remove background from captions on desktop; use subtle bg on small screens */
     .tp-caption { background: transparent; }
 
     /* Volunteer + footer spacing refinements */
@@ -200,6 +204,8 @@
 
       /* Mobile menu links in white */
       .dropdown-item, .menuzord-menu > li > a { color: #ffffff !important; }
+      /* Hide welcome banner on phones/tablets */
+      .welcome-banner { display: none !important; }
     }
 
     .welcome-banner .container { padding-top: 10px !important; padding-bottom: 15px !important; }
@@ -254,8 +260,13 @@
     .menuzord .dropdown > li > a:focus,
     .menuzord .dropdown > li.active > a { background:#ffffff !important; color:#009A49 !important; }
     @media (max-width: 768px) {
-      .tp-caption { font-size: 1.15rem !important; line-height: 1.45 !important; padding: 6px 10px; }
-      .rev_slider_wrapper { height: 280px !important; }
+      .tp-caption { font-size: 1.28rem !important; line-height: 1.55 !important; padding: 8px 12px; background: rgba(0,0,0,0.30); border-radius: 8px; }
+      .rev_slider_wrapper { height: 420px !important; }
+      /* Force absolute-positioned RS elements to center horizontally */
+      .rev_slider .tp-mask-wrap,
+      .rev_slider .tp-parallax-wrap,
+      .rev_slider .tp-caption { left: 50% !important; transform: translateX(-50%) !important; margin-left: 0 !important; text-align: center !important; }
+    
       /* Even tighter top header on phones */
       .header-top { padding: 4px 0 !important; }
       .header-top .element.contact-info li { font-size: 0.9rem; }
@@ -265,8 +276,11 @@
       .tm-service { min-height: 300px; padding: 15px; }
     }
     @media (max-width: 480px) {
-      .tp-caption { font-size: 1.05rem !important; padding: 5px 8px; }
-      .rev_slider_wrapper { height: 200px !important; }
+      .tp-caption { font-size: 1.15rem !important; line-height: 1.55 !important; padding: 8px 10px; background: rgba(0,0,0,0.34); border-radius: 8px; }
+      .rev_slider_wrapper { height: 400px !important; }
+      .rev_slider .tp-mask-wrap,
+      .rev_slider .tp-parallax-wrap,
+      .rev_slider .tp-caption { left: 50% !important; transform: translateX(-50%) !important; margin-left: 0 !important; text-align: center !important; }
       .btn-slider { padding: 8px 15px; font-size: 1.0rem !important; }
       .menuzord-menu > li > a { font-size: 1.2rem; }
       .dropdown > li > a { font-size: 1.1rem; }
@@ -391,6 +405,7 @@
                                                         <li><a href="{{ route('our-values') }}">Our Values</a></li>
                                                         <li><a href="{{ route('our-history') }}">Our History</a></li>
                                                         <li><a href="{{ route('mission-vision') }}">Our Mission and Vision</a></li>
+                                                        <li><a href="{{ route('our-partners') }}">Our Partners</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('inclusive-education', 'health-care', 'capacity-building', 'research-advocacy', 'family-resilience', 'community-engagement') ? 'active' : '' }}"><a href="#">What We Do</a>
@@ -403,12 +418,12 @@
                                                         <li><a href="{{ route('community-engagement') }}">Community Engagement</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('public.events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}"><a href="#">Media</a>
+                                                <li class="{{ Route::is('events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}"><a href="#">Media</a>
                                                     <ul class="dropdown">
-                                                        <li><a href="#">Events</a></li>
-                                                        <li><a href="#">News Updates</a></li>
-                                                        <li><a href="#">Publications</a></li>
-                                                        <li><a href="#">Gallery</a></li>
+                                                        <li><a href="{{ route('events.index') }}">Events</a></li>
+                                                        <li><a href="{{ route('news-updates') }}">News Updates</a></li>
+                                                        <li><a href="{{ route('publications') }}">Publications</a></li>
+                                                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="{{ Route::is('careers', 'tenders') ? 'active' : '' }}"><a href="#">Opportunities</a>
@@ -417,7 +432,7 @@
                                                         <li><a href="#">Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="#contact">Contact Us</a></li>
+                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact-Us</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -585,28 +600,41 @@
         <section id="what-we-do" class="bg-no-repeat bg-img-right-bottom" style="background-color: #f8f9fa !important;" data-tm-bg-img="{{ asset('images/causes/semi-circle.png') }}">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
-                        <h2 class="title text-uppercase mt-0"><span class="text-dark">What</span> <span style="color: #0052A5;">We Do</span></h2>
-                        <p class="text-muted">We empower children with disabilities through inclusive education, health care, family support, advocacy, and community engagement.</p>
+                    <div class="col-md-12">
+                        <div class="tm-sc tm-sc-icon-box icon-box icon-top text-center iconbox-box-shadow iconbox-default-padding iconbox-centered-in-responsive icon-position-icon-top feature-box bg-white p-20">
+                            <div class="icon-text">
+                                <h3 class="icon-box-title">What We Do</h3>
+                                <div class="content">
+                                    <p>At Izere Mubyeyi Organization, we turn vision into action. We work tirelessly to ensure that children and youth with intellectual and developmental disabilities, along with their families, are empowered, supported, and included in every aspect of society.</p>
+                                    <p>Through a holistic approach that combines inclusive education, specialized health care, family and economic empowerment, research and advocacy, and community engagement, we break barriers, challenge stigma, and create lasting change. Every program we run is designed not only to meet immediate needs but to unlock potential, strengthen families, and transform communities.</p>
+                                    <p>Our work is guided by compassion, professionalism, and a relentless commitment to inclusion, because we believe that every child deserves the chance to learn, grow, and thrive.</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     @foreach ([
                         ['route' => 'inclusive-education', 'icon' => 'fa-school', 'title' => 'Inclusive and Special Needs Education', 'desc' => 'Providing inclusive early childhood and primary education, individualized support, and vocational training for youth with disabilities.'],
-                        ['route' => 'health-care', 'icon' => 'fa-heartbeat', 'title' => 'Essential Health Care', 'desc' => 'Delivering physiotherapy, occupational therapy, and psychosocial support for children, parents, and caregivers.'],
+                        ['route' => 'health-care', 'icon' => 'fa-heartbeat', 'title' => 'Specialized Health Care', 'desc' => 'Physiotherapy, occupational therapy, and psychosocial support for children, parents, teachers, and caregivers.'],
                         ['route' => 'capacity-building', 'icon' => 'fa-chalkboard-teacher', 'title' => 'Capacity Building', 'desc' => 'Training teachers, caregivers, and community representatives on inclusive practices and disability rights.'],
-                        ['route' => 'research-advocacy', 'icon' => 'fa-bullhorn', 'title' => 'Research and Advocacy', 'desc' => 'Generating evidence and influencing policies to advance disability rights and inclusion in Rwanda.'],
-                        ['route' => 'family-resilience', 'icon' => 'fa-users', 'title' => 'Family Resilience', 'desc' => 'Strengthening families through peer support, entrepreneurship training, and income-generating initiatives.'],
-                        ['route' => 'community-engagement', 'icon' => 'fa-handshake', 'title' => 'Community Engagement', 'desc' => 'Mobilizing communities to challenge stigma and foster disability-friendly practices through awareness and participation.']
+                        ['route' => 'family-resilience', 'icon' => 'fa-users', 'title' => 'Family Resilience & Economic Empowerment', 'desc' => 'Peer support networks, entrepreneurship training, and income-generating initiatives that strengthen families.'],
+                        ['route' => 'research-advocacy', 'icon' => 'fa-bullhorn', 'title' => 'Research & Advocacy', 'desc' => 'Evidence generation, awareness-raising, and policy influence to advance disability rights and inclusion.'],
+                        ['route' => 'community-engagement', 'icon' => 'fa-handshake', 'title' => 'Community Engagement', 'desc' => 'Mobilizing leaders and communities to challenge stigma and build disability-friendly practices.']
                     ] as $service)
-                        <div class="col-md-4 col-sm-6">
-                            <div class="tm-service services type-services status-publish" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
-                                <div class="details" style="flex-grow: 1;">
-                                    <i class="fas {{ $service['icon'] }} fa-3x mb-15" style="color: #0052A5;"></i>
-                                    <h4 class="title"><a href="{{ route($service['route']) }}" style="color: #0052A5; font-size: 1.25rem; font-weight: 600;">{{ $service['title'] }}</a></h4>
-                                    <div class="paragraph mb-15 text-muted" style="font-size: 0.95rem; line-height: 1.6;">{{ $service['desc'] }}</div>
-                                    <div class="btn-view-details mt-auto">
-                                        <a href="{{ route($service['route']) }}" class="btn btn-outline btn-sm" style="border-color: #0052A5; color: #0052A5; padding: 8px 16px; font-size: 0.9rem;">View Details</a>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="tm-service services type-services status-publish" style="background:#ffffff;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,0.10);transition:transform .25s ease, box-shadow .25s ease; padding:22px; height:100%; display:flex;">
+                                <div class="details" style="display:flex; flex-direction:column; gap:10px;">
+                                    <div style="width:56px;height:56px;border-radius:12px;background:#e6f0fa;color:#0052A5;display:flex;align-items:center;justify-content:center;">
+                                        <i class="fas {{ $service['icon'] }}" style="font-size:24px;"></i>
+                                    </div>
+                                    <h4 class="title" style="margin:6px 0 0 0;">
+                                        <a href="{{ route($service['route']) }}" style="color:#0f172a;font-weight:800;font-size:1.05rem; text-decoration:none;">{{ $service['title'] }}</a>
+                                    </h4>
+                                    <div class="paragraph text-muted" style="font-size:0.96rem;line-height:1.6;">{{ $service['desc'] }}</div>
+                                    <div class="mt-auto">
+                                        <a href="{{ route($service['route']) }}" class="btn btn-sm" style="background:#009A49;color:#fff;font-weight:700;border-radius:10px;padding:8px 14px;">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -642,50 +670,57 @@
         <section id="contact" style="background-color: #f8f9fa !important;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mx-auto text-center">
-                        <h2 class="title text-uppercase mt-0"><span>Contact</span> <span class="text-theme-colored1">Us</span></h2>
-                        <p>We would love to hear from you. Whether you are a parent seeking support, a donor exploring partnership opportunities, a volunteer eager to contribute, or a community member wanting to learn more, we welcome your message. Reach out today and join us in creating inclusive, empowering, and transformative opportunities for children, youth, and families.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="mb-20">Contact Information</h4>
-                        <ul class="list-unstyled">
-                          <li><i class="fa fa-map-marker mr-10"></i>KK 35 Avenue, Kicukiro District, Kigali, Rwanda</li>
-                          <li><i class="fa fa-phone mr-10"></i>+250786721626</li>
-                          <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
-                        </ul>
-                        <h4 class="mt-20 mb-10">Our Location</h4>
-                        <div class="map-responsive">
-                          <iframe src="https://www.google.com/maps?q=KK%2035%20Avenue%2C%20Kicukiro%20District%2C%20Kigali%2C%20Rwanda&output=embed" width="100%" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="col-md-12">
+                    <div class="tm-sc tm-sc-icon-box icon-box icon-top text-center iconbox-box-shadow iconbox-default-padding iconbox-centered-in-responsive icon-position-icon-top feature-box bg-white p-20">
+                      <div class="icon-text">
+                        <h3 class="icon-box-title">Contact Us</h3>
+                        <div class="content">
+                          <p>We would love to hear from you. Whether you are a parent seeking support, a donor exploring partnership opportunities, a volunteer eager to contribute, or a community member wanting to learn more, we welcome your message. Reach out today and join us in creating inclusive, empowering, and transformative opportunities for children, youth, and families.</p>
                         </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="row" style="text-align:left;">
+                        <div class="col-md-6">
+                          <h4 class="mb-20">Contact Information</h4>
+                          <ul class="list-unstyled">
+                            <li><i class="fa fa-map-marker mr-10"></i>KK 35 Avenue, Kicukiro District, Kigali, Rwanda</li>
+                            <li><i class="fa fa-phone mr-10"></i>+250786721626</li>
+                            <li><i class="fa fa-envelope-o mr-10"></i><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></li>
+                          </ul>
+                          <h4 class="mt-20 mb-10">Our Location</h4>
+                          <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps?q=KK%2035%20Avenue%2C%20Kicukiro%20District%2C%20Kigali%2C%20Rwanda&output=embed" width="100%" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <h4 class="mb-20">Send Us a Message</h4>
+                          @if (session('status'))
+                              <div id="flashSuccess" class="alert alert-success" role="alert">{{ session('status') }}</div>
+                          @endif
+                          @error('service')<div class="text-danger small">{{ $message }}</div>@enderror
+                          <form id="contactForm" class="contact-form" action="{{ route('contact.store') }}" method="post">
+                              @csrf
+                              <div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name"></div>
+                              <div class="form-group"><input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email"></div>
+                              <div class="form-group">
+                                <select name="service" class="form-control" required aria-label="Service">
+                                  <option value="" disabled selected>Select a service</option>
+                                  <option value="Essential Health Care">Essential Health Care</option>
+                                  <option value="Inclusive Education">Inclusive Education</option>
+                                  <option value="Family Resilience">Family Resilience</option>
+                                  <option value="Community Engagement">Community Engagement</option>
+                                  <option value="Research & Advocacy">Research & Advocacy</option>
+                                  <option value="Other">Other</option>
+                                </select>
+                              </div>
+                              <div class="form-group"><textarea name="message" class="form-control" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea></div>
+                              <div class="form-group text-center"><button type="submit" class="btn btn-theme-colored1 btn-round">Send Message</button></div>
+                              <div id="formMessage"></div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6">
-                        <h4 class="mb-20">Send Us a Message</h4>
-                        @if (session('status'))
-                            <div id="flashSuccess" class="alert alert-success" role="alert">{{ session('status') }}</div>
-                        @endif
-                        @error('service')<div class="text-danger small">{{ $message }}</div>@enderror
-                        <form id="contactForm" class="contact-form" action="{{ route('contact.store') }}" method="post">
-                            @csrf
-                            <div class="form-group"><input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name"></div>
-                            <div class="form-group"><input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email"></div>
-                            <div class="form-group">
-                              <select name="service" class="form-control" required aria-label="Service">
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="Essential Health Care">Essential Health Care</option>
-                                <option value="Inclusive Education">Inclusive Education</option>
-                                <option value="Family Resilience">Family Resilience</option>
-                                <option value="Community Engagement">Community Engagement</option>
-                                <option value="Research & Advocacy">Research & Advocacy</option>
-                                <option value="Other">Other</option>
-                              </select>
-                            </div>
-                            <div class="form-group"><textarea name="message" class="form-control" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea></div>
-                            <div class="form-group text-center"><button type="submit" class="btn btn-theme-colored1 btn-round">Send Message</button></div>
-                            <div id="formMessage"></div>
-                        </form>
-                    </div>
+                  </div>
                 </div>
             </div>
         </section>

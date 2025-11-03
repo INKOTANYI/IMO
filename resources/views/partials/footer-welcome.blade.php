@@ -39,3 +39,14 @@
   </div>
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 </footer>
+<style>
+  .chat-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9999px;background:#25D366;color:#0f172a;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s ease,box-shadow .2s ease}
+  .chat-float:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,0.3)}
+  .chat-float i{font-size:20px;line-height:1}
+  @media (max-width:480px){.chat-float{right:14px;bottom:14px;padding:9px 12px;font-size:.95rem}}
+  @media (max-width:360px){.chat-float{right:12px;bottom:12px;padding:8px 10px;font-size:.9rem}}
+</style>
+<a href="https://wa.me/250786721626" class="chat-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span>Chat with us</span>
+</a>

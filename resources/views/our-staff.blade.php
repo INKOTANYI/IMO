@@ -92,9 +92,6 @@
         .content-section ul li {
             margin-bottom: 8px;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
         .footer-widget-area .widget h4 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -153,9 +150,6 @@
         .footer-widget-area .tm-widget-opening-hours li {
             font-size: 1.1rem;
             font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
         }
         .footer-paragraph {
             color: #fff;
@@ -483,13 +477,13 @@
     <!-- Footer -->
     @include('partials.footer-welcome')
 
+
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/custom.js') }}" defer></script>
-    @include('partials.tawk')
 </div>
 </body>
 </html>

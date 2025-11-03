@@ -125,77 +125,6 @@
             text-decoration: underline;
             color: #e0a800;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
-        .footer-widget-area .widget h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #fff !important;
-        }
-        .footer-widget-area ul li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        .footer-widget-area .contact-info .description {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #fff !important;
-        }
-        .footer-widget-area .contact-info .text {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #fff !important;
-        }
-        .footer-widget-area .contact-info .text a {
-            color: #fff !important;
-        }
-        .footer-widget-area .contact-info .text a:hover {
-            text-decoration: underline;
-            color: #FFC107 !important;
-        }
-        .footer-widget-area .menu-quick-links-container a {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #fff !important;
-        }
-        .footer-widget-area .menu-quick-links-container a:hover {
-            text-decoration: underline;
-            color: #FFC107 !important;
-        }
-        .footer-widget-area .styled-icons {
-            display: flex;
-            justify-content: left;
-            gap: 8px;
-            margin-top: 20px;
-        }
-        .footer-widget-area .styled-icons li {
-            margin-right: 8px;
-        }
-        .footer-widget-area .styled-icons i {
-            font-size: 1.2rem;
-        }
-        .footer-widget-area hr {
-            border-color: rgba(255, 255, 255, 0.2);
-            margin: 12px 0;
-        }
-        .footer-widget-area .tm-widget-opening-hours {
-            margin-top: 20px;
-        }
-        .footer-widget-area .tm-widget-opening-hours li {
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
-        }
-        .footer-paragraph {
-            color: #fff;
-            font-size: 1.0rem;
-            font-weight: 400;
-            text-align: center;
-        }
         /* Login Modal Styles */
         .login-modal .modal-content {
             background-color: #FFFFFF;
@@ -447,37 +376,16 @@
         </section>
 
         <!-- News Content Section -->
-        {{-- <section class="section">
+        <section class="section">
             <div class="container pt-20 pb-20">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-lg-10 mx-auto">
-                            <div class="content-section">
-                                <h4>Latest Stories</h4>
-                                <p>Latest stories on disability inclusion, our program milestones, and important announcements from Izere Mubyeyi Organization.</p>
-                                <!-- Placeholder News Articles -->
-                                <div class="card" tabindex="0" aria-label="New Education Center Opened">
-                                    <div class="card-body">
-                                        <div class="news-date">September 1, 2025</div>
-                                        <h5 class="news-title">New Education Center Opened in Kigali</h5>
-                                        <p class="news-excerpt">We’re thrilled to announce the opening of our new Special Needs and Inclusive Education Center in Kigali, accredited by NESA, to serve more children with disabilities.</p>
-                                        <a href="{{ url('/news/1') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="card" tabindex="0" aria-label="Community Engagement Workshop">
-                                    <div class="card-body">
-                                        <div class="news-date">August 15, 2025</div>
-                                        <h5 class="news-title">Community Engagement Workshop Success</h5>
-                                        <p class="news-excerpt">Our recent workshop brought together local leaders to combat stigma and promote disability-friendly practices across Rwanda.</p>
-                                        <a href="{{ url('/news/2') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="card" tabindex="0" aria-label="Health Care Program Expansion">
-                                    <div class="card-body">
-                                        <div class="news-date">July 20, 2025</div>
-                                        <h5 class="news-title">Health Care Program Expansion</h5>
-                                        <p class="news-excerpt">Izere Mubyeyi expands its physiotherapy and occupational therapy services to reach more families in rural areas.</p>
-                                        <a href="{{ url('/news/3') }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="content-section">
+                                        <h4>News Updates</h4>
+                                        <p>Latest stories on disability inclusion, our program milestones, and important announcements from Izere Mubyeyi Organization.</p>
                                     </div>
                                 </div>
                             </div>
@@ -485,7 +393,7 @@
                     </div>
                 </div>
             </div>
-        </section> --}}
+        </section>
 
         <!-- Call to Action Section -->
         <section class="section" data-tm-bg-color="#f2f3f5">
@@ -503,77 +411,7 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-contact-info">
-                            <h4 class="widget-title">Contact Info</h4>
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email">
-                                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
-                                    </li>
-                                    <li class="contact-phone">
-                                        <div class="icon"><i class="fas fa-phone"></i></div>
-                                        <div class="text">+250786721626</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-social-list-custom">
-                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                    <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title">Useful Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
-                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
-                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
-                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
-                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-opening-hours-compressed">
-                            <h4 class="widget-title">Opening Hours</h4>
-                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
-                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" data-tm-bg-color="#0052A5">
-                <div class="container">
-                    <div class="row pt-15 pb-15">
-                        <div class="col-sm-12 text-center">
-                            <div class="footer-paragraph">
-                                © 2025 IMO. All Rights Reserved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
-    </footer>
+    @include('partials.footer-welcome')
 
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>

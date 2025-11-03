@@ -1,5 +1,5 @@
 <!-- resources/views/partials/footer.blade.php -->
-<footer id="footer" class="footer" style="background-color: #0052A5;">
+<footer id="footer" class="footer" style="background-color: #0a1a2b;">
     <div class="footer-widget-area">
         <div class="container pt-90 pb-60">
             <div class="row">
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom" style="background-color: #009A49;">
+        <div class="footer-bottom" style="background-color: #071421;">
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-sm-6">
@@ -76,7 +76,15 @@
   .whatsapp-float i{font-size:28px;line-height:1}
   @media (max-width:480px){.whatsapp-float{width:52px;height:52px;right:14px;bottom:14px}}
   @media (max-width:360px){.whatsapp-float{width:48px;height:48px;right:12px;bottom:12px}}
-  </style>
+  /* Footer link colors to match welcome footer */
+  #footer .widget_nav_menu ul.menu li a{color:#e2e8f0 !important}
+  #footer .widget_nav_menu ul.menu li a:hover{color:#FFC107 !important;text-decoration:none}
+  #footer .widget-title{color:#e2e8f0}
+  /* Footer general text and social link styling for dark background */
+  #footer, #footer .footer-paragraph, #footer .tm-widget-contact-info .description { color:#cbd5e1; }
+  #footer .widget-social-list-custom .social-link{ background:#0f243a; color:#e2e8f0 !important; border-radius:8px; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; }
+  #footer .widget-social-list-custom .social-link:hover{ background:#183556; color:#FFC107 !important; }
+</style>
 <a href="https://wa.me/250786721626" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>

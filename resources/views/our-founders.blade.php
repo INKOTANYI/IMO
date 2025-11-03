@@ -76,9 +76,6 @@
             color: #333;
             margin-bottom: 15px;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
         .footer-widget-area .widget h4 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -137,9 +134,6 @@
         .footer-widget-area .tm-widget-opening-hours li {
             font-size: 1.1rem;
             font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
         }
         .footer-paragraph {
             color: #fff;
@@ -339,77 +333,7 @@
        
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-contact-info">
-                            <h4 class="widget-title">Contact Info</h4>
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email">
-                                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
-                                    </li>
-                                    <li class="contact-phone">
-                                        <div class="icon"><i class="fas fa-phone"></i></div>
-                                        <div class="text">+250786721626</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-social-list-custom">
-                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                    <li><a class="social-link" href="https://facebook.com/izeremubyeyi"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a class="social-link" href="https://twitter.com/izeremubyeyi"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a class="social-link" href="https://youtube.com/izeremubyeyi"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a class="social-link" href="https://instagram.com/izeremubyeyi"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title">Useful Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('donate') }}" {{ Route::is('donate') ? 'aria-current="page"' : '' }}>Donate</a></li>
-                                    <li><a href="{{ route('volunteer') }}" {{ Route::is('volunteer') ? 'aria-current="page"' : '' }}>Volunteer</a></li>
-                                    <li><a href="{{ route('inclusive-education') }}" {{ Route::is('inclusive-education') ? 'aria-current="page"' : '' }}>Inclusive Education</a></li>
-                                    <li><a href="{{ route('health-care') }}" {{ Route::is('health-care') ? 'aria-current="page"' : '' }}>Health Care</a></li>
-                                    <li><a href="{{ route('community-engagement') }}" {{ Route::is('community-engagement') ? 'aria-current="page"' : '' }}>Community Engagement</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-opening-hours-compressed">
-                            <h4 class="widget-title">Opening Hours</h4>
-                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
-                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" data-tm-bg-color="#0052A5">
-                <div class="container">
-                    <div class="row pt-15 pb-15">
-                        <div class="col-sm-12 text-center">
-                            <div class="footer-paragraph">
-                                © 2025 IMO. All Rights Reserved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
-    </footer>
+    @include('partials.footer-welcome')
 
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>

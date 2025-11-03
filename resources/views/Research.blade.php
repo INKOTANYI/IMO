@@ -437,10 +437,7 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
+    @include('partials.footer-welcome')
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="widget widget-contact-info">
                             <h4 class="widget-title">Contact Info</h4>
@@ -504,10 +501,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <a class="scrollToTop" href="#"><i class="fas fa-angle-up"></i></a>
-    </footer>
-
     <!-- Footer Scripts -->
     <script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>
     <script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>

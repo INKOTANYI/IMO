@@ -108,9 +108,6 @@
         .content-section ul li {
             margin-bottom: 8px;
         }
-        .footer-widget-area {
-            background-color: #0052A5 !important;
-        }
         .footer-widget-area .widget h4 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -169,9 +166,6 @@
         .footer-widget-area .tm-widget-opening-hours li {
             font-size: 1.1rem;
             font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: #0052A5 !important;
         }
         .footer-paragraph {
             color: #fff;
@@ -485,42 +479,19 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="content-section">
-                                        <h4>Our Journey</h4>
-                                        <div class="timeline">
-                                            <div class="timeline-item">
-                                                <div class="timeline-year" aria-label="2004">2004</div>
-                                                <div class="timeline-content" tabindex="0" aria-label="Founded by 23 Rwandan parents">
-                                                    <p>Izere Mubyeyi Organization was founded by 23 Rwandan parents of children with intellectual disabilities, united to combat stigma and create opportunities for inclusion.</p>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-item">
-                                                <div class="timeline-year" aria-label="2008">2008</div>
-                                                <div class="timeline-content" tabindex="0" aria-label="Gained legal status">
-                                                    <p>Gained legal status under Ministerial Order N° 39/11 of 02/04/2008, published in the Rwanda Official Gazette N° 23 on 8 June 2009, solidifying our role as a voice for disability inclusion.</p>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-item">
-                                                <div class="timeline-year" aria-label="2014">2014</div>
-                                                <div class="timeline-content" tabindex="0" aria-label="Registered with Rwanda Governance Board">
-                                                    <p>Officially registered with the Rwanda Governance Board on February 17, 2014, enhancing our credibility and operational framework as an NGO.</p>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-item">
-                                                <div class="timeline-year" aria-label="2022">2022</div>
-                                                <div class="timeline-content" tabindex="0" aria-label="Education Center accredited">
-                                                    <p>Our Special Needs and Inclusive Education Center was accredited by the National Examination and School Inspection Authority (NESA) in November 2022, affirming the quality of our educational programs.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p>From these milestones, we have grown into a nationally recognized organization, supported by dedicated partners who have helped us professionalize services and expand our impact. Our work now spans five core program areas:</p>
+                                        <p>Izere Mubyeyi Organization’s story began in 2004, when 23 courageous Rwandan parents of children with intellectual disabilities made a bold decision: to transform their personal struggles into a collective mission. Faced with stigma, exclusion, and limited services for their children, these parents united around a vision of dignity, opportunity, and societal inclusion for every child with a disability.</p>
+                                        <p>What started as a grassroots movement of determination and hope soon grew into a structured organization. In 2008, we were formally granted legal status under Ministerial Order N° 39/11 of 02/04/2008, published in the Rwanda Official Gazette N° 23 of 8 June 2009, cementing our place as a recognized voice for disability inclusion in Rwanda. Our operational framework was further strengthened when we were officially registered with the Rwanda Governance Board on February 17, 2014, ensuring compliance and credibility as a non-governmental organization.</p>
+                                        <p>As our vision grew, so did our impact. We established a Special Needs and Inclusive Education Center, which has become a model of special needs and inclusive learning where children with and without disabilities study side by side. In November 2022, this center was proudly accredited by the National Examination and School Inspection Authority (NESA), affirming the quality of education and care we provide.</p>
+                                        <p>Along the way, we have been joined by dedicated partners and supporters, whose contributions have played a pivotal role in expanding our reach and deepening our impact. Their support has enabled us to professionalize our services, scale up our programs, and influence broader systems for disability inclusion.</p>
+                                        <p>Today, our work is structured into five core program areas that directly address the needs of children, families, and communities:</p>
                                         <ul>
-                                            <li>Special Needs and Inclusive Education: Providing inclusive early childhood and primary education, alongside vocational training for youth with intellectual disabilities.</li>
-                                            <li>Health Care Services: Delivering physiotherapy, occupational therapy, and psychosocial support for children, parents, teachers, and caregivers.</li>
-                                            <li>Family Resilience and Economic Empowerment: Strengthening families through peer support networks, entrepreneurship training, and income-generating initiatives.</li>
-                                            <li>Research and Advocacy: Generating evidence, raising awareness, and influencing policies to advance disability rights.</li>
+                                            <li>Special Needs and Inclusive Education: Providing inclusive early childhood and primary education, alongside individualized support for children with disabilities, and vocational training for youth with intellectual disabilities. </li>
+                                            <li>Health Care Services: Delivering physiotherapy, occupational therapy, and psychosocial support for children, parents, teachers and caregivers.</li>
+                                            <li>Family Resilience and Economic Empowerment: Strengthening families through peer support networks, entrepreneurship training, and income-generating initiatives, empowering parents and caregivers to meet their children’s needs and actively contribute to socio-economic development.</li>
+                                            <li>Research and Advocacy: Generating evidence, raising awareness, and influencing policies to advance disability rights and inclusion.</li>
                                             <li>Community Engagement: Mobilizing local leaders and communities to challenge stigma and foster sustainable disability-friendly practices.</li>
                                         </ul>
-                                        <p>Our history is a testament to the power of determination, collaboration, and vision. We continue to build an inclusive future for children with disabilities, families, and communities across Rwanda.</p>
+                                        <p>From humble beginnings to a nationally recognized force for change, Izere Mubyeyi Organization stands as a living testimony of what determination, collaboration, and vision can achieve. Our history is not just about where we started, it is the foundation of the inclusive future we continue to build, together with families, partners, and communities.</p>
                                     </div>
                                 </div>
                             </div>

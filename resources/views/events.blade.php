@@ -120,83 +120,7 @@
             border-radius: 10px 10px 0 0;
             margin-bottom: 15px;
         }
-        .no-events {
-            font-size: 1.1rem;
-            color: #666;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .footer-widget-area {
-            background-color: var(--primary-blue) !important;
-        }
-        .footer-widget-area .widget h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--background-white) !important;
-        }
-        .footer-widget-area ul li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        .footer-widget-area .contact-info .description {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--background-white) !important;
-        }
-        .footer-widget-area .contact-info .text {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--background-white) !important;
-        }
-        .footer-widget-area .contact-info .text a {
-            color: var(--background-white) !important;
-        }
-        .footer-widget-area .contact-info .text a:hover {
-            text-decoration: underline;
-            color: var(--accent-yellow) !important;
-        }
-        .footer-widget-area .menu-quick-links-container a {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--background-white) !important;
-        }
-        .footer-widget-area .menu-quick-links-container a:hover {
-            text-decoration: underline;
-            color: var(--accent-yellow) !important;
-        }
-        .footer-widget-area .styled-icons {
-            display: flex;
-            justify-content: left;
-            gap: 8px;
-            margin-top: 20px;
-        }
-        .footer-widget-area .styled-icons li {
-            margin-right: 8px;
-        }
-        .footer-widget-area .styled-icons i {
-            font-size: 1.2rem;
-        }
-        .footer-widget-area hr {
-            border-color: rgba(255, 255, 255, 0.2);
-            margin: 12px 0;
-        }
-        .footer-widget-area .tm-widget-opening-hours {
-            margin-top: 20px;
-        }
-        .footer-widget-area .tm-widget-opening-hours li {
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-        .footer-bottom {
-            background-color: var(--primary-blue) !important;
-        }
-        .footer-paragraph {
-            color: var(--background-white);
-            font-size: 1.0rem;
-            font-weight: 400;
-            text-align: center;
-        }
+        .no-events { font-size: 1.1rem; color: #666; text-align: center; margin-top: 20px; }
         @media (max-width: 767px) {
             .footer-widget-area .col-lg-4 {
                 margin-bottom: 25px;
@@ -280,7 +204,7 @@
                                                         <li><a href="{{ route('tenders') }}">Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                                <li><a href="{{ route('contact-us') }}">Contact</a></li>
                                                 <li><a href="{{ route('donate') }}">Donate</a></li>
                                                 
                                             </ul>
@@ -327,40 +251,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="content-section">
-                                        <h4>Our Events</h4>
-                                        <p>Stay updated on our key events, including awareness campaigns, training workshops, advocacy forums, and community celebrations. These events bring together communities, families, and stakeholders to promote inclusion, share knowledge, and celebrate the achievements of children with disabilities.</p>
-
-                                        <h4>Upcoming Events</h4>
-                                        @if($events->isEmpty())
-                                            <p class="no-events">No upcoming events at the moment. Please check back later for updates.</p>
-                                        @else
-                                            <div class="row">
-                                                @foreach($events as $event)
-                                                    <div class="col-md-6">
-                                                        <div class="event-card">
-                                                            @if($event->image)
-                                                                <a href="{{ route('events.show', $event->id) }}">
-                                                                    <img src="{{ asset('storage/events/' . $event->image) }}" alt="{{ $event->title }}">
-                                                                </a>
-                                                            @else
-                                                                <a href="{{ route('events.show', $event->id) }}">
-                                                                    <img src="{{ asset('images/placeholder-event.jpg') }}" alt="Event Placeholder">
-                                                                </a>
-                                                            @endif
-                                                            <div class="card-body">
-                                                                <h5><a href="{{ route('events.show', $event->id) }}">{{ $event->title }}</a></h5>
-                                                                <p>
-                                                                    <strong>Date:</strong> {{ $event->date_time->format('F j, Y, g:i A') }}<br>
-                                                                    <strong>Location:</strong> {{ $event->location }}<br>
-                                                                    <strong>Description:</strong> {{ Str::limit($event->description, 100, '...') }}
-                                                                </p>
-                                                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-theme-colored2 btn-sm">View Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        @endif
+                                        <h4>Events</h4>
+                                        <p>Stay updated on our key events, including awareness campaigns, training workshops, advocacy forums, and community celebrations.</p>
                                     </div>
                                 </div>
                             </div>
@@ -369,106 +261,13 @@
                 </div>
             </div>
         </section>
-
-        <!-- Call to Action Section -->
-        <section class="section" data-tm-bg-color="#f2f3f5">
-            <div class="container pt-60 pb-60">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="text-theme-colored1 mb-30">Get Involved</h2>
-                            <p class="lead mb-30">Join our events to support inclusion and empower children with disabilities.</p>
-                            <a href="{{ route('contact') }}" class="btn btn-theme-colored2 btn-lg">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-
-    <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="footer-widget-area">
-            <div class="container pt-40 pb-30">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-contact-info">
-                            <h4 class="widget-title">Contact Info</h4>
-                            <div class="tm-widget tm-widget-contact-info contact-info contact-info-style1 contact-icon-theme-colored1">
-                                
-                                <div class="description">KK 35 Avenue, Kicukiro District, Rwanda</div>
-                                <ul>
-                                    <li class="contact-email">
-                                        <div class="icon"><i class="fa fa-envelope-o"></i></div>
-                                        <div class="text"><a href="mailto:info@izeremubyeyi.org">info@izeremubyeyi.org</a></div>
-                                    </li>
-                                    <li class="contact-phone">
-                                        <div class="icon"><i class="fa fa-phone"></i></div>
-                                        <div class="text">+250786721626</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-social-list-custom">
-                                <ul class="tm-widget tm-widget-social-list tm-widget-social-list-custom styled-icons icon-dark icon-rounded icon-theme-colored1">
-                                    <li><a class="social-link" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="social-link" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="social-link" href="#"><i class="fa fa-youtube"></i></a></li>
-                                    <li><a class="social-link" href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget_nav_menu">
-                            <h4 class="widget-title">Useful Links</h4>
-                            <div class="menu-quick-links-container">
-                                <ul class="menu">
-                                    <li><a href="{{ route('who-we-are') }}">About Us</a></li>
-                                    <li><a href="#">Online Video</a></li>
-                                    <li><a href="{{ route('contact') }}">Contact with Us</a></li>
-                                    <li><a href="{{ route('news-updates') }}">News Portal</a></li>
-                                    <li><a href="#">Press Release</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="widget widget-opening-hours-compressed">
-                            <ul class="tm-widget tm-widget-opening-hours tm-widget-opening-hours-compressed opening-hours border-dark">
-                                <li class="clearfix"><span>Monday - Friday</span><div class="value">9.00 - 17.00</div></li>
-                                <li class="clearfix"><span>Saturday</span><div class="value">9.00 - 16.00</div></li>
-                                <li class="clearfix"><span>Sunday</span><div class="value">Closed</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" data-tm-bg-color="var(--primary-blue)">
-                <div class="container">
-                    <div class="row pt-15 pb-15">
-                        <div class="col-sm-12 text-center">
-                            <div class="footer-paragraph">
-                                © 2025 IMO. All Rights Reserved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    @include('partials.footer-welcome')
 </div>
-
-<!-- Footer Scripts -->
+<script src="{{ asset('assets/dist/js/jquery.js') }}" defer></script>
+<script src="{{ asset('assets/dist/js/bootstrap.min.js') }}" defer></script>
+<script src="{{ asset('assets/dist/js/javascript-plugins-bundle.js') }}" defer></script>
+<script src="{{ asset('assets/dist/js/menuzord/js/menuzord.js') }}" defer></script>
 <script src="{{ asset('assets/dist/js/custom.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.actions.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.migration.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}" defer></script>
-<script src="{{ asset('assets/dist/js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}" defer></script>
 </body>
 </html>
