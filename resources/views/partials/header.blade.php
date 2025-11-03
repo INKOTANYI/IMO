@@ -15,7 +15,7 @@
                         <ul class="header-top-nav list-inline">
                             <li class="menu-item"><a href="{{ url('/') }}" class="menu-item-link"><strong>Home</strong></a></li>
                             <li class="menu-item"><a href="{{ url('/donate') }}" class="menu-item-link"><strong>Donate</strong></a></li>
-                            <li class="menu-item"><a href="{{ url('/contact') }}" class="menu-item-link"><strong>Contact Us</strong></a></li>
+                            <li class="menu-item"><a href="{{ url('/#contact') }}" class="menu-item-link"><strong>Contact Us</strong></a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                                             <li><a href="{{ url('/services') }}">Services</a></li>
                                             <li><a href="{{ url('/causes') }}">Causes</a></li>
                                             <li><a href="{{ url('/photos') }}">Photos</a></li>
-                                            <li><a href="{{ url('/contact') }}">Contact</a></li>
+                                            <li><a href="{{ url('/#contact') }}">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -55,3 +55,4 @@
         </div>
     </div>
 </header>
+

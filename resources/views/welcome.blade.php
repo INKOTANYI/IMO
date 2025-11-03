@@ -432,7 +432,7 @@
                                                         <li><a href="#">Tenders</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact-Us</a></li>
+                                                <li><a href="{{ url('/#contact') }}">Contact-Us</a></li>
                                             </ul>
                                         </nav>
                                     </div>

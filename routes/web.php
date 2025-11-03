@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,21 +19,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/admin/events', [EventsController::class, 'adminIndex'])->name('events.index');
-    Route::get('/events/data', [EventsController::class, 'data'])->name('events.data');
-    Route::get('/events/create', [EventsController::class, 'create'])->name('events.create');
-    Route::post('/events', [EventsController::class, 'store'])->name('events.store');
-    Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
-    Route::put('/events/{id}', [EventsController::class, 'update'])->name('events.update');
-    Route::delete('/events/{id}', [EventsController::class, 'destroy'])->name('events.destroy');
-
     Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');
 });
 
 require __DIR__ . '/auth.php';
-
-Route::get('/events', [EventsController::class, 'publicIndex'])->name('public.events.index');
-Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
 
 Route::get('/who-we-are', function () {
     return view('who-we-are');
@@ -134,8 +121,6 @@ Route::get('/volunteer', function () {
 Route::get('/volunteer-form', function () {
     return view('volunteer-form');
 })->name('volunteer-form');
-
-Route::get('/events', [EventsController::class, 'index'])->name('public.events.index');
 
 // Newsletter subscribe
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'store'])->name('newsletter.subscribe');

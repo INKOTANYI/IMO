@@ -279,7 +279,7 @@
                                                         <li><a href="{{ route('community-engagement') }}">Community Engagement</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="{{ Route::is('public.events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}"><a href="#">Media</a>
+                                                <li class="{{ Route::is('events.index', 'news-updates', 'publications', 'gallery') ? 'active' : '' }}"><a href="#">Media</a>
                                                     <ul class="dropdown">
                                                         <li><a href="#">Events</a></li>
                                                         <li><a href="#">News Updates</a></li>

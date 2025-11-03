@@ -124,12 +124,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events*') ? 'active' : '' }}" aria-current="{{ request()->routeIs('events*') ? 'page' : '' }}">
-                            <i class="nav-icon fas fa-calendar-alt"></i>
-                            <p>Manage Events</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="" class="nav-link {{ request()->routeIs('admin.photos*') ? 'active' : '' }}" aria-current="{{ request()->routeIs('admin.photos*') ? 'page' : '' }}">
                             <i class="nav-icon fas fa-image"></i>
                             <p>Manage Photos</p>

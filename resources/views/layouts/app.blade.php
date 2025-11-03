@@ -115,12 +115,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.index') || request()->routeIs('events.create') || request()->routeIs('events.edit') ? 'active' : '' }}" aria-current="{{ request()->routeIs('events.index') || request()->routeIs('events.create') || request()->routeIs('events.edit') ? 'page' : '' }}">
-                            <i class="nav-icon fas fa-calendar-alt"></i>
-                            <p>Manage Events</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('photos.index') }}" class="nav-link {{ request()->routeIs('photos.index') ? 'active' : '' }}" aria-current="{{ request()->routeIs('photos.index') ? 'page' : '' }}">
                             <i class="nav-icon fas fa-image"></i>
                             <p>Manage Photos</p>
