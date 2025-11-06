@@ -29,6 +29,17 @@ class EventsController extends Controller
         }
     }
 
+    public function publicShow(string $id)
+    {
+        try {
+            $event = Event::with('images')->findOrFail($id);
+            return view('public.events.show', compact('event'));
+        } catch (\Exception $e) {
+            \Log::error('Error in publicShow: ' . $e->getMessage());
+            return redirect()->route('public.events.index')->with('error', 'Event not found.');
+        }
+    }
+
     public function data()
     {
         try {
@@ -76,6 +87,7 @@ class EventsController extends Controller
                 'date_time' => 'required|date',
                 'description' => 'required|string',
                 'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'images.*' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:8192',
             ]);
 
             if ($request->hasFile('image')) {
@@ -83,7 +95,20 @@ class EventsController extends Controller
                 $validated['image'] = $imagePath;
             }
 
-            Event::create($validated);
+            $event = Event::create($validated);
+
+            // Handle multiple gallery images
+            if ($request->hasFile('images')) {
+                $pos = 0;
+                foreach ($request->file('images') as $img) {
+                    if (!$img) continue;
+                    $path = $img->store('events/gallery', 'public');
+                    $event->images()->create([
+                        'image_path' => $path,
+                        'position' => $pos++,
+                    ]);
+                }
+            }
 
             return redirect()->route('events.index')->with('success', 'Event created successfully.');
         } catch (\Exception $e) {
@@ -125,6 +150,7 @@ class EventsController extends Controller
                 'date_time' => 'required|date',
                 'description' => 'required|string',
                 'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'images.*' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:8192',
             ]);
 
             if ($request->hasFile('image')) {
@@ -136,6 +162,20 @@ class EventsController extends Controller
             }
 
             $event->update($validated);
+
+            // Append any newly uploaded gallery images
+            if ($request->hasFile('images')) {
+                $posStart = (int) ($event->images()->max('position') ?? 0);
+                $pos = $posStart;
+                foreach ($request->file('images') as $img) {
+                    if (!$img) continue;
+                    $path = $img->store('events/gallery', 'public');
+                    $event->images()->create([
+                        'image_path' => $path,
+                        'position' => ++$pos,
+                    ]);
+                }
+            }
 
             return redirect()->route('events.index')->with('success', 'Event updated successfully.');
         } catch (\Exception $e) {

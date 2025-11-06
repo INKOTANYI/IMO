@@ -123,9 +123,11 @@
                                     console.error('Event ID is missing for action column');
                                     return 'No Actions';
                                 }
+                                const editUrl = `{{ route('events.edit', ['id' => ':id']) }}`.replace(':id', data);
+                                const deleteUrl = `{{ route('events.destroy', ['id' => ':id']) }}`.replace(':id', data);
                                 return `
-                                    <a href="{{ route('events.edit', '') }}/${data}" class="btn btn-sm btn-primary" title="Edit"><i class="fas fa-edit"></i></a>
-                                    <form action="{{ route('events.destroy', '') }}/${data}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                                    <a href="${editUrl}" class="btn btn-sm btn-primary" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <form action="${deleteUrl}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" title="Delete"><i class="fas fa-trash"></i></button>

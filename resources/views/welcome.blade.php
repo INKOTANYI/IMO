@@ -433,6 +433,11 @@
                                                     </ul>
                                                 </li>
                                                 <li><a href="{{ url('/#contact') }}">Contact-Us</a></li>
+                                                @guest
+                                                <li><a href="#" data-toggle="modal" data-target="#loginModal">Admin</a></li>
+                                                @else
+                                                <li><a href="{{ route('admin.dashboard') }}">Admin</a></li>
+                                                @endguest
                                             </ul>
                                         </nav>
                                     </div>
@@ -468,7 +473,7 @@
                         @csrf
                         <div class="form-group"><label for="email">Email Address</label><input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required></div>
                         <div class="form-group"><label for="password">Password</label><input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required></div>
-                        <div class="form-group form-check"><input type="checkbox" class="form-check-input" id="remember"><label class="form-check-label" for="remember">Remember Me</label></div>
+                        <div class="form-group form-check"><input type="checkbox" class="form-check-input" id="remember" name="remember"><label class="form-check-label" for="remember">Remember Me</label></div>
                         <button type="submit" class="btn btn-theme-colored1 btn-round">Login</button>
                     </form>
                     <div id="loginMessage" class="mt-3"></div>

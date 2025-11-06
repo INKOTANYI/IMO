@@ -17,6 +17,10 @@ class Event extends Model
         'image',
     ];
 
+    protected $casts = [
+        'date_time' => 'datetime',
+    ];
+
     public function images()
     {
         return $this->hasMany(EventImage::class);

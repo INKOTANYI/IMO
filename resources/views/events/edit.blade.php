@@ -41,11 +41,26 @@
                     <label for="image">Image (Optional)</label>
                     @if($event->image)
                         <div class="mb-2">
-                            <img src="{{ asset('storage/events/' . $event->image) }}" alt="{{ $event->title }}" style="max-width: 200px; border-radius: 5px;">
+                            <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" style="max-width: 200px; border-radius: 5px;">
                         </div>
                     @endif
                     <input type="file" name="image" id="image" class="form-control-file">
                 </div>
+                <div class="form-group">
+                    <label for="images">Gallery Images (Optional, multiple)</label>
+                    <input type="file" name="images[]" id="images" class="form-control-file" accept="image/*" multiple>
+                    <small class="form-text text-muted">You can select multiple images. Max 8MB each.</small>
+                </div>
+                @if($event->images && $event->images->count())
+                <div class="form-group">
+                    <label>Existing Gallery</label>
+                    <div class="d-flex flex-wrap" style="gap:10px;">
+                        @foreach($event->images as $img)
+                            <img src="{{ asset('storage/' . $img->image_path) }}" alt="" style="width:110px; height:110px; object-fit:cover; border-radius:6px;">
+                        @endforeach
+                    </div>
+                </div>
+                @endif
                 <button type="submit" class="btn btn-primary">Update Event</button>
                 <a href="{{ route('events.index') }}" class="btn btn-secondary">Cancel</a>
             </form>

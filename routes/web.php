@@ -7,13 +7,50 @@ use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('admin.dashboard');
+    }
     return view('welcome');
 })->name('home');
 
+// Public Events
+Route::get('/events', [\App\Http\Controllers\EventsController::class, 'publicIndex'])->name('public.events.index');
+Route::get('/events/{id}', [\App\Http\Controllers\EventsController::class, 'publicShow'])->name('public.events.show');
+
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    // Admin Social module
+    Route::prefix('admin/social')->name('admin.social.')->group(function () {
+        Route::get('accounts', [\App\Http\Controllers\Admin\SocialAccountsController::class, 'index'])->name('accounts.index');
+        Route::post('accounts/disconnect/{account}', [\App\Http\Controllers\Admin\SocialAccountsController::class, 'disconnect'])->name('accounts.disconnect');
+
+        // Meta (Facebook/Instagram) OAuth
+        Route::get('accounts/connect/meta', [\App\Http\Controllers\Admin\MetaOAuthController::class, 'redirect'])->name('accounts.meta.redirect');
+        Route::get('accounts/meta/callback', [\App\Http\Controllers\Admin\MetaOAuthController::class, 'callback'])->name('accounts.meta.callback');
+        Route::post('accounts/meta/connect-page', [\App\Http\Controllers\Admin\MetaOAuthController::class, 'connectPage'])->name('accounts.meta.connect_page');
+
+        Route::get('posts', [\App\Http\Controllers\Admin\SocialPostsController::class, 'index'])->name('posts.index');
+        Route::get('composer', [\App\Http\Controllers\Admin\SocialPostsController::class, 'create'])->name('posts.create');
+        Route::post('posts', [\App\Http\Controllers\Admin\SocialPostsController::class, 'store'])->name('posts.store');
+
+        Route::get('media', [\App\Http\Controllers\Admin\MediaController::class, 'index'])->name('media.index');
+        Route::post('media', [\App\Http\Controllers\Admin\MediaController::class, 'store'])->name('media.store');
+    });
+
+    // Admin Events CRUD
+    Route::prefix('admin')->group(function () {
+        Route::get('events', [\App\Http\Controllers\EventsController::class, 'adminIndex'])->name('events.index');
+        Route::get('events/data', [\App\Http\Controllers\EventsController::class, 'data'])->name('events.data');
+        Route::get('events/create', [\App\Http\Controllers\EventsController::class, 'create'])->name('events.create');
+        Route::post('events', [\App\Http\Controllers\EventsController::class, 'store'])->name('events.store');
+        Route::get('events/{id}/edit', [\App\Http\Controllers\EventsController::class, 'edit'])->name('events.edit');
+        Route::put('events/{id}', [\App\Http\Controllers\EventsController::class, 'update'])->name('events.update');
+        Route::delete('events/{id}', [\App\Http\Controllers\EventsController::class, 'destroy'])->name('events.destroy');
+        Route::get('events/{id}', [\App\Http\Controllers\EventsController::class, 'show'])->name('events.show');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

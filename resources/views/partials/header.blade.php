@@ -29,10 +29,11 @@
                     <div class="row">
                         <div class="col">
                             <div class="row header-nav-col-row">
-                                <div class="col-sm-auto align-self-center">
-                                    <a class="menuzord-brand site-brand" href="{{ url('/') }}">
+                                <div class="col-sm-auto align-self-center d-flex align-items-center">
+                                    <a class="menuzord-brand site-brand d-flex align-items-center" href="{{ url('/') }}">
                                         <img class="logo-default logo-1x" src="{{ asset('images/logo-wide.png') }}" alt="IMO Logo">
                                         <img class="logo-default logo-2x retina" src="{{ asset('images/logo-wide@2x.png') }}" alt="IMO Logo">
+                                        <span style="color:#ffffff; font-weight:800; margin-left:10px; white-space:nowrap;">Izere Mubyeyi Organization NGO</span>
                                     </a>
                                 </div>
                                 <div class="col-sm-auto ml-auto pr-0 align-self-center">

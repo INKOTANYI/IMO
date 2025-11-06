@@ -109,7 +109,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" aria-label="Sidebar menu">
                     <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" aria-current="{{ request()->routeIs('dashboard') ? 'page' : '' }}">
+                        <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" aria-current="{{ request()->routeIs('admin.dashboard') ? 'page' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
@@ -118,6 +118,37 @@
                         <a href="{{ route('photos.index') }}" class="nav-link {{ request()->routeIs('photos.index') ? 'active' : '' }}" aria-current="{{ request()->routeIs('photos.index') ? 'page' : '' }}">
                             <i class="nav-icon fas fa-image"></i>
                             <p>Manage Photos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Events</p>
+                        </a>
+                    </li>
+                    <li class="nav-header">Social</li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.social.accounts.index') }}" class="nav-link {{ request()->routeIs('admin.social.accounts.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-plug"></i>
+                            <p>Accounts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.social.posts.create') }}" class="nav-link {{ request()->routeIs('admin.social.posts.create') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-pen"></i>
+                            <p>Composer</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.social.posts.index') }}" class="nav-link {{ request()->routeIs('admin.social.posts.index') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>Posts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.social.media.index') }}" class="nav-link {{ request()->routeIs('admin.social.media.index') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-photo-video"></i>
+                            <p>Media</p>
                         </a>
                     </li>
                 </ul>

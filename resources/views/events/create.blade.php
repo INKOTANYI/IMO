@@ -41,6 +41,11 @@
                     <label for="image">Image (Optional)</label>
                     <input type="file" name="image" id="image" class="form-control-file">
                 </div>
+                <div class="form-group">
+                    <label for="images">Gallery Images (Optional, multiple)</label>
+                    <input type="file" name="images[]" id="images" class="form-control-file" accept="image/*" multiple>
+                    <small class="form-text text-muted">You can select multiple images. Max 8MB each.</small>
+                </div>
                 <button type="submit" class="btn btn-primary">Create Event</button>
                 <a href="{{ route('events.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
