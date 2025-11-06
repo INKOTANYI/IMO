@@ -151,25 +151,7 @@
             }
         }
     </style>
-    <style>
-      /* Menu: default links white */
-      .menuzord-menu > li > a, .dropdown > li > a { color: #FFFFFF !important; }
-      /* Menu active/hover: white background with green text */
-      .menuzord-menu > li:hover > a,
-      .menuzord-menu > li > a:focus,
-      .menuzord-menu > li.active > a { background:#ffffff !important; color:#009A49 !important; }
-      .menuzord .dropdown > li:hover > a,
-      .menuzord .dropdown > li > a:focus,
-      .menuzord .dropdown > li.active > a { background:#ffffff !important; color:#009A49 !important; }
-      /* Match welcome header colors */
-      .header-top { background-color: #0052A5; color: #FFFFFF; }
-      .header-nav .header-nav-wrapper { background-color: #009A49 !important; }
-      .menuzord .menuzord-menu > li > a { color: #FFFFFF !important; }
-      .menuzord .menuzord-menu > li > a:hover { color: #FFC107 !important; }
-      .dropdown, .menuzord .dropdown { background-color: #0052A5 !important; }
-      .dropdown li a { color: #FFFFFF !important; }
-      .dropdown li a:hover { background-color: #FFC107 !important; color: #0052A5 !important; }
-    </style>
+    
 </head>
 <body class="tm-enable-navbar-scrolltofixed tm-enable-navbar-always-visible-on-scroll">
 <div id="wrapper" class="clearfix">

@@ -672,6 +672,7 @@
         </section>
 
         <!-- Contact Us Section -->
+        <a id="contactus"></a>
         <section id="contact" style="background-color: #f8f9fa !important;">
             <div class="container">
                 <div class="row">

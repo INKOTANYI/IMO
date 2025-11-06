@@ -137,9 +137,7 @@ Route::get('/our-partners', function () {
     return view('our-partners');
 })->name('our-partners');
 
-Route::get('/events', function () {
-    return view('events');
-})->name('events.index');
+
 
 Route::get('/contact-us', function () {
     return view('welcome', ['section' => 'contact']);
