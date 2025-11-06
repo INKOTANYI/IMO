@@ -80,11 +80,6 @@
                                                 </ul>
                                             </li>
                                             <li><a href="{{ url('/#contactus') }}">Contact-Us</a></li>
-                                            @guest
-                                            <li><a href="#" data-toggle="modal" data-target="#loginModal">Admin</a></li>
-                                            @else
-                                            <li><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                                            @endguest
                                         </ul>
                                     </nav>
                                 </div>
